@@ -1,0 +1,39 @@
+version: '3.1'
+
+services:
+  pentaho_server:
+    container_name: pentaho-server
+    build:
+      dockerfile: Dockerfile
+      context: .
+    environment:
+      - DOCKER_PENTAHO_REPOSITORY=postgresql
+      - DOCKER_PENTAHO_POSTGRES_HIBERNATE_URL=jdbc:postgresql://db:5432/hibernate
+      - DOCKER_PENTAHO_POSTGRES_HIBERNATE_USERNAME=hibuser
+      - DOCKER_PENTAHO_POSTGRES_HIBERNATE_PASSWORD=password
+      - DOCKER_PENTAHO_POSTGRES_QUARTZ_URL=jdbc:postgresql://db:5432/quartz
+      - DOCKER_PENTAHO_POSTGRES_QUARTZ_USERNAME=pentaho_user
+      - DOCKER_PENTAHO_POSTGRES_QUARTZ_PASSWORD=password
+      - DOCKER_PENTAHO_POSTGRES_JACKRABBIT_URL=jdbc:postgresql://db:5432/jackrabbit
+      - DOCKER_PENTAHO_POSTGRES_JACKRABBIT_USERNAME=jcr_user
+      - DOCKER_PENTAHO_POSTGRES_JACKRABBIT_PASSWORD=password
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+
+  db:
+    container_name: pentaho-postgres
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: example
+    ports:
+      - 5432:5432
+
+  adminer:
+    container_name: pentaho-adminer
+    image: adminer
+    restart: always
+    ports:
+      - 8888:8080
