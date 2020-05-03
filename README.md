@@ -27,6 +27,8 @@ Look at the [docker-compose file](./docker-compse.yaml) for example.
 
 ## Image build guide
 
+**IMPORTANT : this repository uses [GIT LFS](https://git-lfs.github.com/) to store [large files](./.gitattributes). Install this git extension before cloning it**
+
 ### Download
 
 * [Java JDK 8](https://download.java.net/openjdk/jdk8u41/ri/openjdk-8u41-b04-linux-x64-14_jan_2020.tar.gz)
