@@ -1,0 +1,1 @@
+define({"field-zone":"Fuso horário","dateFormat-short":"d/M/y G"});

@@ -1,0 +1,1 @@
+define(["./wire/_base"],function(){});

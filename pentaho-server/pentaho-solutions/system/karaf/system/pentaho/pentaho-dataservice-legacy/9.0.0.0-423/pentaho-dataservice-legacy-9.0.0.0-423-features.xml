@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.6.0" name="pentaho-dataservice-legacy-repo">
+    <feature name="pentaho-dataservice-legacy" description="Pentaho Community Edition Project: pentaho-dataservice-legacy" version="9.0.0.0-423">
+        <details>Pentaho Data Services Client and Server bundled - Legacy Plugins Compatibility</details>
+        <feature>pentaho-base</feature>
+        <feature prerequisite="true" dependency="false">wrap</feature>
+        <bundle>mvn:pentaho/pdi-dataservice-client-plugin/9.0.0.0-423</bundle>
+        <bundle>mvn:pentaho/pdi-dataservice-server-plugin/9.0.0.0-423</bundle>
+        <bundle>mvn:commons-collections/commons-collections/3.2.2</bundle>
+        <bundle>mvn:org.mongodb/mongo-java-driver/3.10.2</bundle>
+        <bundle>wrap:mvn:pentaho/pentaho-modeler/9.0.0.0-423</bundle>
+        <bundle>mvn:io.reactivex.rxjava2/rxjava/2.2.3</bundle>
+    </feature>
+</features>

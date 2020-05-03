@@ -1,0 +1,14 @@
+<DesignerProperty>
+  <Header>
+    <Name>cccMeasuresIndexes</Name>
+    <Parent>BaseProperty</Parent>
+    <DefaultValue></DefaultValue>
+    <Description>Measures Indexes</Description>
+    <Tooltip>The indexes of columns of the "measures" physical group (applies to relational data format).</Tooltip>
+    <InputType>Array</InputType>
+    <OutputType>Array</OutputType>
+    <Order>354</Order>
+    <Advanced>true</Advanced>
+    <Version>2.0</Version>
+  </Header>
+</DesignerProperty>

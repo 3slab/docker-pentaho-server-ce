@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.6.0" name="pentaho-big-data-features">
+    <feature name="pentaho-big-data-common" version="1.0.0">
+        <bundle>wrap:mvn:org.apache.avro/avro/1.6.2</bundle>
+        <bundle>wrap:mvn:com.amazonaws/aws-java-sdk/1.11.275</bundle>
+        <bundle>mvn:commons-cli/commons-cli/1.2</bundle>
+        <bundle>wrap:mvn:com.github.stephenc.high-scale-lib/high-scale-lib/1.1.2</bundle>
+        <bundle>mvn:org.codehaus.jackson/jackson-core-asl/1.5.2</bundle>
+        <bundle>mvn:org.codehaus.jackson/jackson-mapper-asl/1.5.2</bundle>
+        <bundle>wrap:mvn:net.java.dev.jets3t/jets3t/0.9.4</bundle>
+        <bundle>wrap:mvn:jline/jline/0.9.94</bundle>
+        <bundle>wrap:mvn:com.googlecode.json-simple/json-simple/1.1</bundle>
+        <bundle>wrap:mvn:org.pentaho.di.plugins/kettle-log4j-core/9.0.0.0-423</bundle>
+        <bundle>wrap:mvn:libthrift/libthrift/0.6</bundle>
+        <bundle>wrap:mvn:xmlpull/xmlpull/1.1.3.1</bundle>
+        <bundle>wrap:mvn:xpp3/xpp3_min/1.1.4c</bundle>
+        <bundle>wrap:mvn:com.thoughtworks.xstream/xstream/1.4.11.1$overwrite=merge&amp;Import-Package=com.bea.xml.stream;resolution:=optional,com.ctc.wstx.stax;resolution:=optional,com.ibm.xml.xlxp.api.stax;resolution:=optional,com.sun.xml.internal.stream;resolution:=optional,javax.activation;resolution:=optional,javax.security.auth;resolution:=optional,javax.swing;resolution:=optional,javax.swing.plaf;resolution:=optional,javax.xml.bind;version="[2.3,3)";resolution:=optional,javax.xml.datatype;resolution:=optional,javax.xml.namespace;resolution:=optional,javax.xml.parsers;resolution:=optional,javax.xml.stream;resolution:=optional,javax.xml.transform;resolution:=optional,javax.xml.transform.sax;resolution:=optional,javax.xml.transform.stream;resolution:=optional,net.sf.cglib.proxy;resolution:=optional,nu.xom;resolution:=optional,org.codehaus.jettison.mapped;version="[1.2,2)";resolution:=optional,org.codehaus.jettison;version="[1.2,2)";resolution:=optional,org.dom4j.io;resolution:=optional,org.dom4j.tree;resolution:=optional,org.dom4j;resolution:=optional,org.jdom.input;resolution:=optional,org.jdom2.input;resolution:=optional,org.jdom2;resolution:=optional,org.jdom;resolution:=optional,org.joda.time.format;version="[1.6,2)";resolution:=optional,org.joda.time;version="[1.6,2)";resolution:=optional,org.kxml2.io;resolution:=optional,org.w3c.dom;resolution:=optional,org.xml.sax;resolution:=optional,org.xml.sax.helpers;resolution:=optional,org.xmlpull.mxp1;resolution:=optional,org.xmlpull.v1;resolution:=optional,sun.misc;resolution:=optional</bundle>
+    </feature>
+    <feature name="pentaho-big-data-plugin-osgi" description="pentaho-big-data-plugin-osgi" version="1.0.0">
+        <details>Parent project for Pentaho OSGI Bundles</details>
+        <feature>pentaho-big-data-plugin-testless-osgi</feature>
+        <feature>pentaho-big-data-plugin-tests</feature>
+    </feature>
+    <feature name="pentaho-big-data-plugin-testless-osgi" version="1.0.0">
+        <feature>pentaho-big-data-kettle-plugins</feature>
+        <feature>pentaho-big-data-plugin-shim-impl</feature>
+    </feature>
+    <feature name="pentaho-big-data-plugin-tests" version="1.0.0">
+        <bundle>mvn:pentaho/pentaho-big-data-impl-clusterTests/9.0.0.0-423</bundle>
+    </feature>
+    <feature name="pentaho-big-data-plugin-base" version="1.0.0">
+        <configfile finalname="/etc/pentaho.big.data.impl.cluster.cfg">
+      mvn:pentaho/pentaho-osgi-config/9.0.0.0-423/cfg/pentaho-big-data-impl-cluster
+    </configfile>
+        <feature>pentaho-client-minimal</feature>
+        <bundle>mvn:pentaho/pentaho-osgi-utils-impl/9.0.0.0-423</bundle>
+        <bundle>mvn:pentaho/pdi-osgi-bridge-activator/9.0.0.0-423</bundle>
+        <bundle>mvn:pentaho/pentaho-blueprint-collection-utils/9.0.0.0-423</bundle>
+        <bundle>mvn:pentaho/pentaho-kettle-repository-locator-api/9.0.0.0-423</bundle>
+        <bundle>mvn:pentaho/pentaho-metastore-locator-api/9.0.0.0-423</bundle>
+        <bundle>mvn:pentaho/pentaho-metastore-locator-impl-local/9.0.0.0-423</bundle>
+        <bundle>mvn:pentaho/pentaho-metastore-locator-impl-repository/9.0.0.0-423</bundle>
+        <bundle>mvn:pentaho/pentaho-big-data-impl-cluster/9.0.0.0-423</bundle>
+        <bundle>mvn:commons-beanutils/commons-beanutils/1.9.3</bundle>
+    </feature>
+    <feature name="pentaho-big-data-plugin-api" version="1.0.0">
+        <feature>pentaho-big-data-plugin-base</feature>
+        <feature>pentaho-big-data-common</feature>
+        <bundle>mvn:org.pentaho/shim-api/9.0.2020.02.00-423</bundle>
+        <bundle>mvn:pentaho/pentaho-big-data-api-runtimeTest/9.0.0.0-423</bundle>
+        <bundle>mvn:pentaho/pentaho-big-data-impl-shim-common/9.0.0.0-423</bundle>
+        <bundle>mvn:org.pentaho/pentaho-hadoop-shims-common-services-api/9.0.2020.02.00-423</bundle>
+    </feature>
+    <feature name="pentaho-big-data-impl-connections" version="1.0.0">
+        <bundle>mvn:pentaho/pentaho-big-data-impl-connections-s3/9.0.0.0-423</bundle>
+        <bundle>mvn:pentaho/pentaho-big-data-kettle-plugins-browse/9.0.0.0-423</bundle>
+    </feature>
+    <feature name="pentaho-big-data-plugin-shim-impl" version="1.0.0">
+        <feature>pentaho-big-data-plugin-api</feature>
+        <bundle>mvn:pentaho/pentaho-big-data-impl-vfs-hdfs/9.0.0.0-423</bundle>
+    </feature>
+    <feature name="pentaho-big-data-kettle-plugins" version="1.0.0">
+        <feature>pentaho-big-data-plugin-api</feature>
+        <feature>cxf-jaxrs</feature>
+        <feature>pentaho-jackson</feature>
+        <bundle>mvn:pentaho/pentaho-big-data-kettle-plugins-common-ui/9.0.0.0-423</bundle>
+        <bundle>mvn:pentaho/pentaho-big-data-kettle-plugins-common-job/9.0.0.0-423</bundle>
+        <bundle>mvn:pentaho/pentaho-big-data-kettle-plugins-common-named-cluster-bridge/9.0.0.0-423</bundle>
+        <bundle>mvn:pentaho/pentaho-big-data-kettle-plugins-guiTestActionHandlers/9.0.0.0-423</bundle>
+        <bundle>mvn:pentaho/pentaho-big-data-kettle-plugins-hdfs/9.0.0.0-423</bundle>
+        <bundle>mvn:pentaho/pentaho-big-data-kettle-plugins-hbase/9.0.0.0-423</bundle>
+        <bundle>mvn:pentaho/pentaho-big-data-kettle-plugins-hbase-meta/9.0.0.0-423</bundle>
+        <bundle>mvn:pentaho/pentaho-big-data-kettle-plugins-mapreduce/9.0.0.0-423</bundle>
+        <bundle>mvn:pentaho/pentaho-big-data-kettle-plugins-pig/9.0.0.0-423</bundle>
+        <bundle>mvn:pentaho/pentaho-big-data-kettle-plugins-oozie/9.0.0.0-423</bundle>
+        <bundle>mvn:pentaho/pentaho-big-data-kettle-plugins-sqoop/9.0.0.0-423</bundle>
+        <bundle>mvn:pentaho/pentaho-big-data-kettle-plugins-hive/9.0.0.0-423</bundle>
+        <bundle>mvn:pentaho/pentaho-big-data-kettle-plugins-spark/9.0.0.0-423</bundle>
+        <bundle>mvn:pentaho/pentaho-big-data-kettle-plugins-kafka/9.0.0.0-423</bundle>
+        <bundle>mvn:pentaho/pentaho-big-data-kettle-plugins-formats-meta/9.0.0.0-423</bundle>
+        <bundle>mvn:pentaho/pentaho-big-data-kettle-plugins-formats/9.0.0.0-423</bundle>
+    </feature>
+    <feature name="pentaho-hadoop-cluster-ui" version="1.0.0">
+        <bundle>mvn:org.pentaho.di.plugins/core-ui/9.0.0.0-423</bundle>
+        <bundle>mvn:pentaho/pentaho-big-data-legacy/9.0.0.0-423</bundle>
+        <bundle>mvn:pentaho/hadoop-cluster-ui/9.0.0.0-423</bundle>
+        <bundle>pentaho-webjars:mvn:org.webjars.bower/angular-animate/1.5.8</bundle>
+        <bundle>pentaho-webjars:mvn:org.webjars.npm/jquery/3.4.0</bundle>
+        <bundle>mvn:commons-fileupload/commons-fileupload/1.4</bundle>
+    </feature>
+</features>

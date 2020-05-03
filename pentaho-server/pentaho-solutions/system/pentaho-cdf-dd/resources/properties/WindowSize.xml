@@ -1,0 +1,13 @@
+<DesignerProperty>
+  <Header>
+    <Name>windowSize</Name>
+    <Parent>BaseProperty</Parent>
+    <DefaultValue>0</DefaultValue>
+    <Description>Window Size</Description>
+    <Tooltip>Window Size</Tooltip>
+    <InputType>Integer</InputType>
+    <OutputType>Number</OutputType>
+    <Order>25</Order>
+    <Version>1.0</Version>
+  </Header>
+</DesignerProperty>

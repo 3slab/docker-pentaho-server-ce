@@ -1,0 +1,14 @@
+<DesignerProperty>
+  <Header>
+    <Name>cccMultiChartRole</Name>
+    <Parent>BaseProperty</Parent>
+    <DefaultValue></DefaultValue>
+    <Description>Multi Chart Role</Description>
+    <Tooltip>The multiChart visual role is a chart-level visual role that allows turning a chart into a small multiples chart, .</Tooltip>
+    <InputType>String</InputType>
+    <OutputType>String</OutputType>
+    <Order>361</Order>
+    <Advanced>true</Advanced>
+    <Version>2.0</Version>
+  </Header>
+</DesignerProperty>

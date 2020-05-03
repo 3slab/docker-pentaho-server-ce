@@ -1,0 +1,1 @@
+define(["./image/_base"],function(e){return e});

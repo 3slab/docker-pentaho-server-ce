@@ -1,0 +1,1 @@
+define({preview:"Visualització prèvia"});

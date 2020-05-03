@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.6.0" name="pentaho-dataservice-client-repo">
+    <feature name="pentaho-dataservice-client" description="Pentaho Community Edition Project: pentaho-dataservice-client" version="9.0.0.0-423">
+        <details>Pentaho Data Services Client</details>
+        <feature>pentaho-base</feature>
+        <bundle>mvn:pentaho/pdi-dataservice-client-plugin/9.0.0.0-423</bundle>
+        <bundle>mvn:pentaho/pdi-dataservice-client-plugin-api/9.0.0.0-423</bundle>
+        <bundle dependency="true">mvn:io.reactivex.rxjava2/rxjava/2.2.3</bundle>
+        <bundle dependency="true">mvn:org.reactivestreams/reactive-streams/1.0.2</bundle>
+        <bundle>mvn:commons-collections/commons-collections/3.2.2</bundle>
+    </feature>
+</features>

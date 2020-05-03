@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:pen="http://www.pentaho.com/schema/pentaho-system"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd http://www.pentaho.com/schema/pentaho-system http://www.pentaho.com/schema/pentaho-system.xsd"
+       default-lazy-init="true">
+       
+  <!-- Register this Spring ApplicationContext with the PentahoSystem. Without this, publishing beans is not possible. -->
+  <bean class="org.pentaho.platform.engine.core.system.objfac.spring.ApplicationContextPentahoSystemRegisterer" scope="singleton"/>
+       
+                           
+  <bean id="ktr" class="org.pentaho.platform.plugin.kettle.PdiContentGenerator" scope="prototype"/>
+  <bean id="ktr.viewer" class="org.pentaho.platform.plugin.kettle.PdiContentGenerator" scope="prototype"/>
+  <bean id="ktr.backgroundExecution" class="org.pentaho.platform.plugin.kettle.PdiAction" scope="prototype"/>
+
+  <bean id="ktr.parameter" class="org.pentaho.platform.plugin.kettle.ParameterContentGenerator" scope="prototype"/>
+  <bean id="ktr.parameterUi" class="org.pentaho.platform.plugin.kettle.ParameterUIContentGenerator" scope="prototype">
+    <property name="viewerFilePath" value="reportviewer/report.html" />
+    <property name="pluginId" value="reporting" />
+    <property name="resourceMap" ref="resource-replacement-map" />
+  </bean>
+
+  <bean id="kjb.parameter" class="org.pentaho.platform.plugin.kettle.ParameterContentGenerator" scope="prototype"/>
+  <bean id="kjb.parameterUi" class="org.pentaho.platform.plugin.kettle.ParameterUIContentGenerator" scope="prototype">
+    <property name="viewerFilePath" value="reportviewer/report.html" />
+    <property name="pluginId" value="reporting" />
+    <property name="resourceMap" ref="resource-replacement-map" />
+  </bean>
+
+  <bean id="kjb" class="org.pentaho.platform.plugin.kettle.PdiContentGenerator" scope="prototype"/>
+  <bean id="kjb.viewer" class="org.pentaho.platform.plugin.kettle.PdiContentGenerator" scope="prototype"/>
+  <bean id="kjb.backgroundExecution" class="org.pentaho.platform.plugin.kettle.PdiAction" scope="prototype"/>
+  
+  <bean id="PdiAction" class="org.pentaho.platform.plugin.kettle.PdiAction" scope="prototype"/>
+  
+  <bean class="org.pentaho.platform.plugin.kettle.security.policy.rolebased.actions.RepositoryExecuteAction">
+    <pen:publish as-type="INTERFACES">
+      <pen:attributes>
+        <pen:attr key="priority" value="70"/>
+      </pen:attributes>
+    </pen:publish>
+  </bean>
+
+  <util:map id="resource-replacement-map">
+  </util:map>
+</beans>

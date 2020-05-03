@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.6.0" name="pentaho-webpackage-archive-deployer-9.0.0.0-423">
+    <feature name="pentaho-webpackage-archive-deployer" description="pentaho-webpackage-archive-deployer" version="9.0.0.0-423">
+        <details>Parent project for Pentaho OSGI Bundles</details>
+        <bundle>mvn:org.pentaho.webpackage/archive-deployer-impl/9.0.0.0-423</bundle>
+        <bundle dependency="true">mvn:org.pentaho.webpackage/core-api/9.0.0.0-423</bundle>
+        <bundle dependency="true">mvn:com.googlecode.json-simple/json-simple/1.1.1</bundle>
+        <bundle dependency="true">mvn:commons-io/commons-io/2.4</bundle>
+        <bundle dependency="true">mvn:org.apache.commons/commons-compress/1.18</bundle>
+    </feature>
+</features>

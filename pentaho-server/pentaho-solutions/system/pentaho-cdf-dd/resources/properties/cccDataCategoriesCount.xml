@@ -1,0 +1,14 @@
+<DesignerProperty>
+  <Header>
+    <Name>cccDataCategoriesCount</Name>
+    <Parent>BaseProperty</Parent>
+    <DefaultValue></DefaultValue>
+    <Description>Data Categories Count</Description>
+    <Tooltip>The number of columns of the "categories" physical group that the data source contains.</Tooltip>
+    <InputType>Float</InputType>
+    <OutputType>Number</OutputType>
+    <Order>304</Order>
+    <Advanced>true</Advanced>
+    <Version>2.0</Version>
+  </Header>
+</DesignerProperty>

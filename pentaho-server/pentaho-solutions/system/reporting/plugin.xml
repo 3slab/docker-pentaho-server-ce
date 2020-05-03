@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin title="Pentaho Reporting Plugin" name="reporting">
+
+   <lifecycle-listener class="org.pentaho.reporting.platform.plugin.LifecycleListener"/>
+
+   <static-paths>
+     <!-- this translates to /pentaho/content/reporting/resources/* -->
+     <static-path url="/reporting/reportviewer" localFolder="reportviewer"/>
+     <static-path url="/reporting/gwt" localFolder="gwt"/>
+   </static-paths>
+
+    <menu-items/>
+
+    <overlays/>
+
+    <content-types>
+      <content-type type="prpt" mime-type="application/zip">
+        <title>Pentaho Report</title>
+        <description>Pentaho Report Bundle</description>
+        <icon-url>api/repos/reporting/reportviewer/images/prptFileType.png</icon-url>
+        <operations>
+          <!-- for any of these urls, you can add layout=flow to the url -->
+          <operation>
+            <id>RUN</id>
+            <perspective>viewer</perspective>
+          </operation>
+          <operation>
+            <id>NEWWINDOW</id>
+            <perspective>viewer</perspective>
+          </operation>
+          <operation>
+            <id>SCHEDULE_NEW</id>
+            <perspective>viewer</perspective>
+          </operation>
+          <operation>
+            <id>SCHEDULE_EDIT</id>
+            <perspective>viewer</perspective>
+          </operation>
+          <operation>
+            <id>BACKGROUND</id>
+          </operation>
+          <operation>
+            <id>PARAMETER</id>
+          </operation>
+        </operations>
+      </content-type>
+    </content-types>
+
+    <external-resources>
+      <file context="requirejs">content/reporting/reportviewer/reporting-require-js-cfg.js</file>
+      <file context="reporting">content/reporting/reportviewer/reporting-require-js-bundles-cfg.js</file>
+      <!-- Example Prompting component that replaces the default prompt labels. Uncomment to use. -->
+      <!-- <file context="reporting">content/reporting/reportviewer/reportviewer-sample-component.js</file> -->
+    </external-resources>
+</plugin>
+

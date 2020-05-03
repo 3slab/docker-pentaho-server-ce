@@ -1,0 +1,14 @@
+<DesignerProperty>
+  <Header>
+    <Name>cccMarkerRole</Name>
+    <Parent>BaseProperty</Parent>
+    <DefaultValue></DefaultValue>
+    <Description>Marker Role</Description>
+    <Tooltip>The marker visual role is a plot-level visual role that represents a set of reference or target values for a given title and sub-title categories, and is visually encoded by the positions of markers/dots along the bullet's axis.</Tooltip>
+    <InputType>String</InputType>
+    <OutputType>String</OutputType>
+    <Order>352</Order>
+    <Advanced>true</Advanced>
+    <Version>2.0</Version>
+  </Header>
+</DesignerProperty>

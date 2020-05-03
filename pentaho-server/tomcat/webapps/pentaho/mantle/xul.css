@@ -1,0 +1,339 @@
+html, body{
+	height: 100%;
+	padding: 0px;
+	margin: 0px;
+}
+.hbox{
+
+}
+.vbox{
+
+}
+
+/* IE_6_FIX: these selectors do not work in IE6, replaced with explicit table padding for now.
+.hbox > tbody > tr > td{
+  padding: 0px 3px 0px 3px;
+}
+.vbox > tbody > tr > td{  
+  padding: 3px 0px 3px 0px;
+}
+.dialog-button-panel > tbody > tr > td{
+  padding: 4px 0px 0px 0px;
+}
+*/
+
+.dialog-button-panel{
+
+}
+
+.checkbox label{
+	padding-left:3px;
+}
+
+.promptBoxLabel{
+	padding-left: 5%;
+}
+
+.image-button-over{
+	cursor:pointer;
+}
+
+
+.gwt-Tree {
+  background: white;
+}
+
+.gwt-Tree table {
+  border-collapse: collapse;
+}
+
+.gwt-Tree .gwt-TreeItem {
+  cursor: pointer;
+  cursor: hand;
+}
+
+.gwt-Tree .gwt-TreeItem-selected {
+  background-color: #DDDDDD;
+  cursor: pointer;
+  cursor: hand;
+}
+
+/*=========================  TOOLBAR  =========================*/
+.toolbar{
+  width:100%;
+  background-image: none;
+  height:100%;  
+  vertical-align: middle;
+  background-color: #d8d8d8;
+  border-top: none;
+  border-left: none;
+  border-left: none;  
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: #848484
+}
+
+/*=========================  TABLE  =========================*/
+
+/*=========================  GWT FILEUPLOAD  =========================*/
+
+.gwt_file_upload_hidden_div {
+    position: relative;
+}
+
+.gwt_file_upload_hidden_div .gwt-StyledFileUpload {
+    /*visibility: hidden;*/ /*to remove cursor blinking after selecting file to upload in ie*/
+    opacity: 0;
+    position: absolute;
+    right:0;
+    top:0;
+}
+
+.gwt_file_upload_hidden_div .gwt_file_upload_label {
+    top: 0;
+    left: 0;
+    z-index: 5;
+}
+
+#gwt_FileUpload_uploadTextBox {
+    background: #fff;
+    border: 1px solid #CBDDE8;
+    float: left;
+    cursor: default;
+    overflow: hidden;
+}
+
+/*
+	All this stuff is already in the commons-gwt-widgets projects, where it belongs. I won't
+	remove it now cuz I'm unsure of the consequences, but keep in mind that if you need
+	to modify this, you'd better modify the commons-gwt-widgets->Widgets.css 
+*/
+
+
+.xul-label{
+  white-space: nowrap;
+  font-size: 13px;
+}
+
+.hyperlink{
+  color: blue;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.xul-label-disabled{
+	color: #999;
+}
+
+.gwt-Dialog {
+  width:100%;
+}
+.xul-fieldset {
+ border:1px solid #777777;
+ padding: 0px;
+ margin: 0px;
+}
+
+.xul-textbox{
+  padding: 1px 0px;
+}
+
+legend {
+  padding: 0.2em 0.5em;
+  color:black;
+  font-size:13px;
+}
+
+.gwt-FileUpload {
+
+}
+
+.tree-item-custom-widget td{
+  padding-top:0px;
+  padding-bottom:0px;
+  padding-right:3px;
+  padding-left:0px;
+}
+
+.tree-item-custom-widget{
+  border: 1px solid transparent;
+  padding:0;
+  width: auto !important;
+}
+.tree-item-custom-widget-selected{
+  background-color: #dbdbdb;
+}
+
+.tree-item-custom-widget-selected.dragdrop-dragging{
+  background-color: #CBEFA3;
+}
+.tree-item-custom-widget-proxy{
+  opacity: 0.85;
+  filter: alpha(opacity=85);
+  border: 1px dashed #999 !important;
+  z-index: 1500 !important;
+}
+.tree-item-custom-widget-proxy-valid{
+}
+
+.tree-item-custom-widget-drop-hover{
+  border: 1px solid #347C2C;
+
+  background-color: #5ED95E;
+}
+.tree-drop-indicator{
+  height: 1px;
+  background-color: #2096FC;
+  margin-top: 1px;
+}
+
+.tree-drop-indicator-symbol{
+  position:absolute;
+  width: 100%;
+  z-index: 1500;
+  height:7px;
+  width:7px;
+  display:inline;
+  background-image: url("images/dnd-circle.png");
+  background-position: left center;
+  background-repeat: no-repeat;
+  float:left;
+  padding-left:7px;
+  padding-top:4px;
+}
+
+.multiline-simple-panel {
+ background-color: white;
+ border:solid;
+ border-width:1px;
+}
+
+.multiline-simple-panel textarea {
+ overflow : hidden;
+ border : none;
+ outline: none;
+ resize : none;
+}
+
+.gwt-Tree > DIV > TABLE{
+  width: 100%;
+}
+
+.gwt-Tree > DIV > TABLE > TBODY > TR > TD:first-child{
+  width: 10px;
+}
+
+.radio > tbody > tr > td:first-child {
+  width: 40%;
+  padding-left: 0px;
+  white-space: nowrap;
+}
+.radio > tbody > tr > td {
+  width: 60%;
+  padding-left: 3px;
+}
+
+.buttonTable > tbody >tr > td {
+  padding:1px;
+}
+
+.custom-list-item .gwt-Label{
+  font-size: 14px;
+}
+.gwt-Label{
+  font-size: 14px;
+}
+
+.expand-panel {
+  height:100%;
+  width:100%;
+  position:relative;
+}
+
+.expand-panel > tbody > tr > td > A {
+  text-decoration: none;
+  outline: 0;
+  background-image: none;
+  background-color: #ededed;
+}
+
+.expand-panel .gwt-Image {
+  border: 0px;
+}
+
+.expand-panel-header-label {
+  font-size: 13px;
+  padding-left: 3px;
+  font-family: Helvetica, Arial, sans-serif;
+  text-decoration: none;
+  color: #000;
+}
+.expand-panel-content {
+  padding: 5px;
+}
+
+.expand-panel-header {
+  text-decoration: none;
+  color: #000;
+}
+
+.expand-panel-header {
+  text-decoration: none;
+  color: #000;
+}
+
+.toolbar-button{
+  opacity: 1;
+}
+.toolbar-button-disabled{
+  opacity: 0.4;
+}
+
+.xul-pre {
+  font-family: "Lucida Console", Monaco, monospace;
+  background: white;
+  height: 100%;
+  width: 100%;
+  margin: 0px;
+}
+
+.xul-editPanel{
+  border: 1px solid #888;
+}
+
+.xul-editPanel-title{
+  background-color: #666;
+  border-bottom: 1px solid #333;
+  padding: 2px 0px 2px 4px;
+}
+
+.xul-editPanel-title-label{
+  color: white;
+  font-size: 13px;
+}
+
+.xul-editPanel-content{
+
+}
+
+.tree-scroll-panel{
+  position:relative;
+  overflow:auto;
+  height:100%;
+  width:100%;
+  background-color: #FFF;
+}
+
+.label-scroll-panel{
+  position:relative;
+  overflow:auto;
+  height:100%;
+  width:100%;
+}
+
+.textbox-scroll-panel{
+  position:relative;
+  overflow:auto;
+  height:100%;
+  width:100%;
+}

@@ -1,0 +1,1 @@
+define(["amd!cdf/lib/underscore","amd!cdf/lib/backbone","cdf/lib/Base"],function(n,e,t){function r(n){return t.extend.apply(n,i(arguments))}function d(n){return r(n,{},{extend:t.extend})}function c(n){return r(n,e.Events)}function u(n){return r(c(d(n)),arguments[1],arguments[2])}var i=n.rest,f=u(t);return f.extendClass=r,f.convertClass=u,f.extendWithEvents=u,f});

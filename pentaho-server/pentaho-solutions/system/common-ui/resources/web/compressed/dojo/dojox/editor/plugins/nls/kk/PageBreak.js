@@ -1,0 +1,1 @@
+define({pageBreak:"Бет үзілімі"});

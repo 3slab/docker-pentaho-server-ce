@@ -1,0 +1,1 @@
+define({insertEntity:"Vložit symbol"});

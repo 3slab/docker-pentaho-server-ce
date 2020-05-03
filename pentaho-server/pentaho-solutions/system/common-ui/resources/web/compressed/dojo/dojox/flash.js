@@ -1,0 +1,1 @@
+define(["./flash/_base"],function(){});

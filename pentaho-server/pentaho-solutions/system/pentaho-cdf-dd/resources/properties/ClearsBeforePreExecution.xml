@@ -1,0 +1,14 @@
+<DesignerProperty>
+  <Header>
+    <Name>clearsBeforePreExecution</Name>
+    <Parent>BaseProperty</Parent>
+    <DefaultValue>"true"</DefaultValue>
+    <Description>Clears Before Pre Execution</Description>
+    <Tooltip>If false, the clear is not executed before the Pre Execution phase.</Tooltip>
+    <InputType>Boolean</InputType>
+    <OutputType>Boolean</OutputType>
+    <Order>52</Order>
+    <Advanced>true</Advanced>
+    <Version>1.0</Version>
+  </Header>
+</DesignerProperty>

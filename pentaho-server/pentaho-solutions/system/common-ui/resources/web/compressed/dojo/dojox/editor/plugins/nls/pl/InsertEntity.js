@@ -1,0 +1,1 @@
+define({insertEntity:"Wstaw symbol"});

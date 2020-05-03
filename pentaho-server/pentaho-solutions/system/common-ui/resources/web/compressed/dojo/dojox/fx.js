@@ -1,0 +1,1 @@
+define(["./fx/_base"],function(e){return e});

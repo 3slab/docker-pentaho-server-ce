@@ -1,0 +1,14 @@
+<DesignerProperty>
+  <Header>
+    <Name>cccBaseAxisFixedMax</Name>
+    <Parent>BaseProperty</Parent>
+    <DefaultValue></DefaultValue>
+    <Description>Base Axis Fixed Max</Description>
+    <Tooltip>The fixed maximum value of the axis domain (applies to continuous axes).</Tooltip>
+    <InputType>String</InputType>
+    <OutputType>String</OutputType>
+    <Order>224</Order>
+    <Advanced>true</Advanced>
+    <Version>2.0</Version>
+  </Header>
+</DesignerProperty>

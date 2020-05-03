@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.6.0" name="pentaho-marketplace-repo">
+    <feature name="pentaho-marketplace" description="Pentaho Marketplace for BA Server" version="9.0.0.0-423">
+        <details>Pentaho Marketplace for BA Server</details>
+        <configfile finalname="/etc/pentaho.marketplace.ba.cfg">
+      mvn:org.pentaho/pentaho-marketplace-ba/9.0.0.0-423/cfg/pentaho-marketplace-config
+    </configfile>
+        <feature>pentaho-requirejs-osgi-manager</feature>
+        <feature>cxf-jaxrs</feature>
+        <feature prerequisite="true" dependency="false">wrap</feature>
+        <bundle>pentaho-webjars:mvn:org.webjars.npm/underscore/1.8.3</bundle>
+        <bundle>pentaho-webjars:mvn:org.webjars.npm/jquery/3.4.0</bundle>
+        <bundle>pentaho-webjars:mvn:org.webjars.bower/angular/1.5.8</bundle>
+        <bundle>pentaho-webjars:mvn:org.webjars.bower/angular-route/1.5.8</bundle>
+        <bundle>pentaho-webjars:mvn:org.webjars.bower/angular-sanitize/1.5.8</bundle>
+        <bundle>pentaho-webjars:mvn:org.webjars.bower/angular-animate/1.5.8</bundle>
+        <bundle>pentaho-webjars:mvn:org.webjars.bower/angular-translate/2.12.1</bundle>
+        <bundle>pentaho-webjars:mvn:org.webjars.bower/angular-ui-bootstrap-bower/1.3.3</bundle>
+        <bundle>mvn:org.pentaho/pentaho-marketplace-ba/9.0.0.0-423</bundle>
+        <bundle dependency="true">mvn:commons-collections/commons-collections/3.2.2</bundle>
+        <bundle dependency="true">wrap:mvn:org.springframework.security/spring-security-core/4.2.9.RELEASE</bundle>
+        <bundle dependency="true">wrap:mvn:aopalliance/aopalliance/1.0</bundle>
+        <bundle dependency="true">wrap:mvn:org.springframework/spring-aop/4.3.22.RELEASE</bundle>
+        <bundle dependency="true">wrap:mvn:org.springframework/spring-beans/4.3.22.RELEASE</bundle>
+        <bundle dependency="true">wrap:mvn:org.springframework/spring-context/4.3.22.RELEASE</bundle>
+        <bundle dependency="true">wrap:mvn:org.springframework/spring-core/4.3.22.RELEASE</bundle>
+        <bundle dependency="true">wrap:mvn:org.springframework/spring-expression/4.3.22.RELEASE</bundle>
+        <bundle>wrap:mvn:net.sf.flexjson/flexjson/2.1</bundle>
+    </feature>
+</features>

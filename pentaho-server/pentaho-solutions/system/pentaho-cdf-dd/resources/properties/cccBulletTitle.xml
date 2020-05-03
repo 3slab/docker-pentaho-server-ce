@@ -1,0 +1,14 @@
+<DesignerProperty>
+  <Header>
+    <Name>cccBulletTitle</Name>
+    <Parent>BaseProperty</Parent>
+    <DefaultValue>Title</DefaultValue>
+    <Description>Bullet Title</Description>
+    <Tooltip>The default bullet title.</Tooltip>
+    <InputType>String</InputType>
+    <OutputType>String</OutputType>
+    <Order>269</Order>
+    <Advanced>true</Advanced>
+    <Version>2.0</Version>
+  </Header>
+</DesignerProperty>

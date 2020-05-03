@@ -1,0 +1,14 @@
+<DesignerProperty>
+  <Header>
+    <Name>cccSmallTitleVisible</Name>
+    <Parent>BaseProperty</Parent>
+    <DefaultValue></DefaultValue>
+    <Description>Small Title Visible</Description>
+    <Tooltip>Indicates if the title panel is visible.</Tooltip>
+    <InputType>Boolean</InputType>
+    <OutputType>Boolean</OutputType>
+    <Order>512</Order>
+    <Advanced>true</Advanced>
+    <Version>2.0</Version>
+  </Header>
+</DesignerProperty>

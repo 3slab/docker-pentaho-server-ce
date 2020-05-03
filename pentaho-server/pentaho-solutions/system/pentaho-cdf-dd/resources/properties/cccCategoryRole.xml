@@ -1,0 +1,14 @@
+<DesignerProperty>
+  <Header>
+    <Name>cccCategoryRole</Name>
+    <Parent>BaseProperty</Parent>
+    <DefaultValue></DefaultValue>
+    <Description>Category Role</Description>
+    <Tooltip>The category visual role is a plot-level visual role that represents a generic logical grouping of the data points.</Tooltip>
+    <InputType>String</InputType>
+    <OutputType>String</OutputType>
+    <Order>271</Order>
+    <Advanced>true</Advanced>
+    <Version>2.0</Version>
+  </Header>
+</DesignerProperty>

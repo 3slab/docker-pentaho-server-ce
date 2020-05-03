@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.6.0" name="pentaho-osgi-utils-9.0.0.0-423">
+    <feature name="pentaho-osgi-utils" description="pentaho-osgi-utils" version="9.0.0.0-423">
+        <details>Parent project for Pentaho OSGI Bundles</details>
+        <bundle>mvn:pentaho/pentaho-osgi-utils-impl/9.0.0.0-423</bundle>
+        <bundle dependency="true">mvn:org.apache.aries.blueprint/org.apache.aries.blueprint.api/1.0.1</bundle>
+        <bundle dependency="true">mvn:org.apache.aries.proxy/org.apache.aries.proxy.api/1.0.1</bundle>
+        <bundle dependency="true">mvn:org.apache.aries/org.apache.aries.util/1.0.0</bundle>
+        <bundle dependency="true">mvn:org.apache.mina/mina-core/2.0.9</bundle>
+        <bundle dependency="true">mvn:commons-lang/commons-lang/2.6</bundle>
+        <bundle dependency="true">mvn:org.apache.karaf.kar/org.apache.karaf.kar.core/4.2.6</bundle>
+    </feature>
+</features>

@@ -1,0 +1,1 @@
+define(["./base","../../Theme"],function(e,l){return e.blue=e.base.clone(),e.blue.chart.fill=e.blue.plotarea.fill="#e7eef6",e.blue.colors=l.defineColors({hue:217,saturation:60,low:40,high:88}),e.blue});

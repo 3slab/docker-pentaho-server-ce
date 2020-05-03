@@ -1,0 +1,14 @@
+<DesignerProperty>
+  <Header>
+    <Name>cccDataMeasuresInColumns</Name>
+    <Parent>BaseProperty</Parent>
+    <DefaultValue></DefaultValue>
+    <Description>Data Measures In Columns</Description>
+    <Tooltip>Indicates if multiple measures "are in" columns or in rows (applies to crosstab data format).</Tooltip>
+    <InputType>Boolean</InputType>
+    <OutputType>Boolean</OutputType>
+    <Order>306</Order>
+    <Advanced>true</Advanced>
+    <Version>2.0</Version>
+  </Header>
+</DesignerProperty>

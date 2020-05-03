@@ -1,0 +1,1 @@
+hsb(1312,1,Fae);_.ec=function JQc(){Gxd((Exd(),Exd(),Dxd))};cbe(Nk)(2);

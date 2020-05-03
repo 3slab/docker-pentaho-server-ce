@@ -1,0 +1,13 @@
+<DesignerProperty>
+<Header>
+	<Name>Property</Name>
+	<Parent>BaseProperty</Parent>
+	<DefaultValue></DefaultValue>
+	<Description>Property</Description>
+	<Tooltip>List (key,value) of custom datasource connection properties</Tooltip>
+	<InputType>ValuesArray</InputType>
+	<OutputType>Array</OutputType>
+	<Order>11</Order>
+	<Version>1.0</Version>
+</Header>
+</DesignerProperty>

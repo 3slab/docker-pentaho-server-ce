@@ -1,0 +1,1 @@
+define(["./timing/_base"],function(n){return n});

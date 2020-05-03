@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cdf>
+  <title>CCC Parallel Coordinates Chart</title>
+  <author>Webdetails</author>
+  <description>CCC Parallel Coordinates Chart Sample</description>
+  <icon></icon>
+  <template>template.html</template>
+  <style>mantle</style>
+  <require>true</require>
+</cdf>

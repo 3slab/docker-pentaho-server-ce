@@ -1,0 +1,47 @@
+.dijitDialog .dijitDialogPaneContent #downloadProgress .dijitProgressBarTile {
+  background: #cbefa3;
+}
+
+.feedbackscreentextupper {  
+  padding: 10px 0 10px 10px;
+  line-height: 2em;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}
+
+.feedbackscreentextmiddle {
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  padding: 0 10px 10px 10px;
+}
+
+.feedbackscreentextbottom {
+  width: 50%;
+  text-align: center;
+}
+
+.bottom-table {  
+  width: 100%;
+  padding-bottom: 36px;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+#downloadProgress {
+  width:99%;
+}
+
+.feedbackscreentitle {
+  padding-left: 10px !important;
+}
+
+.pentaho-reportviewer-errordialogmessage {
+  height:85px;
+  margin-left: -4px;
+  margin-top: 3px;
+}
+
+.pentaho-reportviewer-errordialogtitle {
+  margin-left: 4px;
+}

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+  <style>
+    html, body, input {
+      margin: 0px;
+      padding: 0px;
+      font-family: 'Open Sans', sans-serif !important;
+      font-size: 14px !important;
+      background: transparent;
+      color: #26363d;
+	  font-weight: 400;
+    }
+
+    .page-control {
+      padding: 0 0 1px 0;
+    }
+
+    .page-control-outer {
+      padding: 0 4px 0 0;
+    }
+
+    .page-control-nav-inner {
+      background-color: #F1F1F1;
+      height: 30px;
+      position: fixed;
+      width: 100%
+    }
+
+    .page-control-container {
+      padding: 0px 1px 0px 1px;
+      height: auto;
+      vertical-align: middle;
+    }
+
+    .page-control-content {
+      text-align: center;
+    }
+
+    .toolbarSeparator {
+      border-left: thin solid #848680;
+      float: left;
+      height: 60%;
+      margin: 5px 0px;
+    }
+
+    #current {
+      padding: 3px 2px 5px 1px;
+      float: left;
+      overflow: hidden;
+      border: none;
+      width: inherit;
+    }
+
+    .pagePrev {
+      background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAHZJREFUeNpiYBgFgxLYpjQoEFLDRIahCUDqPpSmjsFQw+YTo5aRTEMTD89pWECxwaQaSpTB5BhK0GByDSUrVRALmPFJPjp34IK8kcNDIDMAhEFskBjFBlNiODMxtpNjODOxYUaq4SRFHjRVJA5oITQKaA8AAgwAOuhHjDjuYEcAAAAASUVORK5CYII=) no-repeat !important;
+      background-position: 1px 3px !important;
+      height: 22px;
+      width: 22px;
+      float: left;
+      padding: 0px 2px 0px 1px;
+    }
+
+    .pagePrev-disabled {
+      background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWAgMAAAC52oSoAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAxQTFRFAAAAzNznzNznzNznFn6b+gAAAAN0Uk5TACBgIkCBJAAAAC5JREFUCNdjYMAPBCDUDjDJ9ANMcT8AU/oNYGofshSUggrClEA1wCR3oBiNCwAADacKKXTHIMcAAAAASUVORK5CYII=) no-repeat !important;
+      background-position: 1px 3px !important;
+      height: 22px;
+      width: 22px;
+      float: left;
+      padding: 0px 2px 0px 1px;
+    }
+
+    .pageNext {
+      background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAGJJREFUeNpiYBgFAw5sUxoUyNHHRMDQBCB1H0pTz2AkMJ9UwxmJCAqQgfOh3MTDcxoWUMVgcg1nJCESSTKckcQUQrThTLRKpgMbFDSJPJokN3INJSXySDKUpoXQKKA9AAgwANl4M3QvG0y3AAAAAElFTkSuQmCC) no-repeat !important;
+      background-position: 1px 3px !important;
+      height: 22px;
+      width: 22px;
+      float: left;
+      padding: 0px 1px 0px 2px;
+    }
+
+    .pageNext-disabled {
+      background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWAgMAAAC52oSoAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAxQTFRFAAAAzNznzNznzNznFn6b+gAAAAN0Uk5TACBgIkCBJAAAACxJREFUCNdjYMALHMAk0wMI9QMiuA9C6TeAKW4USSgFFYQq2Yei4gGy0bgBAEW5Ct0sJkjAAAAAAElFTkSuQmCC) no-repeat !important;
+      background-position: 1px 3px !important;
+      height: 22px;
+      width: 22px;
+      float: left;
+      padding: 0px 1px 0px 2px;
+    }
+
+    .pageNumberInput {
+      background-color: white;
+      border: 1px solid #b3b3b3;
+      margin: 0 0.1em;
+      float: left;
+      width: 2.6em;
+    }
+
+    .pageNumberInputContainer {
+      float: none !important;
+      position: relative;
+      overflow: hidden;
+      width: inherit;
+    }
+
+    .pageTotal {
+      padding: 4px 0px 0px 2px;
+      float: left;
+      min-width: 1.7em;
+      margin: 0px 6px 0px 0px;
+    }
+
+    #pageframe {
+      margin-top: 30px;
+      border: 0px;
+      border: 1px solid rgb(224, 224, 224);
+    }
+
+  </style>
+</head>
+<body>
+<div>
+  <div class="page-control">
+    <div class="page-control-outer">
+      <div class="page-control-nav">
+        <div class="page-control-nav-inner">
+          <div class="page-control-container">
+            <div id="left" class="pagePrev pagePrev-disabled"></div>
+            <div id="right" class="pageNext"></div>
+            <div class="pageNumberInput">
+              <div class="pageNumberInputContainer">
+                <input id="current" type="text" pattern="[0-9]*"/>
+              </div>
+            </div>
+            <div id="overall" class="pageTotal">/ 1</div>
+            <div class="toolbarSeparator"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="pageview" class="page-control-content">
+      <iframe id="pageframe" src="about:blank"  scrolling="no">
+      </iframe>
+    </div>
+  </div>
+</div>
+
+<script>
+
+  var caclSizeOnce = true;
+
+  document.addEventListener("DOMContentLoaded", function () {
+
+    var currentId = 1;
+
+    var iframe = document.getElementById('pageframe');
+
+    iframe.onload = function () {
+      autoResize(iframe);
+    };
+
+    var fill = function (base64) {
+      iframe.contentWindow.contents = htmlDecode(atob(base64));
+      iframe.src = 'javascript:window["contents"]';
+    };
+
+    fill(pages[currentId - 1]);
+
+    var current = document.getElementById('current');
+
+    current.onkeypress = function(e) {
+        if ( e.keyCode == 13 ) {
+            current.onchange();
+        }
+    };
+
+    current.value = currentId;
+    current.min = 1;
+    current.max = pages.length;
+    var overall = document.getElementById('overall');
+    overall.innerHTML = "/ " + pages.length;
+
+    current.onchange = function () {
+      if (!isNaN(this.value) && this.value > 0 && this.value <= pages.length) {
+        currentId = parseInt(this.value);
+      }
+      current.value = getLocalizedValue(currentId);
+      fill(pages[currentId - 1]);
+      updatePageButtonState(currentId);
+    };
+
+    var leftFun = function () {
+      if (currentId > 1) {
+        currentId--;
+        current.value = getLocalizedValue(currentId);
+        fill(pages[currentId - 1]);
+        updatePageButtonState(currentId);
+      }
+    };
+
+    var rightFun = function () {
+      if (currentId < pages.length) {
+        currentId++;
+        current.value = getLocalizedValue(currentId);
+        fill(pages[currentId - 1]);
+        updatePageButtonState(currentId);
+      }
+    };
+
+    var left = document.getElementById('left');
+    left.onclick = leftFun;
+    var right = document.getElementById('right');
+    right.onclick = rightFun;
+
+    var updatePageButtonState = function(currentId) {
+      pagePrevDisabled = currentId == 1;
+      pageNextDisabled = pages.length == currentId;
+      if (pagePrevDisabled) {
+        left.classList.add("pagePrev-disabled");
+      } else {
+        left.classList.remove("pagePrev-disabled");
+      }
+      if (pageNextDisabled) {
+        right.classList.add("pageNext-disabled");
+      } else {
+        right.classList.remove("pageNext-disabled");
+      }
+    }
+
+  });
+
+  function autoResize(el) {
+    if ( caclSizeOnce ) {
+        caclSizeOnce = false;
+
+        el.height = (getDocHeight(el)) + "px";
+        //clarify 2 times
+        el.height = (getDocHeight(el)) + "px";
+
+        el.width = (getDocWidth(el)) + "px";
+        el.width = (getDocWidth(el)) + "px";
+    }
+  }
+
+  function getDocHeight(el) {
+    var doc = el.contentWindow.document;
+    var max = 0;
+
+    max = Math.max( max, doc.body.scrollHeight );
+    max = Math.max( max, doc.documentElement.scrollHeight );
+    max = Math.max( max, doc.body.offsetHeight );
+    max = Math.max( max, doc.documentElement.offsetHeight );
+    max = Math.max( max, el.scrollHeight );
+    max = Math.max( max, el.offsetHeight );
+
+    return max;
+  }
+
+  function getDocWidth(el) {
+    var doc = el.contentWindow.document;
+    var max = 0;
+
+    max = Math.max( max, doc.body.scrollWidth );
+    max = Math.max( max, doc.documentElement.scrollWidth );
+    max = Math.max( max, doc.body.scrollWidth );
+    max = Math.max( max, doc.documentElement.scrollWidth );
+    max = Math.max( max, el.scrollWidth );
+    max = Math.max( max, el.offsetWidth );
+
+    return max;
+  }
+
+  function getLocalizedValue(value) {
+   try {
+    return value.toLocaleString();
+   } catch (e) {
+    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+   }
+  }
+
+  function htmlDecode(input) {
+    var doc = new DOMParser().parseFromString(input, "text/html");
+    return doc.documentElement.textContent;
+  }
+
+  ${pages}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+define(["./storage/_common"],function(){});

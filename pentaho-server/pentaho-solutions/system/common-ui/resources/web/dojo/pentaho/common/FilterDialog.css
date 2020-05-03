@@ -1,0 +1,53 @@
+.filterDialogHidden {
+  display: none !important;
+}
+
+.filterDialogContainer {
+  width: 560px;
+}
+
+.filterDialogDetailsContainer {
+  min-height: 250px;
+}
+
+.filterDialogMatchContainer {
+  height: 50px;
+}
+
+.filterDialogPicklistSelect {
+  height: 180px;
+  width: 100%;
+}
+
+.filterDialogParameterContainer {
+  margin-top: 20px;
+  margin-bottom: 15px;
+  width: 250px;
+}
+
+.typeContainerStyled {
+  margin-bottom: 10px;
+}
+
+input {
+  text-overflow: ellipsis;
+}
+
+.filterDialogPicklistContainer > table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+.parameterNameInput {
+  border-radius: 4px;
+  width: 250px;
+}
+
+.secondRow > td {
+  padding-bottom: 15px;
+}
+
+.findButton {
+  flex-basis: auto;
+  flex-grow: 0;
+}

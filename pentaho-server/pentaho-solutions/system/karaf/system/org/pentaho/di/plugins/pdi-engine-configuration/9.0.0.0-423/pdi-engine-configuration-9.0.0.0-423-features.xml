@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.6.0" name="pdi-engine-configuration-repo">
+    <feature name="pdi-engine-configuration" description="PDI Engine Configuration Plugin Feature" version="9.0.0.0-423">
+        <details>Container pom for Pentaho Data Integration modules</details>
+        <feature prerequisite="true" dependency="false">wrap</feature>
+        <bundle>mvn:org.pentaho.di.plugins/pdi-engine-configuration-impl/9.0.0.0-423</bundle>
+        <bundle dependency="true">mvn:org.pentaho.di.plugins/pdi-engine-configuration-api/9.0.0.0-423</bundle>
+        <bundle dependency="true">wrap:mvn:org.apache.httpcomponents/httpclient/4.5.9</bundle>
+        <bundle dependency="true">mvn:commons-logging/commons-logging/1.2</bundle>
+        <bundle dependency="true">mvn:commons-codec/commons-codec/1.10</bundle>
+        <bundle dependency="true">wrap:mvn:org.apache.httpcomponents/httpcore/4.4.11</bundle>
+    </feature>
+    <feature name="pdi-engine-configuration-ui" version="9.0.0.0-423">
+        <feature>pdi-engine-configuration</feature>
+        <bundle>mvn:org.pentaho.di.plugins/pdi-engine-configuration-ui/9.0.0.0-423</bundle>
+    </feature>
+</features>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html xmlns:pho="http://www.hitachivantara.com">
+<head>
+  <title>Report Web Viewer</title>
+
+  <link rel="shortcut icon" href="images/favicon.ico" />
+
+  <link rel="stylesheet" href="../../../api/repos/common-ui/resources/web/dojo/dijit/themes/pentaho/pentaho.css" type="text/css"/>
+
+  <script type="text/javascript" src="webcontext.js?context=reporting"></script>
+
+  <link rel="stylesheet" href="../../../content/pentaho-cdf/js/lib/jdMenu/jquery.jdMenu.css" type="text/css" />
+  <link rel="stylesheet" href="../../../content/pentaho-cdf/js/lib/jdMenu/jquery.jdMenu.slate.css" type="text/css" />
+  <link rel="stylesheet" href="../../../content/pentaho-cdf/js/lib/impromptu/jquery-impromptu.css" type="text/css" />
+
+  <link rel="stylesheet" href="../../../content/common-ui/resources/web/prompting/pentaho-prompting.css" type="text/css" />
+  <link rel="stylesheet" href="../../../content/common-ui/resources/web/prompting/pentaho-prompting.css" type="text/css" />
+  <link rel="stylesheet" href="../../../content/common-ui/resources/web/dojo/pentaho/common/RowLimitControl.css" type="text/css"/>
+  <link rel="stylesheet" href="../../../content/reporting/reportviewer/reportviewer.css" type="text/css" />
+
+  <script type="text/javascript">
+
+    var _isReportViewer = true;
+    var _isTopReportViewer = true;
+    try { _isTopReportViewer = ((window.parent === window) || !window.parent._isReportViewer); } catch(ex) { } // Ignore "Same-origin policy" violation in embedded IFrame
+
+    var inMobile = false;
+    try {
+      var ua = navigator.userAgent;
+      inMobile = ua.match(/iPhone/i) || ua.match(/iPod/i) || ua.match(/iPad/i) || ua.match(/Android/i);
+    } catch(ex) { /*XSS*/ }
+
+    var dojoConfig = {
+      parseOnLoad: false,
+      isDebug: true,
+      disableFlashStorage: true
+    };
+
+
+
+    /**
+     * This is called when a gwt module has been loaded. We depend on these so we'll defer loading of functionality until
+     * modules have been loaded.
+     */
+
+    var gwtModuleLoaded = function(moduleName) {
+      if (moduleName === 'formatter') {
+        // Once the GWT JSTextFormatter is loaded we can depend on other modules we need and then load the report viewer
+
+        require(['local'], function(local) {
+          local.define('formatter');
+        });
+
+      }
+    };
+    
+
+    var isRunningIFrameInSameOrigin = null;
+    try {
+      var ignoredCheckCanReachOutToParent = window.top.mantle_initialized;
+      isRunningIFrameInSameOrigin = true;
+    } catch (ignoredSameOriginPolicyViolation) {
+      // IFrame is running embedded in a web page in another domain
+      isRunningIFrameInSameOrigin = false;
+    }
+
+  </script>
+  <script type="text/javascript" src="../../../content/common-ui/resources/web/formatter/formatter.nocache.js"></script>
+
+  <script type="text/javascript">
+    var logger, logged;
+
+    require(['reportviewer/reportviewer-app'], function() {
+
+    });
+  </script>
+</head>
+
+<body class="tundra body contentHidden">
+<div id="toppanel" class="pentaho-transparent hidden">
+  <div id="toppanelinner" >
+    <div id="toolbarlinner2" class="pentaho-rounded-panel2-shadowed pentaho-padding-sm pentaho-shine pentaho-background">
+      <div id="toolbar" data-dojo-type="dijit.Toolbar">
+        <div id="pageControl" data-dojo-type="pentaho.common.PageControl" class="dijitInline"></div>
+        <span id="toolbar-parameter-separator" data-dojo-type="dijit.ToolbarSeparator"></span>
+        <div id="toolbar-parameterToggle" data-dojo-type="dijit.form.ToggleButton" iconClass="dijitEditorIcon dijitEditorIconParameters" showLabel="false">Parameters</div>
+        <span id="toolbar-parameter-separator-row-limit" data-dojo-type="dijit.ToolbarSeparator" class="hidden"></span>
+        <div id="rowLimitControl" data-dojo-type="pentaho.common.RowLimitControl" class="dijitInline hidden"></div>
+        <span id="toolbar-parameter-separator-refresh" data-dojo-type="dijit.ToolbarSeparator"></span>
+        <div id="toolbar-clearCache" data-dojo-type="dijit.form.Button" iconClass="dijitEditorIcon dijitEditorIconRefresh" showLabel="false">Refresh report data</div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      if(inMobile) {
+        document.getElementById('toolbarlinner2').innerHTML =
+            '<div id="toolbar" style="display: -webkit-box">' +
+                '<div id="toolbar-parameterToggle" data-dojo-type="dijit.form.ToggleButton">Prompts</div>' +
+                '<div style="display: -webkit-box; -webkit-box-flex: 1; box-sizing: border-box; -webkit-box-align: center; -webkit-box-pack: center;">' +
+                '<div id="pageControl" data-dojo-type="pentaho.common.PageControl" class="dijitInline"></div>' +
+                '</div>' +
+                '<div style="visibility: hidden" data-dojo-type="dijit.form.ToggleButton">Prompts</div>' + // TODO: What is this? A second button?
+                '</div>';
+      }
+
+      var inSchedulerDialog = window.location.pathname.toLowerCase().indexOf('parameterui') >= 0;
+      var getParams = function() { return prompt.api.operation.getParameterValues(); };
+
+      var initSchedulingParams = function(filePath, validParamsCallback) {
+        this.file = filePath;
+        this.parameterValidityCallback = validParamsCallback;
+
+        // We're not valid until the prompt is refreshed and tells us we are
+        if (this.parameterValidityCallback) {
+          this.parameterValidityCallback(false);
+        }
+      };
+    </script>
+    <div id="reportControlPanel" class="hidden pentaho-rounded-panel-bottom-lr pentaho-shadow">
+      <div id="promptPanel" class="pentaho-rounded-panel-bottom-lr"></div>
+    </div>
+  </div>
+</div>
+
+<div id="rowLimitMessage" data-dojo-type="pentaho.common.RowLimitMessage">
+</div>
+<div id="reportArea" class="pentaho-transparent">
+  <div id="notification-screen" class="hidden pentaho-notification">
+    <table>
+      <tr>
+        <td id="notification-indicator"></td>
+        <td id="notification-message"></td>
+      </tr>
+    </table>
+    <div id="notification-close" class="pentaho-closebutton pentaho-imagebutton-active"></div>
+  </div>
+  <div id="reportPageOutline">
+    <form id="hiddenReportContentForm" method="post" target="reportContentIframe">
+      <input type="hidden" type="submit" value="Submit" />
+    </form>
+    <iframe id="reportContent" frameborder="0" name="reportContentIframe"></iframe>
+  </div>
+</div>
+
+<div id="messageBox" data-dojo-type="pentaho.common.MessageBox" title="" style="width:400px; display:none;">
+</div>
+<div id="feedbackScreen" data-dojo-type="pentaho.reportviewer.FeedbackScreen" title="" style="width:400px; display:none;">
+</div>
+<div id="scheduleScreen" data-dojo-type="pentaho.reportviewer.ScheduleScreen" title="" style="width:400px; display:none;">
+</div>
+<div id="successScheduleScreen" data-dojo-type="pentaho.reportviewer.SuccessScheduleScreen" title="" style="width:400px; display:none;">
+</div>
+<div id="reportGlassPane" data-dojo-type="pentaho.reportviewer.GlassPane" title="" style="width:400px; display:none;">
+</div>
+<div id="glassPane" data-dojo-type="pentaho.common.GlassPane">
+</div>
+<div id="rowLimitExceededDialog" data-dojo-type="pentaho.common.RowLimitExceededDialog" style="display: none">
+</div>
+</body>
+</html>

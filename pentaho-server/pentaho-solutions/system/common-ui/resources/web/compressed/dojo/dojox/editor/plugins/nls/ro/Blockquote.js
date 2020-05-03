@@ -1,0 +1,1 @@
+define({blockquote:"Bloc citat"});

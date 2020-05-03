@@ -1,0 +1,7 @@
+pentaho-server/pentaho-solutions/system/karaf/system/org/pentaho/hadoop/shims/pentaho-hadoop-shims-apache-driver/9.0.2020.02.00-423/pentaho-hadoop-shims-apache-driver-9.0.2020.02.00-423.jar filter=lfs diff=lfs merge=lfs -text
+pentaho-server/pentaho-solutions/system/kettle/plugins/pentaho-big-data-plugin/pentaho-mapreduce-libraries.zip filter=lfs diff=lfs merge=lfs -text
+pentaho-server/jre/lib/amd64/server/libjvm.diz filter=lfs diff=lfs merge=lfs -text
+pentaho-server/jre/lib/rt.jar filter=lfs diff=lfs merge=lfs -text
+pentaho-server/pentaho-solutions/ADDITIONAL-FILES/drivers/pentaho-hadoop-shims-cdh61-kar-9.0.2020.02.00-423.kar filter=lfs diff=lfs merge=lfs -text
+pentaho-server/pentaho-solutions/ADDITIONAL-FILES/drivers/pentaho-hadoop-shims-emr521-kar-9.0.2020.02.00-423.kar filter=lfs diff=lfs merge=lfs -text
+pentaho-server/pentaho-solutions/ADDITIONAL-FILES/drivers/pentaho-hadoop-shims-hdp30-kar-9.0.2020.02.00-423.kar filter=lfs diff=lfs merge=lfs -text

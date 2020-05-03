@@ -1,0 +1,15 @@
+<!--This property is both used by the TableComponent and the ButtonComponent-->
+<DesignerProperty>
+<Header>
+	<Name>tableStyle</Name>
+	<Parent>BaseProperty</Parent>
+	<DefaultValue></DefaultValue>
+	<Description>Style</Description>
+	<Tooltip>Table Style, if left empty will infer from the dashboard renderer type</Tooltip>
+	<Advanced>true</Advanced>
+	<InputType>TableStyle</InputType>
+	<OutputType>String</OutputType>
+	<Order>56</Order>
+	<Version>1.0</Version>
+</Header>
+</DesignerProperty>

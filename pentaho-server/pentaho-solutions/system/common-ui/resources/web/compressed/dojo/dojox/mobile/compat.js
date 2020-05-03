@@ -1,0 +1,1 @@
+define(["dojo/_base/lang","dojo/sniff"],function(e,o){var i=e.getObject("dojox.mobile",!0);if(!o("webkit")&&10!==o("ie")||!o("ie")&&o("trident")>6){require(["dojox/mobile/_compat"])}return i});

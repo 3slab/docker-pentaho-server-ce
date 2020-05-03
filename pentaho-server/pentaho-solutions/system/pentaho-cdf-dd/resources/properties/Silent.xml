@@ -1,0 +1,14 @@
+<DesignerProperty>
+  <Header>
+    <Name>silent</Name>
+    <Parent>BaseProperty</Parent>
+    <DefaultValue>"false"</DefaultValue>
+    <Description>Don't Block the UI While Executing</Description>
+    <Tooltip>If true, the UI is not blocked while executing.</Tooltip>
+    <InputType>Boolean</InputType>
+    <OutputType>Boolean</OutputType>
+    <Order>51</Order>
+    <Advanced>true</Advanced>
+    <Version>1.0</Version>
+  </Header>
+</DesignerProperty>

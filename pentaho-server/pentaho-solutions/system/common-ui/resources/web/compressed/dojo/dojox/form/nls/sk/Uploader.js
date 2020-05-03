@@ -1,0 +1,1 @@
+define({label:"Vybrať súbory..."});

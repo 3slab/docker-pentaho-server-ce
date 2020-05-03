@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cdf>
+  <title>@DASHBOARD_TITLE@</title>
+  <author></author>
+  <description>@DASHBOARD_DESCRIPTION@</description>
+  <icon></icon>
+  <style></style>
+  <rendererType>bootstrap</rendererType>
+  <require>true</require>
+</cdf>

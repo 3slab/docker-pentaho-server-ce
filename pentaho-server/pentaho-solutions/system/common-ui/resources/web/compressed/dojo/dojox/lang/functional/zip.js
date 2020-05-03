@@ -1,0 +1,1 @@
+dojo.provide("dojox.lang.functional.zip"),function(){var n=dojox.lang.functional;dojo.mixin(n,{zip:function(){for(var n,o,r=arguments[0].length,i=arguments.length,t=1,a=new Array(r);t<i;r=Math.min(r,arguments[t++].length));for(t=0;t<r;++t){for(o=new Array(i),n=0;n<i;o[n]=arguments[n][t],++n);a[t]=o}return a},unzip:function(o){return n.zip.apply(null,o)}})}();

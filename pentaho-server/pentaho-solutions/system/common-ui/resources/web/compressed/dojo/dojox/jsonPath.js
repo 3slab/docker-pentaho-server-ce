@@ -1,0 +1,1 @@
+define(["./jsonPath/query"],function(){});

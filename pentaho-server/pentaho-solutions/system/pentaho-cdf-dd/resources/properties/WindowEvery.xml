@@ -1,0 +1,13 @@
+<DesignerProperty>
+  <Header>
+    <Name>windowEvery</Name>
+    <Parent>BaseProperty</Parent>
+    <DefaultValue>0</DefaultValue>
+    <Description>Window Every</Description>
+    <Tooltip>Window Every</Tooltip>
+    <InputType>Integer</InputType>
+    <OutputType>Number</OutputType>
+    <Order>26</Order>
+    <Version>1.0</Version>
+  </Header>
+</DesignerProperty>

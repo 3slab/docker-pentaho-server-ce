@@ -1,0 +1,1 @@
+define(["./validate/_base"],function(e){return e});

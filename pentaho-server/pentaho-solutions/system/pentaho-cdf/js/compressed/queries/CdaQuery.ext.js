@@ -1,0 +1,1 @@
+define(["../dashboard/Dashboard.ext","../lib/jquery"],function(e,r){return{getDoQuery:function(){return e.getPluginBase("cda")+"/doQuery?"},getWebsocketQuery:function(){return e.getPluginWebsocketBase("cda")+"/query"},getUnwrapQuery:function(u){return e.getPluginBase("cda")+"/unwrapQuery?"+r.param(u)}}});

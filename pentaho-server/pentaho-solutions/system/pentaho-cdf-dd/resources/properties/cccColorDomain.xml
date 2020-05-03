@@ -1,0 +1,14 @@
+<DesignerProperty>
+  <Header>
+    <Name>cccColorDomain</Name>
+    <Parent>BaseProperty</Parent>
+    <DefaultValue></DefaultValue>
+    <Description>Color Domain</Description>
+    <Tooltip>The domain values (applies to numeric domain axes).</Tooltip>
+    <InputType>Array</InputType>
+    <OutputType>Array</OutputType>
+    <Order>284</Order>
+    <Advanced>true</Advanced>
+    <Version>2.0</Version>
+  </Header>
+</DesignerProperty>

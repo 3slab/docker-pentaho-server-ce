@@ -1,0 +1,5425 @@
+/* jQuery TreeTable Core 2.0 stylesheet
+ *
+ * This file contains styles that are used to display the tree table. Each tree
+ * table is assigned the +treeTable+ class.
+ * ========================================================================= */
+
+/* jquery.treeTable.collapsible
+ * ------------------------------------------------------------------------- */
+.treeTable tr td .expander {
+  background-position: left center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  padding: 0;
+  zoom: 1; /* IE7 Hack */
+}
+
+.treeTable tr.collapsed td .expander {
+   background-image: url(/pentaho/api/repos/pentaho-cdf-dd/css/custom/images/ui-icons_9a9a9a_256x240.png);
+   background-position: -32px -16px;
+}
+
+.treeTable tr.expanded td .expander {
+   background-image: url(/pentaho/api/repos/pentaho-cdf-dd/css/custom/images/ui-icons_9a9a9a_256x240.png);
+   background-position: -64px -16px;
+}
+
+/* jquery.treeTable.sortable
+ * ------------------------------------------------------------------------- */
+.treeTable tr.selected, .treeTable tr.accept {
+  background-color: #3875d7;
+  color: #fff;
+}
+
+.treeTable tr.collapsed.ui-state-active td .expander {
+    background-image: url(/pentaho/api/repos/pentaho-cdf-dd/css/custom/images/ui-icons_ffffff_256x240.png);
+    background-position: -32px -16px;
+}
+.treeTable tr.expanded.ui-state-active td .expander {
+   background-image: url(/pentaho/api/repos/pentaho-cdf-dd/css/custom/images/ui-icons_ffffff_256x240.png);
+   background-position: -64px -16px;
+}
+
+.treeTable tr.collapsed.selected td .expander, .treeTable tr.collapsed.accept td .expander {
+  background-image: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/toggle-expand-light.png);
+}
+
+.treeTable tr.expanded.selected td .expander, .treeTable tr.expanded.accept td .expander {
+  background-image: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/toggle-collapse-light.png);
+}
+
+.treeTable .ui-draggable-dragging {
+  color: #000;
+  z-index: 1;
+}/*
+------------------------------
+	Impromptu's
+------------------------------
+*/
+.jqifade{
+	position: absolute; 
+	background-color: #aaaaaa; 
+}
+div.jqi{ 
+	width: 400px; 
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif; 
+	position: absolute; 
+	background-color: #ffffff; 
+	font-size: 11px; 
+	text-align: left; 
+	border: solid 1px #eeeeee;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	padding: 7px;
+}
+div.jqi .jqicontainer{ 
+	font-weight: bold; 
+}
+div.jqi .jqiclose{ 
+	position: absolute;
+	top: 4px; right: -2px; 
+	width: 18px; 
+	cursor: default; 
+	color: #bbbbbb; 
+	font-weight: bold; 
+}
+div.jqi .jqimessage{ 
+	padding: 10px; 
+	line-height: 20px; 
+	color: #444444; 
+}
+div.jqi .jqibuttons{ 
+	text-align: right; 
+	padding: 5px 0 5px 0; 
+	border: solid 1px #eeeeee; 
+	background-color: #f4f4f4;
+}
+div.jqi button{ 
+	padding: 3px 10px; 
+	margin: 0 10px; 
+	background-color: #2F6073; 
+	border: solid 1px #f4f4f4; 
+	color: #ffffff; 
+	font-weight: bold; 
+	font-size: 12px; 
+}
+div.jqi button:hover{ 
+	background-color: #728A8C;
+}
+div.jqi button.jqidefaultbutton{ 
+	/*background-color: #8DC05B;*/
+	background-color: #BF5E26;
+}
+.jqiwarning .jqi .jqibuttons{ 
+	background-color: #BF5E26;
+}
+
+/*
+------------------------------
+	impromptu
+------------------------------
+*/
+.impromptuwarning .impromptu{ background-color: #aaaaaa; }
+.impromptufade{
+	position: absolute;
+	background-color: #ffffff;
+}
+div.impromptu{
+    position: absolute;
+	background-color: #cccccc;
+	padding: 10px; 
+	width: 300px;
+	text-align: left;
+}
+div.impromptu .impromptuclose{
+    float: right;
+    margin: -35px -10px 0 0;
+    cursor: pointer;
+    color: #213e80;
+}
+div.impromptu .impromptucontainer{
+	background-color: #213e80;
+	padding: 5px; 
+	color: #ffffff;
+	font-weight: bold;
+}
+div.impromptu .impromptumessage{
+	background-color: #415ea0;
+	padding: 10px;
+}
+div.impromptu .impromptubuttons{
+	text-align: center;
+	padding: 5px 0 0 0;
+}
+div.impromptu button{
+	padding: 3px 10px 3px 10px;
+	margin: 0 10px;
+}
+
+/*
+------------------------------
+	columns ex
+------------------------------
+*/
+.colsJqifadewarning .colsJqi{ background-color: #b0be96; }
+.colsJqifade{
+	position: absolute;
+	background-color: #ffffff;
+}
+div.colsJqi{
+    position: absolute;
+	background-color: #d0dEb6;
+	padding: 10px; 
+	width: 400px;
+	text-align: left;
+}
+div.colsJqi .colsJqiclose{
+    float: right;
+    margin: -35px -10px 0 0;
+    cursor: pointer;
+    color: #bbbbbb;
+}
+div.colsJqi .colsJqicontainer{
+	background-color: #e0eeee;
+	padding: 5px; 
+	color: #ffffff;
+	font-weight: bold;
+	height: 160px;
+}
+div.colsJqi .colsJqimessage{
+	background-color: #c0cece;
+	padding: 10px;
+	width: 280px;
+	height: 140px;
+	float: left;
+}
+div.colsJqi .jqibuttons{
+	text-align: center;
+	padding: 5px 0 0 0;
+}
+div.colsJqi button{
+	background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/button_bg.jpg) top left repeat-x #ffffff;
+	border: solid #777777 1px;
+	font-size: 12px;
+	padding: 3px 10px 3px 10px;
+	margin: 5px 5px 5px 10px;
+	width: 75px;
+}
+div.colsJqi button:hover{
+	border: solid #aaaaaa 1px;
+}
+
+/*
+------------------------------
+	brown theme
+------------------------------
+*/
+.brownJqiwarning .brownJqi{ background-color: #cccccc; }
+.brownJqifade{
+	position: absolute;
+	background-color: #ffffff;
+}
+div.brownJqi{
+	position: absolute;
+	background-color: transparent;
+	padding: 10px;
+	width: 800px;
+	height: 600px;
+	text-align: left;
+}
+div.brownJqi .brownJqiclose{
+    float: right;
+    margin: -20px 0 0 0;
+    cursor: pointer;
+    color: #777777;
+    font-size: 11px;
+}
+div.brownJqi .brownJqicontainer{
+	position: relative;
+	background-color: transparent;
+	border: solid 1px #5F5D5A;
+	color: #000000;
+}
+div.brownJqi .brownJqimessage{
+	position: relative;
+	background-color: #F7F6F2;
+	border-top: solid 1px #C6B8AE;
+	border-bottom: solid 1px #C6B8AE;
+}
+div.brownJqi .brownJqimessage h3{
+	background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/brown_theme_gradient.jpg) top left repeat-x #ffffff;
+	margin: 0;
+	padding: 7px 0 7px 15px;
+	color: #4D4A47;
+}
+div.brownJqi .brownJqimessage p{
+	padding: 10px;
+	color: #777777;
+}
+div.brownJqi .brownJqimessage img.helpImg{
+	position: absolute;
+	bottom: -25px;
+	left: 10px;
+}
+div.brownJqi .brownJqibuttons{
+	text-align: right;
+}
+div.brownJqi button{
+	background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/brown_theme_gradient.jpg) top left repeat-x #ffffff;
+	border: solid #777777 1px;
+	font-size: 12px;
+	padding: 3px 10px 3px 10px;
+	margin: 5px 5px 5px 10px;
+}
+div.brownJqi button:hover{
+	border: solid #aaaaaa 1px;
+}
+
+/*
+*------------------------
+*   clean blue ex
+*------------------------
+*/
+.cleanbluewarning .cleanblue{ background-color: #acb4c4; }
+.cleanbluefade{ position: absolute; background-color: #aaaaaa; }
+div.cleanblue{ font-family: Verdana, Geneva, Arial, Helvetica, sans-serif; position: absolute; background-color: #ffffff; width: 300px; font-size: 11px; text-align: left; border: solid 1px #213e80; }
+div.cleanblue .cleanbluecontainer{ background-color: #ffffff; border-top: solid 14px #213e80; padding: 5px; font-weight: bold; }
+div.cleanblue .cleanblueclose{ float: right; width: 18px; cursor: default; margin: -19px -12px 0 0; color: #ffffff; font-weight: bold; }
+div.cleanblue .cleanbluemessage{ padding: 10px; line-height: 20px; font-size: 11px; color: #333333; }
+div.cleanblue .cleanbluebuttons{ text-align: right; padding: 5px 0 5px 0; border: solid 1px #eeeeee; background-color: #f4f4f4; }
+div.cleanblue button{ padding: 3px 10px; margin: 0 10px; background-color: #314e90; border: solid 1px #f4f4f4; color: #ffffff; font-weight: bold; font-size: 12px; }
+div.cleanblue button:hover{ border: solid 1px #d4d4d4; }
+
+/*
+*------------------------
+*   Ext Blue Ex
+*------------------------
+*/
+.extbluewarning .extblue{ border:1px red solid; }
+.extbluefade{ position: absolute; background-color: #ffffff; }
+div.extblue{ border:1px #6289B6 solid; position: absolute; background-color: #CAD8EA; padding: 0; width: 300px; text-align: left; }
+div.extblue .extblueclose{ background-color: #CAD8EA; margin:2px -2px 0 0; cursor: pointer; color: red; text-align: right; }
+div.extblue .extbluecontainer{ background-color: #CAD8EA; padding: 0 5px 5px 5px; color: #000000; font:normal 11px Verdana; }
+div.extblue .extbluemessage{ background-color: #CAD8EA; padding: 0; margin:0 15px 15px 15px; }
+div.extblue .extbluebuttons{ text-align: center; padding: 0px 0 0 0; }
+div.extblue button{ padding: 1px 4px; margin: 0 10px; background-color:#cccccc; font-weight:normal; font-family:Verdana; font-size:10px; }
+
+.colorpicker {
+	width: 356px;
+	height: 176px;
+	overflow: hidden;
+	position: absolute;
+	background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/colorpicker/colorpicker_background.png);
+	font-family: Arial, Helvetica, sans-serif;
+	display: none;
+}
+.colorpicker_color {
+	width: 150px;
+	height: 150px;
+	left: 14px;
+	top: 13px;
+	position: absolute;
+	background: #f00;
+	overflow: hidden;
+	cursor: crosshair;
+}
+.colorpicker_color div {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 150px;
+	height: 150px;
+	background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/colorpicker/colorpicker_overlay.png);
+}
+.colorpicker_color div div {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 11px;
+	height: 11px;
+	overflow: hidden;
+	background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/colorpicker/colorpicker_select.gif);
+	margin: -5px 0 0 -5px;
+}
+.colorpicker_hue {
+	position: absolute;
+	top: 13px;
+	left: 171px;
+	width: 35px;
+	height: 150px;
+	cursor: n-resize;
+}
+.colorpicker_hue div {
+	position: absolute;
+	width: 35px;
+	height: 9px;
+	overflow: hidden;
+	background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/colorpicker/colorpicker_indic.gif) left top;
+	margin: -4px 0 0 0;
+	left: -5px;
+}
+.colorpicker_new_color {
+	position: absolute;
+	width: 60px;
+	height: 30px;
+	left: 213px;
+	top: 13px;
+	background: #f00;
+}
+.colorpicker_current_color {
+	position: absolute;
+	width: 60px;
+	height: 30px;
+	left: 283px;
+	top: 13px;
+	background: #f00;
+}
+.colorpicker input {
+	background-color: transparent;
+	border: 1px solid transparent;
+	position: absolute;
+	font-size: 10px;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #898989;
+	top: 4px;
+	right: 11px;
+	text-align: right;
+	margin: 0;
+	padding: 0;
+	height: 11px;
+}
+.colorpicker_hex {
+	position: absolute;
+	width: 72px;
+	height: 22px;
+	background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/colorpicker/colorpicker_hex.png) top;
+	left: 212px;
+	top: 142px;
+}
+.colorpicker_hex input {
+	right: 6px;
+}
+.colorpicker_field {
+	height: 22px;
+	width: 62px;
+	background-position: top;
+	position: absolute;
+}
+.colorpicker_field span {
+	position: absolute;
+	width: 12px;
+	height: 22px;
+	overflow: hidden;
+	top: 0;
+	right: 0;
+	cursor: n-resize;
+}
+.colorpicker_rgb_r {
+	background-image: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/colorpicker/colorpicker_rgb_r.png);
+	top: 52px;
+	left: 212px;
+}
+.colorpicker_rgb_g {
+	background-image: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/colorpicker/colorpicker_rgb_g.png);
+	top: 82px;
+	left: 212px;
+}
+.colorpicker_rgb_b {
+	background-image: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/colorpicker/colorpicker_rgb_b.png);
+	top: 112px;
+	left: 212px;
+}
+.colorpicker_hsb_h {
+	background-image: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/colorpicker/colorpicker_hsb_h.png);
+	top: 52px;
+	left: 282px;
+}
+.colorpicker_hsb_s {
+	background-image: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/colorpicker/colorpicker_hsb_s.png);
+	top: 82px;
+	left: 282px;
+}
+.colorpicker_hsb_b {
+	background-image: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/colorpicker/colorpicker_hsb_b.png);
+	top: 112px;
+	left: 282px;
+}
+.colorpicker_submit {
+	position: absolute;
+	width: 22px;
+	height: 22px;
+	background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/colorpicker/colorpicker_submit.png) top;
+	left: 322px;
+	top: 142px;
+	overflow: hidden;
+}
+.colorpicker_focus {
+	background-position: center;
+}
+.colorpicker_hex.colorpicker_focus {
+	background-position: bottom;
+}
+.colorpicker_submit.colorpicker_focus {
+	background-position: bottom;
+}
+.colorpicker_slider {
+	background-position: bottom;
+}
+.multiSelect {
+	width: 132px;
+	border: solid 1px #BBB;
+	background: #FFF url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/NAV/selector_arrow_normal.png) right center no-repeat;
+	padding: 2px 4px;
+	padding-right: 20px;
+	display: inline;
+}
+
+.multiSelect.hover {
+	background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/NAV/selector_arrow_normal.png) right center no-repeat;
+}
+
+.multiSelect.active, 
+.multiSelect.focus {
+	border: inset 1px #000;
+}
+
+.multiSelect.active {
+	background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/NAV/selector_arrow_hover.png) right center no-repeat;
+}
+
+.multiSelectOptions {
+	width: 150px;
+	max-height: 150px;
+	margin-top: -1px;
+	overflow: auto;
+	border: solid 1px #B2B2B2;
+	background: #FFF;
+}
+
+.multiSelectOptions LABEL {
+	padding: 2px 5px;
+	display: block;
+}
+
+.multiSelectOptions LABEL.checked {
+	background: #E6E6E6;
+}
+
+.multiSelectOptions LABEL.selectAll {
+	border-bottom: dotted 1px #CCC;
+}
+
+.multiSelectOptions LABEL.hover {
+	background: #CFCFCF;
+}
+/* jqModal base Styling courtesy of;
+	Brice Burgess <bhb@iceburg.net> */
+
+/* The Window's CSS z-index value is respected (takes priority). If none is supplied,
+	the Window's z-index value will be set to 3000 by default (via jqModal.js). */
+	
+.jqmWindow {
+    display: none;
+    
+    position: fixed;
+    top: 17%;
+    left: 50%;
+    
+    margin-left: -300px;
+    width: 600px;
+    
+    background-color: #EEE;
+    color: #333;
+    border: 1px solid black;
+    padding: 12px;
+}
+
+.jqmOverlay { background-color: #000; }
+
+/* Background iframe styling for IE6. Prevents ActiveX bleed-through (<select> form elements, etc.) */
+* iframe.jqm {position:absolute;top:0;left:0;z-index:-1;
+	width: expression(this.parentNode.offsetWidth+'px');
+	height: expression(this.parentNode.offsetHeight+'px');
+}
+
+/* Fixed posistioning emulation for IE6
+     Star selector used to hide definition from browsers other than IE6
+     For valid CSS, use a conditional include instead */
+* html .jqmWindow {
+     position: absolute;
+     top: expression((document.documentElement.scrollTop || document.body.scrollTop) + Math.round(17 * (document.documentElement.offsetHeight || document.body.clientHeight) / 100) + 'px');
+}
+html, body {
+  height: 100%;
+  background: #F5F5F5;
+  color: #222222;
+}
+
+a {
+  outline: none;
+  text-decoration: none;
+}
+
+.grayedOut {
+ background: #EAEDEE!important;
+ color: #bbb!important;
+ cursor: default!important;
+}
+
+.panelButton {
+    margin-left: -1px;
+    position: relative;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 40px;
+    display: inline-block;
+    width: 32px;
+    float: right;
+}
+
+.panelButton a {
+    color: #555;
+    font-size: 14px;
+    line-height: 40px;
+    display: block;
+    height: 40px;
+    cursor: pointer;
+    left: 0;
+}
+
+.panelButton:hover {
+    background: #ccc;
+}
+
+.panelButton-active, .panelButton-active:hover {
+  background: #005AC7;
+}
+
+.panelButton-active a {
+  color: #fff;
+}
+
+.panelButton:not(.panelButton-active):hover {
+     background: #dce1e3;
+}
+
+.panelButton-active:hover a {
+  color:#fff;
+}
+
+.panelButton:hover > * {
+    color: #555;
+}
+
+.headerButton {
+  float: left;
+  color: #222222;
+  cursor: pointer;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 100;
+  letter-spacing: 0.07em;
+  text-align: center;
+  text-decoration: none;
+  font-family: 'Open Sans', sans-serif;
+  padding-left: 10px;
+  transition: 0.3s;
+  -moz-transition: all 0.5s ease 0s;
+}
+
+.headerButton a:link,.headerButton  a:visited {
+  color: #222;
+}
+
+.headerButton a:hover, .headerButton a:active {
+  color:#0098C4;
+  transition: 0.3s;
+}
+
+.headerButton:hover {
+  outline: none;
+  text-decoration:  none;
+  position:relative;
+  color: #0098C4;
+}
+
+.headerButton:active {
+  color:#FFFFFF;
+}
+
+li {
+  line-height: 2em;
+}
+
+li a {
+  text-decoration: none;
+}
+
+div.outside {
+  padding:0;
+
+  background: #f2f2f2;
+  height: 100%;
+}
+
+div.outside > .container{
+  height: 100%;
+}
+
+.save-pulldown {
+  z-index: 1;
+  display: inline-block;
+  width:19px;
+  height:19px;
+  position: relative;
+  top: -1px;
+  background: url("/pentaho/api/repos/pentaho-cdf-dd/css/../images/NAV/down.png") no-repeat;
+}
+.save-pulldown:hover {
+  background-image: url("/pentaho/api/repos/pentaho-cdf-dd/css/../images/NAV/down_mouseover.png");
+}
+.save-pulldown:active {
+  background-image: url("/pentaho/api/repos/pentaho-cdf-dd/css/../images/NAV/down_onclick.png");
+}
+
+ul.ui-autocomplete {
+  text-align: left;
+  z-index: 9999;
+  padding: 0;
+  box-sizing: border-box;
+
+  border: 1px Solid #005CA7!important;
+  border-top: none!important;
+  box-shadow: #757575;
+
+  background: #FFFFFF;
+
+  color: #555555;
+  font-family: 'Open Sans Regular', sans-serif;
+  font-size: 13pt;
+}
+
+ul.ui-autocomplete li {
+  position: relative;
+  border: none;
+  height: 24px;
+  line-height: 24px;
+}
+
+ul.ui-autocomplete li.ui-menu-item a:empty {
+  height: 24px;
+  color: #AF0E1A;
+  background-color: #DF9FA3;
+  border-bottom: 1px Solid #005CA7!important;
+}
+
+ul.ui-autocomplete li.ui-menu-item:hover a:empty {
+  border: 1px Solid #005CA7!important;
+}
+
+ul.ui-autocomplete li.ui-menu-item a:empty:before {
+  content: 'No Parameters'
+}
+
+ul.ui-autocomplete li.ui-menu-item a:empty:after {
+  position: absolute;
+  top: 2px;
+  right: 10px;
+  content:'';
+
+  width: 24px;
+  height: 24px;
+
+  background: url('/pentaho/api/repos/pentaho-cdf-dd/css/../images/error_icon.png') no-repeat;
+  background-size: 22px 22px;
+}
+.ie8 ul.ui-autocomplete li.ui-menu-item a:empty:after {
+  display: none;
+}
+
+ul.ui-autocomplete li:hover {
+  padding: 0;
+  margin: 0;
+}
+
+ul.ui-autocomplete li.ui-menu-item a {
+  padding: 0 10px;
+}
+
+ul.ui-autocomplete a.ui-state-focus,
+ul.ui-autocomplete li:hover,
+ul.ui-autocomplete li:hover a {
+  border: none;
+
+  color: #FFFFFF;
+  background: #0072CE;
+}
+
+ul.ui-autocomplete a:active,
+ul.ui-autocomplete a.ui-state-focus:active {
+  color: #FFFFFF;
+  background: #005CA7;
+}
+
+.save-pulldown .pulldown {
+  position: absolute;
+  top: 19px;
+  left: 0;
+  padding: 2px 5px;
+  list-style: none;
+  width: 110px;
+  text-align: left;
+  background: #253545;
+  border: 2px solid #152530;
+}
+
+form input.ui-autocomplete-input{
+  border: none;
+  font-size: 13px;
+  height: 14px;
+  vertical-align: middle;
+  margin-top: -5px;
+  margin-bottom: -2px;
+  width: 150px;
+}
+
+.item {
+  font-size: 12px;
+  text-shadow: none;
+  list-style: none;
+  color: #222;
+  background: #EAEDEE;
+  transition: 0.3s;
+  text-align: left;
+}
+
+.save-pulldown .pulldown .item {
+  color: white;
+  cursor: default;
+}
+
+.save-pulldown .pulldown .item:hover {
+  color: #0098c8;
+}
+
+div.padder {
+  padding: 5px;
+}
+
+div.cdfdd-toolbar-logo {
+     background-image: url("/pentaho/api/repos/pentaho-cdf-dd/css/../images/NAV/CDE_Header_Logo.png");
+     font-size: 30px;
+     font-weight: 300;
+     height: 40px;
+     left: 15px;
+     position: fixed;
+     top: 0;
+     width: 80px;
+     z-index: 2;
+}
+
+div.cdfdd-toolbar {
+  text-align: center;
+  line-height: 40px;
+  height: 40px;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+
+  background: #EAEDEE;
+  width: 100%;
+  left: 0;
+  display: inline;
+  max-height: 40px;
+  min-width: 950px;
+
+  box-sizing: border-box;
+  padding-left: 440px;
+  padding-right: 295px;
+}
+
+div.cdfdd-main {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 335px;
+  height: 100%;
+}
+
+div.cdfdd-title {
+  box-sizing: border-box;
+  position: relative;
+  float: left;
+
+  padding-left: 25px;
+  padding-right: 10px;
+  border-left: 1px solid #dddddd;
+
+  font-family: 'Open Sans Ligh', sans-serif;
+
+  max-width: 100%;
+  height: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+div.cdfdd-title, div.cdfdd-title-status:after {
+  font-size: 13pt;
+  color: #7e7e7e;
+}
+
+div.cdfdd-title-status.dirtyStatus:after {
+  position: absolute;
+  top: -2px;
+  right: 0;
+
+  font-family: 'Open Sans Semibold', sans-serif;
+  content: '*';
+}
+
+div.cdfdd-modes-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  min-width:260px;
+  height: 100%;
+}
+
+div.cdfdd-modes {
+  float: left;
+}
+
+div.cdfdd-preview {
+  float: right;
+  margin-left: 40px;
+}
+
+div.notify-bar, div.notify-bar, div.notify-bar {
+  font-family: 'Open Sans Regular', sans-serif;
+  font-size: 16pt;
+  text-align: center;
+
+  position: fixed;
+  top: 40px;
+  left: 0;
+  z-index: 9999;
+
+  width: 100%;
+  padding: 20px;
+}
+
+div.notify-bar .notify-bar-icon {
+  float: left;
+  width: 35px;
+  height: 35px;
+}
+
+div.notify-bar .notify-bar-message {
+  float: left;
+  padding-left: 15px;
+  padding-top: 5px;
+}
+
+div.notify-bar-success {
+  color: #3c7f2b;
+  background-color: #b3dead;
+}
+
+div.notify-bar-success .notify-bar-icon {
+  background: url('/pentaho/api/repos/pentaho-cdf-dd/css/../images/success_icon.png') no-repeat;
+}
+
+div.notify-bar-error {
+  color: #af0e1a;
+  background-color: #df9fa3;
+}
+
+div.notify-bar-error .notify-bar-icon {
+  background: url('/pentaho/api/repos/pentaho-cdf-dd/css/../images/error_icon.png') no-repeat;
+}
+
+div.notify-bar-info {
+  color: #008ea5;
+  background-color: #b5dce9;
+}
+
+div.notify-bar-info .notify-bar-icon {
+  background: url('/pentaho/api/repos/pentaho-cdf-dd/css/../images/info_icon.png') no-repeat;
+}
+
+#keyboard_shortcuts_help {
+  background-color: black;
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+  padding: 0pt;
+  font-size: 12px;
+  position: absolute;
+  opacity: 0.9;
+  top: 15px;
+  left: 15px;
+  z-index: 1000;
+  border: 1px solid #194E65;
+}
+
+#keyboard_shortcuts_help h4 {
+  color:#0091F6;
+}
+
+#keyboard_shortcuts_help .shortcutCategory h6 {
+  color: #00a7f5;
+}
+
+#keyboard_shortcuts_help .shortcutCategory {
+  margin: 1em;
+}
+
+#keyboard_shortcuts_help p span {
+  clear:both;
+  display:block;
+  float:left;
+  width:200px;
+  padding-left: 10px;
+}
+
+#keyboard_shortcuts_help span {
+  clear:both;
+  display:block;
+}
+
+#cdfdd-main-Reload img {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+div#cdfdd-panels {
+  height: 100%;
+  margin: 0;
+  padding: 40px 20px 35px;
+  background: #F5F6F8;
+  min-height: 400px;
+  width: 100%;
+  left: 0;
+  min-width: 975px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+ }
+
+tbody.ui-widget-content {
+  border: 1px solid #1999D1;
+}
+
+div.cdfdd-panel {
+  display: none;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  padding: 20px 0;
+  width: 100%;
+  min-width: 960px;
+  height: 100%;
+}
+
+div.cdfdd-panel .panel-content,
+div.cdfdd-panel .panel-content > div {
+  height: 100%;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+
+.panel-title {
+  color: #9A9A9A; /*TODO: unspecified*/
+}
+
+div.ui-widget-content > ul {
+  list-style-type: none;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left:0;
+}
+
+.ui-component tr:hover{
+  background: #eee;
+}
+
+div.ui-widget-content > ul li {/*TODO...*/
+   /* padding-left:30px;  After the integration with cdf, this stopped making sense */
+}
+
+.multiSelectOptions{
+  width: 150px;
+  max-height: 150px;
+  margin-top: -1px;
+  overflow: auto;
+  color: #555;
+  margin-top: 3px;
+  border: 1px solid #bbb;
+}
+
+.multiSelect.active {
+  color: #fff;
+  background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/NAV/selector_arrow_hover.png) right center no-repeat;
+}
+
+.multiSelect.hover {
+  background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/NAV/selector_arrow_hover.png) right center no-repeat;
+  color: #fff;
+}
+
+.multiSelectOptions label.checked {
+    background: #d9dcdd;
+}
+
+.multiSelectOptions label:hover {
+  background-color: #12a2d8;
+  color: #fff;
+}
+
+.multiSelectOptions label {
+  color: #555;
+  margin: 2px;
+}
+
+.multiSelectOptions label input {
+  float: left;
+  position: relative;
+  top: 3px;
+}
+
+li.ui-state-hover {
+  border:medium none !important;
+  background: #999!important;
+}
+
+.ui-widget-content li:hover {
+  background: #203741;
+}
+
+.ui-widget-content li:hover a {
+  color: #eeeeee;
+}
+
+.ui-widget-content tr.ui-state-active {
+  color: #345;
+}
+
+hr.hr-hidden {
+  background:#2D2D2D;
+  display: none;
+}
+
+hr {
+  background: none!important;
+}
+
+hr.saveHr {
+     margin: 20px 0;
+     border-top: 1px solid #ccc;
+     border-bottom: 1px solid #fff;
+     height: 0;
+}
+
+div.spacer {
+  height: 5px;
+}
+
+.centeredText {
+  text-align: center;
+}
+
+div.cdfdd-operations {
+  padding-bottom: 5px;
+}
+
+#cdfdd-component-options div input, #cdfdd-component-options div select {
+  width: 100%;
+}
+
+#cdfdd-component-options .cdfdd-component-options-label {
+  position:relative;
+  left:10px;
+  font-weight: bold;
+  color: #555;
+  padding-bottom: 10px;
+}
+#cdfdd-component-options .cdfdd-component-options-chartType {
+  width: 130px;
+  position:relative;
+  left:9px;
+  margin-bottom: 0;
+}
+
+#cdfdd-component-options .cdfdd-component-options-type,
+#cdfdd-component-options .cdfdd-component-options-htmlobject,
+#cdfdd-component-options .cdfdd-component-options-topCount,
+#cdfdd-component-options .cdfdd-component-options-orientation {
+  width: 100%;
+  position: static;
+  left: 42px;
+  margin-bottom: 10px;
+}
+
+#cdfdd-component-options hr {
+  background-color:#2D2D2D;
+  position:relative;
+
+  top: 8px;
+  height:4px;
+}
+
+div#cdfdd-olap-preview {
+  height:305px;
+  text-align: center;
+  vertical-align: bottom;
+  overflow:auto;
+  background: none repeat scroll 0 0 #FFFFFF;
+  color: #333333;
+}
+
+/** Wizard Dialog **/
+#wizardDialog {
+  display: none;
+  position: absolute;
+  text-align: left;
+  border: solid 2px #FFFFFF;
+
+  top: 40px;
+  left: 50%;
+  padding: 0;
+  margin-left: -475px;
+
+  background: #FFFFFF;
+
+  min-width: 900px;
+  min-height: 590px;
+}
+
+#wizardDialog.prompt-wizard-dialog {
+  min-height: 530px;
+}
+
+#wizardDialog .container {
+  width: 100%;
+}
+
+#wizardDialog .cdfdd-wizard-header {
+  margin: 15px 20px;
+  position: relative;
+  box-sizing: border-box;
+  padding-right: 255px;
+  height: 24px;
+}
+
+#wizardDialog .cdfdd-wizard-title {
+  font-family: 'Open Sans SemiBold', sans-serif;
+  font-size: 16pt;
+  color: #005CA7;
+}
+
+#wizardDialog .cdfdd-wizard-body {
+  background-color: #F5F6F8;
+  padding: 20px;
+}
+
+.prompt-wizard-text-area {
+  box-sizing: border-box;
+  width: 100%;
+  height: 435px;
+}
+
+textarea.popup-text-input {
+  height: 90px;
+  resize: none;
+}
+
+input.popup-text-input, input.popup-text-input:focus,
+textarea.popup-text-input, textarea.popup-text-input:focus {
+  box-sizing: border-box;
+  padding: 0 10px;
+  margin: 0;
+  width: 100%;
+  border: 1px solid #FFFFFF;
+
+  font-family: 'Open Sans Regular', sans-serif;
+  font-size: 13pt;
+  color: #555555;
+}
+
+textarea.popup-text-input:hover, input.popup-text-input:hover {
+  border: 1px Solid #005CA7;
+}
+
+textarea.popup-text-input[disabled], input.popup-text-input[disabled] {
+  border: 1px Solid #FFFFFF;
+  color: #999999;
+}
+
+#wizardDialog .popup-select.select2-container, #wizardDialog .popup-text-input {
+  margin: 5px 0 20px;
+}
+
+/** Select Dropdown */
+.select2-drop-active.popup-select-dropdown {
+  border-radius: 0;
+  box-shadow: #757575;
+  border: 1px Solid #005CA7;
+}
+
+.select2-drop-active.popup-select-dropdown .select2-results {
+  padding: 0;
+  margin: 0;
+}
+
+.select2-drop-active.popup-select-dropdown .select2-highlighted {
+  background-color: #FFFFFF;
+  color: #005CA7;
+}
+
+.select2-drop-active.popup-select-dropdown .select2-highlighted:hover {
+  background-color: #005CA7;
+  color: #FFFFFF;
+}
+
+.select2-drop-active.popup-select-dropdown .select2-highlighted:active {
+  background-color: #0072CE;
+}
+
+.select2-drop-active.popup-select-dropdown .select2-result-label {
+  height: 24px;
+  line-height: 24px;
+  padding: 0 10px 0 10px;
+}
+
+#wizardDialog .cdfdd-wizard-left,
+#wizardDialog .cdfdd-wizard-right {
+  background: transparent;
+  float: left;
+  height: 100%;
+}
+
+#wizardDialog .cdfdd-wizard-left {
+  width: 200px;
+  margin-right: 20px;
+}
+
+#wizardDialog .cdfdd-wizard-right {
+  width: 640px;
+}
+
+/** Wizard Dialog Buttons **/
+div.cdfdd-wizard-buttons {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #FFFFFF;
+}
+
+div.cdfdd-wizard-buttons input {
+  height: 24px;
+  padding: 0;
+  margin: 0;
+  border: 0;
+
+  font-family: 'Open Sans Regular', sans-serif;
+  font-size: 13pt;
+
+  background-color: #005CA7;
+  color: #FFFFFF;
+}
+
+div.cdfdd-wizard-buttons input:hover {
+  background-color: #0072CE;
+}
+
+div.cdfdd-wizard-buttons input:active {
+  background-color: #0072CE;
+  box-shadow: 0 3px 5px 0 #004985 inset;
+}
+
+div.cdfdd-wizard-buttons input[disabled], div.prompt-wizard-caption.disabled {
+  cursor: default;
+  background-color: #E3E4E5;
+}
+
+#cdfdd-wizard-button-ok {
+  width: 120px;
+}
+
+#cdfdd-wizard-button-cancel {
+  margin-left: 15px;
+  width: 80px;
+
+}
+
+/** Wizard Dialog Filter **/
+.cdfdd-wizard-filter-label, .cdfdd-wizard-filter-clear,
+.cdfdd-wizard-filter-options .cdfdd-wizard-filter-option {
+  position:relative;
+  float:left;
+}
+
+.cdfdd-wizard-filter-options .cdfdd-wizard-filter-option {
+  padding-left:5px;
+}
+
+.cdfdd-wizard-filter-clear {
+  top: 3px;
+  width: 7px;
+  height: 7px;
+  background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/clear.gif)
+}
+
+div#cdfdd-olap-main {
+  background:#2A2F31;
+  height: 335px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+div#cdfdd-olap-main-filter {
+  background:#2A2F31;
+  height: 449px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-top: 5px;
+}
+
+div.cdfdd-olap-droppable {
+  position: relative;
+  border: 1px solid #FFFFFF;
+  background: #FFFFFF;
+  height: 85px;
+  margin-top: 10px;
+  padding-top: 1px;
+  overflow-y:auto;
+  overflow-x:hidden;
+  color: #555;
+}
+
+div.cdfdd-olap-droppable.remove-all-hover {
+  border: 1px solid #005CA7;
+}
+
+div.cdfdd-olap-droppable.ui-state-active {
+  border: 1px dashed #005CA7;
+}
+
+div.cdfdd-wizard-components-options {
+  background: #EAEDEE;
+  height: 455px;
+  width: 220px;
+  margin-left: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-top: 5px;
+}
+
+div#cdfddOlapDimensionDiv {
+  height:550px;
+  overflow: auto;
+}
+
+div#cdfddOlapMeasureDiv {
+  height:100px;
+  overflow: auto;
+}
+
+div#cdfddOlapMeasureDiv {
+  height:100px;
+  overflow: auto;
+}
+
+div#cdfddOlapDimensionDiv table {
+  height: 24px;
+  line-height: 24px;
+  font-family: 'Open Sans Regular', sans-serif;
+  font-size: 13pt;
+  margin-bottom: 10px;
+}
+
+div#cdfddOlapDimensionDiv table.cdfdd #eaedee {
+  height: 24px;
+  line-height: 24px;
+  padding: 0 10px;
+
+  border: none;
+  color: #FFFFFF;
+  background: #005CA7;
+}
+
+div#cdfddOlapDimensionDiv table td {
+  height: 24px;
+  line-height: 24px;
+  padding-bottom: 0;
+  padding-top: 0;
+  border-bottom: 1px solid #F5F6F8;
+}
+
+div#cdfddOlapDimensionDiv table td.ui-state-active {
+  background: #0072CE;
+  color: #FFFFFF;
+}
+
+#cdfddOlapDimensionSelector tr {
+  background-color: #FFFFFF;
+  color: #555555;
+  margin-top: 1px;
+  margin-bottom: 1px;
+}
+
+#cdfddOlapDimensionSelector tr.olapObject {
+  background-color: #EAEDEE;
+}
+
+tr.ui-droppable td {
+  position: relative;
+}
+tr.ui-droppable td:after {
+  position: absolute;
+  content: '';
+}
+
+/* CDE Scroll */
+#cdfdd-layout-tree.panel-scroll-element, #cdfdd-layout-properties.panel-scroll-element,
+#cdfdd-components-components.panel-scroll-element, #cdfdd-components-properties.panel-scroll-element,
+#cdfdd-datasources-datasources.panel-scroll-element, #cdfdd-datasources-properties.panel-scroll-element {
+  position: relative;
+  padding-top: 60px;
+  overflow-x: hidden;
+  height: 100%;
+}
+
+.panel-scroll-element .tableContainer {
+  height: 100%;
+}
+
+.panel-scroll-element .tableCaption {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.panel-scroll-element .tableCaption .cdfdd-operations {
+  padding-right: 5px;
+}
+
+#cdfdd-components-components.panel-scroll-element .tableCaption .cdfdd-operations,
+#cdfdd-datasources-datasources.panel-scroll-element .tableCaption .cdfdd-operations {
+  padding-right: 15px;
+}
+
+.panel-scroll-element .tableCaption span {
+  font-size:14px;
+}
+
+.panel-scroll-element .scrollContainer {
+  height: 100%;
+  overflow-y: auto;
+}
+
+.panel-scroll-element th .tableHeader {
+  position: absolute;
+  top: 30px;
+  width: 100%;
+}
+
+#cdfdd-layout-tree table tbody tr td {
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+#cdfdd-layout-tree table tbody tr td:first-child {
+  border-left: 1px solid transparent;
+  border-left: 1px solid rgba(0,0,0,0);
+}
+#cdfdd-layout-tree table tbody tr td:last-child {
+  border-right: 1px solid transparent;
+  border-right: 1px solid rgba(0,0,0,0);
+}
+
+
+/* CDE Drag And Drop*/
+#cdfdd-layout-tree tbody {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#cdfdd-layout-tree table tbody tr.ui-draggable-dragging td {
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+.treeTable .ui-draggable-dragging {
+  background: #999 !important;
+  border: 1px solid #999 !important;
+  z-index: 10;
+}
+.treeTable .ui-draggable-dragging {
+  margin-left: -1px;
+  opacity: .3 !important;
+}
+.layout_hover_moveTo_up td:after {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  height: 0;
+  width: 100%;
+  background: none;
+  border-top: 1px dashed #0098c4;
+}
+.layout_hover_moveTo_down td:after {
+  position: absolute;
+  content: '';
+  bottom: 0;
+  left: 0;
+  height: 0;
+  width: 100%;
+  background: none;
+  border-bottom: 1px dashed #0098c4;
+}
+.layout_hover_dropInto td,
+.layout_hover_dropInto.layout_hover_moveTo_down td,
+.layout_hover_dropInto.layout_hover_moveTo_up td {
+  background-color: rgba(0, 152, 196, .1);
+}
+#cdfdd-layout-tree table tbody tr.layout_hover_dropInto td {
+  border-top: 1px dashed #0098c4;
+  border-bottom: 1px dashed #0098c4;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+#cdfdd-layout-tree table tbody tr.layout_hover_dropInto td:first-child {
+  border-left: 1px dashed #0098c4;
+}
+#cdfdd-layout-tree table tbody tr.layout_hover_dropInto td:last-child {
+  border-right: 1px dashed #0098c4;
+}
+#cdfdd-layout-tree table tbody tr.layout_hover_dropInto td:after {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  height: 0;
+  width: 0;
+  background: none;
+}
+tr.ui-draggable {
+  position: relative;
+}
+tr.ui-draggable td {
+  cursor: move; /* fallback if grab cursor is unsupported */
+  cursor: grab;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+}
+.dragging_cursor,
+.dragging_cursor *,
+.dragging_cursor tr.ui-draggable-dragging td,
+.dragging_cursor tr.ui-draggable td,
+tr.ui-draggable:active td {
+  cursor: move !important; /* fallback if grab cursor is unsupported */
+  cursor: grabbing !important;
+  cursor: -moz-grabbing !important;
+  cursor: -webkit-grabbing !important;
+}
+tr.ui-draggable:hover td:last-child:after,
+tr.ui-draggable.dragging_element td:last-child:after,
+tr.ui-draggable-dragging td:last-child:after {
+  content: '';
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  margin-top: -10px;
+  background-image: url("/pentaho/api/repos/pentaho-cdf-dd/css/../images/drag-icon.svg");
+  background-position: -20px 0;
+}
+.no-svg tr.ui-draggable:hover td:last-child:after,
+.no-svg tr.ui-draggable.dragging_element td:last-child:after,
+.no-svg tr.ui-draggable-dragging td:last-child:after {
+  background-image: url("/pentaho/api/repos/pentaho-cdf-dd/css/../images/drag-icon.png");
+}
+tr.ui-draggable.ui-state-active:hover td:last-child:after,
+tr.ui-draggable.ui-state-active.dragging_element td:last-child:after,
+tr.ui-draggable-dragging td:last-child:after {
+  background-position: 0 0;
+}
+
+.panel-content .selectedTable tr.ui-state-active,
+.panel-content .unselectedTable tr.ui-state-active {
+  background: #005AC7;
+}
+
+.tooltip.layout_saveas_template {
+  background-image: url("/pentaho/api/repos/pentaho-cdf-dd/css/../images/NAV/save_template.png");
+}
+
+.tooltip.layout_add_template {
+  background-image: url("/pentaho/api/repos/pentaho-cdf-dd/css/../images/NAV/apply_template.png");
+}
+
+.tooltip.layout_add_resource{
+  background-image: url("/pentaho/api/repos/pentaho-cdf-dd/css/../images/NAV/add.png");
+}
+
+.tooltip.components_duplicate, .tooltip.layout_duplicate, .tooltip.datasources_duplicate {
+  background-image: url("/pentaho/api/repos/pentaho-cdf-dd/css/../images/NAV/duplicate.png");
+}
+
+.tooltip.layout_add_bootstrap_panel {
+  background-image: url("/pentaho/api/repos/pentaho-cdf-dd/css/../images/NAV/bootstrap_add_panel.png");
+}
+
+.tooltip.layout_add_freeform {
+  background-image: url("/pentaho/api/repos/pentaho-cdf-dd/css/../images/NAV/free_form.png");
+}
+
+.tooltip.layout_add_row {
+  background-image: url("/pentaho/api/repos/pentaho-cdf-dd/css/../images/NAV/add_row.png");
+}
+
+.tooltip.layout_move_down, .tooltip.components_move_down, .tooltip.datasources_move_down {
+  background-image: url("/pentaho/api/repos/pentaho-cdf-dd/css/../images/NAV/move_down.png");
+}
+
+.tooltip.layout_delete, .tooltip.components_delete, .tooltip.datasources_delete {
+  background-image: url("/pentaho/api/repos/pentaho-cdf-dd/css/../images/NAV/delete.png");
+}
+
+.tooltip.layout_move_up, .tooltip.components_move_up, .tooltip.datasources_move_up {
+  background-image: url("/pentaho/api/repos/pentaho-cdf-dd/css/../images/NAV/move_up.png");
+}
+
+.tooltip.layout_add_column {
+  background-image: url("/pentaho/api/repos/pentaho-cdf-dd/css/../images/NAV/add_column.png");
+}
+
+.tooltip.layout_add_space {
+  background-image: url("/pentaho/api/repos/pentaho-cdf-dd/css/../images/NAV/space.png");
+}
+
+.tooltip.layout_add_image {
+  background-image: url("/pentaho/api/repos/pentaho-cdf-dd/css/../images/NAV/add_image.png");
+}
+
+.tooltip.layout_add_html {
+  background-image: url("/pentaho/api/repos/pentaho-cdf-dd/css/../images/NAV/add_html.png");
+}
+
+.tableOperation {
+  height: 22px;
+  width: 22px;
+  display: inline-block;
+  margin: 0px 4px;
+}
+
+.tableOperation.enabledOperation:hover {
+  background-position: 22px 0px;
+}
+
+.tableOperation.disabledOperation {
+  opacity: 0.4;
+  filter: alpha(opacity=40); /* IE */
+}
+
+
+/*table#cdfddOlapDimensionSelector,
+table#cdfddOlapMeasureSelector,
+table#cdfddOlapFilterSelector*/
+div#cdfddOlapDimensionDiv table {
+  height: 24px;
+  line-height: 24px;
+
+  font-family: 'Open Sans Regular', sans-serif;
+  font-size: 13pt;
+}
+
+div#cdfddOlapDimensionDiv table td {
+  height: 24px;
+  line-height: 24px;
+
+  padding-bottom: 0;
+  padding-top: 0;
+}
+
+.jqmWindow {
+  z-index: 100;
+  display: inline-table;
+}
+
+ul.autobox-list{
+  z-index: 100;
+}
+
+
+
+/* TABLE
+ * ========================================================================= */
+
+table.cdfdd {
+  border-collapse:separate;
+  left: 0;
+}
+
+table tbody tr td {
+  cursor: default;
+  padding: 0.3em 1.5em;
+}
+
+
+form.cdfddInput input, form.cdfddInput button, form.cdfddInput select, button.cdfddInput {
+  background-color:#fcfcfc;
+  border:1px solid #ccc;
+  color:#444;
+}
+
+form.cdfddInput input {
+  font-size: 100%;
+  height: 13px;
+  vertical-align: middle;
+  margin-top: -5px;
+  margin-bottom: -2px;
+  width: 150px;
+}
+
+td form.cdfddInput button{
+  position: relative;
+  vertical-align: middle;
+  height: 20px;
+  margin-bottom: -2px;
+  margin-top: -6px
+}
+
+form.cdfddInput input.multiSelect {
+  width: 126px!important;
+ }
+
+form.cdfddInput input[type="checkbox"]
+{
+  width:15px;
+  height:21px;
+  background: transparent!important;
+  border: 0!important;
+}
+
+button.cdfddInput {
+  width: 24px;
+  height: 18px;
+  text-align: center;
+}
+
+textarea.cdfddEdit {
+  width: 786px;
+  height: 340px;
+  background-color: #eeeeee;
+  font-size: 11px;
+}
+
+pre#codeArea.cdfddEdit {
+  width: 780px;
+  height: 450px;
+}
+
+.cdfdd-wizard-prompt-preview-results {
+  width: 590px;
+  height: 400px;
+  overflow: auto;
+}
+
+.cdfdd-wizard-prompt-preview-results span {
+  background-color: #eeeeee;
+}
+
+.cdfdd-wizard-prompt-left-section {
+  overflow: auto;
+}
+
+.cdfdd-wizard-prompt-left-section, .cdfdd-wizard-prompt-right-section {
+  height: 435px;
+}
+
+.prompt-wizard-textarea {
+  width:  680px;
+  height:  405px;
+  overflow:  auto;
+  position:relative;
+  left: 10px;
+  font-size: 12px;
+}
+
+.prompt-accordion-container {
+  margin-bottom: 10px;
+}
+
+.prompt-wizard-caption {
+  font-family: 'Open Sans Regular', sans-serif;
+  font-size: 13pt;
+
+  position: relative;
+
+  height: 24px;
+  line-height: 24px;
+  padding: 0 10px;
+
+  border: none;
+  color: #FFFFFF;
+  background: #005CA7;
+}
+
+.prompt-wizard-caption:hover {
+  cursor: pointer;
+  background: #0072CE;
+}
+
+.prompt-caption-more-less {
+  position: absolute;
+  right: 10px;
+  top: 2px;
+
+  width: 22px;
+  height: 22px;
+
+  background: url('/pentaho/api/repos/pentaho-cdf-dd/css/../images/popups/More_Less.svg') -20px 0;
+}
+
+.prompt-accordion-container.collapsed .prompt-caption-more-less {
+  right: 8px;
+  background: url('/pentaho/api/repos/pentaho-cdf-dd/css/../images/popups/More_Less.svg') 0 0;
+}
+
+.prompt-accordion-container.collapsed .prompt-wizard-accordion {
+  display: none;
+}
+
+#wizardDialog .prompt-wizard-accordion h3 {
+  height: 24px;
+  line-height: 24px;
+
+  padding: 0 0 0 30px;
+  margin: 1px 0;
+
+  border: 1px solid #FFFFFF;
+  background: #FFFFFF;
+  color: #555555;
+}
+
+#wizardDialog .prompt-wizard-accordion h3.ui-state-hover {
+  color: #005CA7;
+}
+
+#wizardDialog .prompt-wizard-accordion .ui-state-active .ui-icon {
+  background: url("/pentaho/api/repos/pentaho-cdf-dd/css/../images/dropdown_active.gif") 0 0;
+}
+
+#wizardDialog .prompt-wizard-accordion div {
+  padding: 0;
+}
+
+#wizardDialog .prompt-wizard-elements {
+  font-family: 'Open Sans Regular', sans-serif;
+  font-size: 13pt;
+}
+
+#wizardDialog li.prompt-wizard-elements {
+  position: relative;
+  box-sizing: border-box;
+  width: 200px;
+  margin: 1px 0;
+  padding: 0 0 0 30px;
+  list-style-type: none;
+  height: 24px;
+  line-height: 24px;
+  background: #EAEDEE;
+  cursor: pointer;
+}
+
+#wizardDialog li.ui-draggable:hover {
+  cursor: move; /* fallback if grab cursor is unsupported */
+  cursor: grab;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+
+  background: #0072CE;
+  color: #FFFFFF;
+}
+
+#wizardDialog li.ui-draggable:active,
+#wizardDialog li.dragging-element,
+#wizardDialog li.ui-draggable-dragging {
+  cursor: move; /* fallback if grab cursor is unsupported */
+  cursor: grabbing;
+  cursor: -moz-grabbing;
+  cursor: -webkit-grabbing;
+
+  background: #005CA7;
+  color: #FFFFFF;
+}
+
+#wizardDialog li.ui-draggable:after {
+  content: '';
+
+  position: absolute;
+  right: 5px;
+  top: 50%;
+
+  width: 20px;
+  height: 20px;
+  margin-top: -10px;
+
+  background: url("/pentaho/api/repos/pentaho-cdf-dd/css/../images/drag-icon.svg") -20px 0;
+}
+
+#wizardDialog li.ui-draggable:hover:after,
+#wizardDialog li.dragging-element:after,
+#wizardDialog li.ui-draggable-dragging:after {
+  background: url("/pentaho/api/repos/pentaho-cdf-dd/css/../images/drag-icon.svg") 0 0;
+}
+
+#wizardDialog li.ui-draggable-dragging {
+  z-index: 9999;
+}
+
+#wizardDialog li.prompt-wizard-elements:hover {
+  padding-left: 30px;
+  padding-right: 0;
+}
+
+.preview-area-header {
+  position: relative;
+  box-sizing: border-box;
+  padding-left: 147px;
+  height: 24px;
+  padding-right: 25px;
+  margin-bottom: 2px;
+}
+
+#wizardDialog .preview-area-header .popup-select.select2-container {
+  margin: 0;
+}
+
+.popup-input-container.preview-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.preview-area-header .popup-input-container {
+  background: #FFFFFF;
+  height: 24px;
+  line-height: 24px;
+}
+
+.popup-input-container.type-option, .popup-input-container.chart-type-option,
+.popup-input-container.top-count-option {
+  width: 230px;
+  height: 24px;
+  position: relative;
+  box-sizing: border-box;
+  margin-right: 4px;
+}
+.popup-input-container.type-option {
+  padding-left: 48px;
+}
+
+.popup-input-container.chart-type-option {
+  padding-left: 91px;
+}
+
+.popup-input-container.top-count-option {
+  padding-left: 87px;
+}
+
+.preview-area-header .popup-label {
+  position: absolute;
+  top: 2px;
+  left: 5px;
+  line-height: 24px;
+  border-right: 2px solid #F5F6F8;
+  padding-right: 5px;
+}
+
+.preview-label .popup-label {
+  border: none;
+}
+
+.preview-refresh-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  width: 22px;
+  height: 22px;
+
+  background: #FFFFFF url('/pentaho/api/repos/pentaho-cdf-dd/css/../images/popups/Refresh.svg') 0 0;
+
+  border: 1px solid #FFFFFF;
+}
+
+.remove-all-options {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  width: 22px;
+  height: 22px;
+
+  background: #FFFFFF url('/pentaho/api/repos/pentaho-cdf-dd/css/../images/popups/Remove_MultipleItems.svg') 0 0;
+
+  border: 1px solid #FFFFFF;
+}
+
+.remove-all-options:hover {
+  cursor: pointer;
+  background-position: -22px 0;
+}
+
+.preview-refresh-button:hover {
+  cursor: pointer;
+  background-position: -22px 0;
+}
+
+#cdfdd-olap-preview-area {
+  position: relative;
+  height: 230px;
+  background-color: #FFFFFF;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+div.prompt-wizard-preview {
+  width: 600px;
+  font-family: 'Open Sans', sans-serif;
+  position: absolute;
+  background-color: #ffffff;
+  font-size: 11px;
+  text-align: left;
+  border: solid 1px #eeeeee;
+  padding: 7px;
+}
+div.prompt-wizard-preview .prompt-wizard-previewcontainer {
+  font-weight: bold;
+}
+div.prompt-wizard-preview .prompt-wizard-previewclose {
+  position: absolute;
+  top: 4px; right: -2px;
+  width: 18px;
+  cursor: default;
+  color: #bbbbbb;
+  font-weight: bold;
+}
+div.prompt-wizard-preview .prompt-wizard-previewmessage {
+  padding: 10px;
+  line-height: 20px;
+  color: #444444;
+}
+div.prompt-wizard-preview .prompt-wizard-previewbuttons {
+  text-align: right;
+  padding: 5px 0 5px 0;
+  border: solid 1px #eeeeee;
+  background-color: #f4f4f4;
+}
+div.prompt-wizard-preview button {
+  padding: 3px 10px;
+  margin: 0 10px;
+  background-color: #2F6073;
+  border: solid 1px #f4f4f4;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 12px;
+}
+div.prompt-wizard-preview button:hover {
+  background-color: #728A8C;
+}
+div.prompt-wizard-preview button.prompt-wizard-previewdefaultbutton {
+  /*background-color: #8DC05B;*/
+  background-color: #BF5E26;
+}
+.prompt-wizard-previewwarning .prompt-wizard-preview .prompt-wizard-previewbuttons {
+  background-color: #BF5E26;
+}
+
+
+.cdf_settings_textarea {
+  width:360px;
+  height:100px;
+}
+
+.urlTemplateParametersLabel {
+  float:left;
+  position:relative;
+  top:10px;
+}
+
+.linkToAnotherDashboardlabel {
+  left:10px;
+  position: relative;
+}
+
+.linkToAnotherDashboardinput1 {
+  position: relative;
+  top:1px;
+  left:13px;
+  width: 200px;
+}
+
+.linkToAnotherDashboardinput2 {
+  position: relative;
+  top:1px;
+  left:59px;
+  width: 200px;
+}
+
+.urlTemplateInput {
+  width:380px;
+  height:200px;
+}
+
+.utlTemplateTargetInput {
+  width:300px;
+}
+
+.simpleProperties, .advancedProperties, .propertiesSeparator {
+  position: relative;
+  float: left;
+  font-size: 14px;
+}
+
+.propertiesUnSelected {
+  cursor:pointer;
+  color:#999;
+}
+
+.propertiesUnSelected:hover {
+  color: #0098c4;
+}
+
+.cdfdd-olap-measures, .cdfdd-olap-filters, .cdfdd-olap-dimensions,
+.cdfdd-olap-dimensions .image-left, .cdfdd-olap-dimensions .image-right {
+  position:relative;
+  float:left;
+}
+
+.cdfdd-olap-measures, .cdfdd-olap-filters, .cdfdd-olap-dimensions {
+  box-sizing: border-box;
+
+  height:24px;
+  line-height: 24px;
+
+  left: 10px;
+  margin: 5px;
+
+  padding: 0 10px;
+
+  background: #EAEDEE;
+  border: 1px solid #EAEDEE;
+}
+
+.cdfdd-olap-dimensions .image-left, .cdfdd-olap-dimensions .image-right {
+  width:15px;
+  height:15px;
+}
+
+.cdfdd-olap-dimensions .image-right {
+  top:2px;
+}
+
+.cdfdd-olap-dimensions .image-left {
+  margin-left: 7px;
+  left:2px;
+  top:1px;
+}
+
+#cdfdd-olap-rows select , #cdfdd-olap-columns select, #cdfdd-olap-filters select {
+  position:relative;
+  float:left;
+  margin: 0;
+  height: 24px;
+
+  border: none;
+  background: transparent;
+}
+
+.cdfdd-olap-dimensions-label, .cdfdd-olap-measures-label {
+  position:relative;
+  float:left;
+
+  margin-left: 5px;
+  color: #000000;
+  font-family: 'Open Sans Light', sans-serif;
+  font-size: 13pt;
+}
+
+
+.cdfdd-olap-clearButton {
+  position:absolute;
+  width: 10px;
+  left: 5px;
+  top: 2px;
+}
+
+.cdfdd-olap-space {
+  height:20px;
+  width:190px;
+}
+
+.cdfdd-resourceFileNameRender {
+  width:210px;
+  float:left;
+}
+
+.cdfdd-resourceFileExplorerRender {
+  background-color:#FFFFFF;
+  border:1px solid #999999;
+  color:#000000;
+  position:relative;
+ /* left:10px;*/
+  width: 18px;
+  height: 16px;
+}
+
+#cdfdd-layout-properties, #cdfdd-layout-tree, #cdfdd-components-components, #cdfdd-components-properties, #cdfdd-datasources-properties, #cdfdd-datasources-datasources {
+   overflow: auto;
+   width: 49.7%;
+   min-width: 470px;
+ }
+
+.panel-scroll-element .tableCaption,
+table.cdfdd caption {
+ height: 20px;
+ padding: 5px;
+ border-bottom: none;
+ font-weight: normal;
+ background: #EAEDEE;
+ color: #555;
+}
+
+.panel-scroll-element th div.ui-state-default,
+th.ui-state-default {
+  padding: 5px;
+  background: #bbb;
+  color: #fff;
+  border: 1px solid #bbb;
+}
+
+#cggDialog {
+
+    display: none;
+    width: 400px;
+    margin-left: -200px;
+    position: absolute;
+    left: 50%;
+    top: 15%;
+    height: auto;
+    background: #ddd;
+    padding: 10px;
+}
+
+#cggDialog .cggDialogClose {
+    margin-top: 10px;
+}
+
+#cggDialog button {
+    background: white;
+    border: 1px solid black;
+    float: right;
+    padding: 0;
+}
+
+#cggDialog button.active {
+    background: #bbb;
+}
+
+
+#cggDialog input[type=text] {
+    width: 90%;
+    margin-left: 20px;
+    margin-right: 20px;
+    height: 20px;
+    font-size: 9px;
+}
+
+#cggDialog .urlPreviewer {
+  -webkit-transition: all 500ms ease-in;
+  -moz-transition: all 500ms ease-in;
+  -ms-transition: all 500ms ease-in;
+  -o-transition: all 500ms ease-in;
+  transition: all 500ms ease-in;
+  max-height: 40px;
+  overflow: hidden;
+  clear: both;
+}
+
+#cggDialog .urlPreviewer.collapsed{
+  max-height: 0;
+}
+
+/* Changes made for adding About Button */
+
+.footer {
+ line-height: 41px;
+ position: fixed;
+ height: 35px;
+ bottom: 0;
+ background: #EAEDEE;
+ width: 100%;
+}
+
+.webdetailsLogo {
+  float: right;
+  margin-right: 20px;
+  vertical-align: middle;
+  position: fixed;
+  right: 0;
+}
+
+.webdetailsLogo img {
+  vertical-align: middle;
+}
+
+
+.footer .button {
+    -moz-transition: all 0.5s ease 0s;
+    color: #222222;
+    cursor: pointer;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 100;
+    letter-spacing: 0.07em;
+    line-height: 20px;
+    margin-top: 10px;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    font-family: 'Open Sans', sans-serif;
+    transition: 0.3s;
+}
+.footer .button:hover {
+    color: #0098C4;
+}
+
+
+/* Save As Widget dialogue */
+
+div.treeTableNewJqi.save-as-widget .treeTableNewJqibuttons {
+  height: 40px;
+}
+
+div.treeTableNewJqi.save-as-widget .treeTableNewJqimessage {
+  height: 160px;
+}
+
+div.treeTableNewJqi.save-as-widget input.folderexplorerfileinput {
+  position: relative;
+  width:380px;
+  left:33px;
+}
+
+div.treeTableNewJqi.save-as-widget button {
+  width: 65px;
+}
+
+div.folderexplorer {
+  overflow: auto!important;
+  height: 170px!important;
+}
+
+
+.ui-dialog-title{
+  float: left;
+  color: #12a2d8;
+  line-height: 20px;
+  font-size: 15px;
+  font-weight: bold;
+
+}
+
+
+
+.ui-widget-content li:hover {
+  background: none;
+}
+
+.ui-widget-content {
+  border: none!important;
+}
+
+div.treeTableNewJqi button {
+  width: auto;
+  text-align: center;
+}
+
+
+
+html {margin:0;padding:0;border:0; overflow: auto;}
+body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, dialog, figure, footer, header, hgroup, nav, section {margin:0;padding:0;border:0;font-weight:inherit;font-style:inherit;font-size:100%;font-family:inherit;vertical-align:middle;}
+article, aside, dialog, figure, footer, header, hgroup, nav, section {display:block;}
+body {background:white;}
+table {border-collapse:separate;border-spacing:0;}
+caption, th, td {text-align:left;font-weight:normal;float:none !important;}
+table, th, td {vertical-align:middle;}
+blockquote:before, blockquote:after, q:before, q:after {content:'';}
+blockquote, q {quotes:"" "";}
+a img {border:none; margin-top: -9px;}
+:focus {outline:0;}
+
+html {font-size:100.01%; background-color: #f5f5f5;}
+body {font-size:75%;font-family: 'Open Sans', sans-serif;}
+h1, h2, h3, h4, h5, h6 {font-weight:normal;}
+h1 {font-size:2em;line-height:1;margin-bottom:0.5em;}
+h2 {font-size:1.6em;margin-bottom:0.75em;}
+h3 {font-size:1.4em;line-height:1;margin-bottom:1em;}
+h4 {font-size:1.2em;line-height:1.25;margin-bottom:1.25em;}
+h5 {font-size:1em;font-weight:bold;margin-bottom:1.5em;}
+h6 {font-size:1em;font-weight:bold;}
+
+.container {
+    width: 100%;
+    min-width: 960px;
+}
+
+.headerLogo {
+  float: left;
+  height: 106px;
+  overflow: hidden;
+}
+
+.headerLinks {
+  float: left;
+  text-align: left;
+  min-width: 350px;
+  height: 100%;
+}
+
+.headerLinks .buttonImage {
+   height: 15px;
+   width: 15px;
+   vertical-align: middle;
+   background-image: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/NAV/selector_arrow.png);
+   background-size: cover;
+   display: inline-block;
+   position: relative;
+   margin-left: 5px;
+}
+
+ #previewButton {
+  font-weight: 600;
+  color: #222;
+  background-image: url("/pentaho/api/repos/pentaho-cdf-dd/css/../images/NAV/menu-icons/preview.png");
+  height: 32px;
+  width: 32px;
+  left: 15px;
+  top: 4px;
+  position: relative;
+}
+
+.clear {
+  clear: both;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:link, a:visited {
+  color: #222;
+}
+
+a:hover > .buttonImage,
+.linkActive > .buttonImage {
+  background-position-x: 15px;
+}
+
+a:active {
+  color: #fff;
+}
+
+/*****************
+ ** impromptu starts here **
+ ***************************************************************/
+
+div.popup {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 13pt;
+  text-align: left;
+
+  position: fixed!important;
+  top: 30px;
+
+
+  max-width: 75%;
+  max-height: 80%;
+  min-width: 10%;
+  overflow: visible;
+  transition: 0.3s;
+
+  background: #FFFFFF;
+  border: 2px solid #FFFFFF;
+}
+
+/* IE11 will behave strangely with prompts with position fixed inside PUC */
+_:-ms-fullscreen, :root div.popup {
+  position: absolute !important;
+}
+
+div.popup.settings-popup {
+  width: 500px;
+  min-width: 500px;
+}
+
+div.popup.array-list-popup {
+  min-height: 454px;
+}
+
+div.popup.save-dashboard {
+  min-height: 583px;
+}
+
+div.popup.save-widget {
+ min-height: 438px;
+}
+
+div.popup.save-settings {
+  min-height: 519px;
+}
+
+div.popup.template-popup {
+  width: 665px;
+  min-width: 665px;
+  min-height: 494px;
+}
+
+div.popup.external-editor-popup {
+  width: 842px;
+  min-width: 842px;
+}
+
+div.popup.edit-popup {
+  width: 822px;
+  min-width: 822px;
+}
+
+div.popup.url-template-popup {
+  min-width: 550px;
+}
+
+div.popup.choose-file-popup {
+  min-width: 404px;
+}
+
+.popupfade {
+  opacity: 0.7;
+  background: #26363D;
+}
+
+.popup-header-container {
+  height: 24px;
+  line-height: 24px;
+
+  margin: 15px 20px;
+  position: relative;
+  box-sizing: border-box;
+  padding-right: 255px;
+}
+
+.popup-header-container.cancel-only {
+ padding-right: 120px;
+}
+
+.popup-title-container {
+  font-family: 'Open Sans SemiBold', sans-serif;
+  font-size: 16pt;
+  color: #005CA7;
+
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.popup-body-container {
+  position: relative;
+  background-color: #F5F6F8;
+  padding: 20px;
+  height: 360px;
+}
+
+.settings-popup .popup-body-container, .popup-body-container.layout-popup, .template-popup .popup-body-container,
+#wizardDialog .popup-body-container, .edit-popup .popup-body-container, .choose-file-popup .popup-body-container,
+.external-editor-popup .popup-body-container {
+  height: auto;
+}
+
+.popup-body-container.template-popup-container {
+  width: 645px;
+  padding-right: 0;
+}
+
+.popup-body-container .folderexplorer, .popup-body-container div.urltargetfolderexplorer {
+  width: 100%;
+  border: none;
+  overflow: auto;
+}
+
+.popup-body-container UL.jqueryFileTree A:hover {
+  background: #0072CE;
+}
+
+.popup-body-notification {
+  padding: 20px;
+}
+
+div.popup .template-scroll {
+  max-height: 400px;
+  overflow: auto;
+}
+
+.popup-template-container {
+  float: left;
+  width: 195px;
+
+  margin-bottom: 20px;
+  margin-right: 20px;
+}
+
+.popup-template-container .popup-template {
+  float: left;
+
+  height: 130px;
+  width: 155px;
+
+  padding: 18px;
+  border: 1px solid #FFFFFF;
+  background-color: #FFFFFF;
+}
+
+.popup-template-container .popup-template:hover {
+  border: 1px solid #0072CE;
+}
+
+.popup-template-container .popup-template.template-selected {
+  border: 1px solid #005CA7;
+}
+
+div.popup .popup-template img {
+  height: 130px;
+  width: 155px;
+  background-color: #F5F6F8;
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+/* select, input, label */
+.popup-input-container, .layout-popup.resource-popup .popup-input-container {
+  margin-right: 20px;
+  width: 200px;
+  float: left;
+}
+
+#chooseFormatWrapper.popup-input-container {
+  margin-bottom: 30px;
+}
+
+.layout-popup .popup-input-container {
+  width: 100%;
+  float: none;
+  margin-right: 0;
+  margin-bottom: 20px;
+}
+
+.popup-template-container.last, .popup-input-container.last, .resource-popup .popup-input-container.last {
+  margin-right: 0;
+}
+
+.popup-input-container.bottom, .popup-template-container.bottom {
+  margin-bottom: 0;
+}
+
+#wizardDialog .popup-label, div.popup .popup-label {
+  color: #999999;
+  font-family: 'Open Sans Light', sans-serif;
+  font-size: 12pt;
+}
+
+/* checkbox and radio*/
+.popup-checkbox-container input[type="checkbox"], .popup-radio-container input[type="radio"] {
+  display: none;
+}
+
+.ie8 input[type="checkbox"], .ie8 input[type="radio"] {
+  display: inline-block;
+}
+
+.popup-radio-container, .popup-checkbox-container {
+  background-color: #FFFFFF;
+}
+
+.input-pair .popup-checkbox-container, .input-pair .popup-radio-container {
+  border-right: 2px solid #F5F6F8;
+  box-sizing: border-box;
+
+  float: left;
+  width: 50%;
+}
+
+.popup-checkbox-container.last, .popup-radio-container.last {
+  border-right: none;
+}
+
+.popup-input-label {
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+  padding: 3px 10px 2px 35px;
+  margin-right: 15px;
+  font-size: 14px;
+}
+.ie8 .popup-input-label {
+  padding: 0;
+}
+
+.popup-input-label:before {
+  content: "";
+  display: inline-block;
+  box-sizing: border-box;
+
+  width: 14px;
+  height: 14px;
+
+  margin-right: 10px;
+  position: absolute;
+  left: 10px;
+  bottom: 5px;
+  background-color: #F5F6F8;
+  border: 1px solid #E6E7E8;
+}
+ .ie8 .popup-input-label:before {
+   display: none;
+ }
+.popup-radio-container .popup-input-label:before {
+  border-radius: 8px;
+}
+
+input[type=checkbox]:checked + .popup-input-label:before {
+  content: "\2713";
+  font-size: 14px;
+  background-color: #005CA7;
+  color: #FFFFFF;
+  text-align: center;
+  line-height: 14px;
+}
+
+input[type=radio]:checked + .popup-input-label:before {
+  content: "\2022";
+  color: #005CA7;
+  font-size: 20px;
+  text-align: center;
+  line-height: 13px;
+}
+
+input[type=radio]:checked + .popup-input-label,
+input[type=checkbox]:checked + .popup-input-label {
+  color: #005CA7;
+}
+
+input[type=radio] + .popup-input-label:hover:before,
+input[type=checkbox] + .popup-input-label:hover:before {
+  border: 1px solid #005ca7;
+}
+
+.popup-input-container .popup-select.select2-container, .popup-select.select2-container {
+  box-sizing: border-box;
+  box-shadow: none;
+  width: 100%;
+  height: 24px;
+}
+
+.popup-input-container .popup-select.select2-container a {
+  box-sizing: border-box;
+  padding: 0 5px 0 10px;
+  height: 24px;
+  line-height: 24px;
+
+  border: 1px Solid #FFFFFF;
+  border-radius: 0;
+
+  background: #FFFFFF none;
+}
+
+.popup-remove-hover .popup-select.select2-container a {
+  border-color: #F9ECED;
+  background-color: #F9ECED;
+}
+
+.popup-remove-selected .popup-select.select2-container a {
+  background-color: #DF9FA3;
+  border-color: #DF9FA3;
+}
+
+.popup-input-container .popup-select.select2-container .select2-chosen {
+  color: #555555;
+}
+
+.popup-input-container .popup-select.select2-container-disabled .select2-chosen {
+  color: #999999;
+}
+
+.popup-remove-hover .popup-select.select2-container .select2-chosen,
+.popup-remove-selected .popup-select.select2-container-disabled .select2-chosen {
+  color: #AF0E1A;
+}
+
+.popup-input-container .popup-select.select2-container-active a {
+  box-shadow: #757575;
+  border: 1px Solid #005CA7;
+}
+
+.popup-input-container .popup-select.select2-container span.select2-arrow {
+  border: none;
+  border-radius: 0;
+  background: #FFFFFF none;
+}
+
+.popup-remove-hover .popup-select.select2-container span.select2-arrow,
+.popup-remove-selected .popup-select.select2-container span.select2-arrow {
+  display: none;
+}
+
+.popup-input-container .popup-select.select2-container,
+.select2-drop-active.popup-select-dropdown {
+  font-family: 'Open Sans Regular', sans-serif;
+  font-size: 13pt;
+}
+
+div.popup .popupclose {
+  display: none;
+}
+
+div.popup .popupmessage {
+  min-width: 160px;
+  min-height: 25px;
+  line-height: 20px;
+  color: #555;
+  background: #FFFFFF;
+
+}
+
+div.popup .popupbuttons {
+  display: none;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #FFFFFF;
+}
+
+div.popup button {
+  background: #005ca7;
+  border: 0;
+  color: #FFFFFF;
+
+  font-family: 'Open Sans Regular', sans-serif;
+  font-size: 13pt;
+
+  position: relative;
+  right: 0;
+  margin-bottom: 0;
+  margin-left: 5px;
+  height: 24px;
+}
+
+div.popup button[id$=buttonOk] {
+  width: 120px;
+  margin-left: 40px;
+}
+div.popup.url-template-popup button[id$=buttonOk] {
+  width: 100px;
+  margin-left: 5px;
+}
+
+div.popup.url-template-popup button[id$=buttonOk] {
+  width: 100px;
+  margin-left: 5px;
+}
+
+div.template-popup button[id$=buttonOk] {
+  margin-left: 15px;
+}
+
+div.template-popup button[id$=buttonBack], div.template-popup button[id$=buttonMyTemplates] {
+  margin-left: 40px;
+}
+
+div.popup button[id$=buttonCancel] {
+  width: 80px;
+  margin-left: 15px;
+}
+
+div.popup.url-template-popup button[id$=buttonCancel] {
+  margin-left: 5px;
+}
+
+div.popup button:hover, div.popup button:active {
+  background: #0072CE;
+  cursor: pointer;
+}
+
+div.popup button:active {
+  box-shadow: 0 3px 5px 0 #004985 inset;
+}
+
+div.popup .popupmessage H1 {
+  font-family: 'Open Sans', sans-serif;
+  color: #222;
+  background-color: #fff600;
+  font-size: 22px;
+  margin: 20px 0 0;
+  padding: 5px;
+  line-height: 27px;
+}
+
+div.popup .popupmessage p {
+  font-family: 'Open Sans', sans-serif;
+  padding: 2px 5px;
+  color: #333;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+div.popup .popupmessage b {
+  font-family: 'Open Sans', sans-serif;
+  color: #222;
+  background-color: #fff600;
+  padding: 2px;
+  font-weight: 700;
+}
+
+div.popup .popupmessage h3 {
+  font-family: 'Open Sans', sans-serif;
+  color: #fff600;
+  background-color: #222;
+  font-size: 14px;
+  padding: 5px;
+}
+
+
+div.popup-ie9 {
+  width: 515px;
+}
+
+div.popup h2 {
+  float: left;
+  color: #555;
+  line-height: 20px;
+  font-size: 15px;
+  font-weight: bold;
+  position: relative;
+  top: -10px;
+  background-color: transparent!important;
+  margin-bottom: 0;
+}
+
+/* impromptu ends here*/
+
+.closePopup {
+  float: right;
+  font-weight: bold;
+  border: 2px solid #12a2d8;
+  height: 20px;
+  width: 20px;
+  text-align: center;
+  background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/close.png);
+}
+
+.closePopup:hover {
+  color: #222;
+  cursor: pointer;
+  background-image: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/close_mouseover.png);
+  background-color: #12a2d8;
+}
+
+.closePopup:active {
+  background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/close_onclick.png);
+  background-color: #12a2d8;
+}
+
+div.popup .title {
+   font-weight: 600;
+   width: 100%;
+   margin-top: 10px;
+   list-style: none;
+   font-size: 13px;
+   line-height: 13px;
+}
+
+div.popup img {
+  margin-left: 10px;
+}
+
+.popup .description {
+  font-size:20px;
+  line-height:1;
+  margin-bottom:0.5em;
+  list-style: none;
+  font-weight: 100;
+
+}
+
+div.popup .button {
+  width: 75px;
+  border: 2px #12a2d8 solid;
+  float: right;
+  text-align: center;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+div.popup .button:hover {
+  background: #12a2d8;
+  color: #222;
+  cursor: pointer;
+}
+
+div.popup .button:active {
+  color: #fff;
+
+}
+
+.preload {
+  position: absolute;
+  left: -999px;
+  top: -999px;
+  max-height: 0;
+  max-width: 0;
+}
+
+.jquery-corner {
+  display: none;
+}
+
+.panel-content .accordion .ui-accordion-header.ui-state-active,
+.panel-content .accordion .ui-accordion-header.ui-state-active.ui-state-hover {
+  background: #005AC7;
+}
+
+.panel-content .accordion .ui-accordion-header.ui-state-hover {
+  color: #005AC7;
+  background: #DBDDDD;
+  border: 1px solid #DBDDDD;
+}
+
+
+
+.span-6.accordion {
+  width: 25%;
+}
+
+.span-6.accordion {
+  width: 24%;
+  min-width: 230px;
+  margin: 0;
+}
+
+#cdfdd-components-components.span-8,
+#cdfdd-datasources-datasources.span-8 {
+  width: 33%;
+  min-width: 310px;
+  margin: 0;
+  padding-left: 10px;
+}
+
+#cdfdd-components-properties.span-10.last,
+#cdfdd-datasources-properties.span-10.last {
+  min-width: 390px;
+  width: 42%;
+  padding-left: 15px;
+  float: right;
+}
+
+#cdfdd-layout-tree {
+  padding: 0;
+  margin: 0;
+  float: left;
+}
+
+#cdfdd-layout-properties {
+   padding: 0;
+   margin: 0;
+   float: right;
+   margin-right: -1px;
+ }
+
+.layoutPanelButton {
+    background-image: url("/pentaho/api/repos/pentaho-cdf-dd/css/../images/NAV/menu-icons/layout.png");
+    height: 32px!important;
+    width: 32px;
+    position: absolute;
+    left: 9px;
+    top: 4px;
+}
+
+.componentsPanelButton {
+    background-image: url("/pentaho/api/repos/pentaho-cdf-dd/css/../images/NAV/menu-icons/components.png");
+    height: 32px!important;
+    width: 32px;
+    position: absolute;
+    left: 9px;
+    top: 4px;
+}
+
+.datasourcesPanelButton {
+    background-image: url("/pentaho/api/repos/pentaho-cdf-dd/css/../images/NAV/menu-icons/data.png");
+    height: 32px!important;
+    width: 32px;
+    position: absolute;
+    left: 9px;
+    top: 4px;
+}
+
+.panelButton.panelButton-active a div {
+   background-position: -32px 0px;
+}
+
+.panelButtonClickableArea {
+  width: 50px;
+  height: 40px;
+  position: absolute;
+}
+
+/*div.popup input[type="button"]:hover {
+  background: #bbb;
+}*/
+
+.ace_editor{
+    border: 1px solid #d9dcdd;
+}/*! jQuery UI - v1.10.4 - 2014-08-21
+* http://jqueryui.com
+* Includes: jquery.ui.core.css, jquery.ui.resizable.css, jquery.ui.selectable.css, jquery.ui.accordion.css, jquery.ui.autocomplete.css, jquery.ui.button.css, jquery.ui.datepicker.css, jquery.ui.dialog.css, jquery.ui.menu.css, jquery.ui.progressbar.css, jquery.ui.slider.css, jquery.ui.spinner.css, jquery.ui.tabs.css, jquery.ui.tooltip.css, jquery.ui.theme.css
+* To view and modify this theme, visit http://jqueryui.com/themeroller/?ffDefault=Open%20Sans%2CArial%2Csans-serif&fwDefault=normal&fsDefault=1.1em&cornerRadius=0px&bgColorHeader=%230098c4&bgTextureHeader=flat&bgImgOpacityHeader=0&borderColorHeader=%230098c4&fcHeader=%23ffffff&iconColorHeader=%23999999&bgColorContent=%23f5f5f5&bgTextureContent=flat&bgImgOpacityContent=0&borderColorContent=%23aaaaaa&fcContent=%23555&iconColorContent=%23d19405&bgColorDefault=%23eaedee&bgTextureDefault=flat&bgImgOpacityDefault=0&borderColorDefault=%23eee&fcDefault=%23555&iconColorDefault=%233d3d3d&bgColorHover=%23ddd&bgTextureHover=flat&bgImgOpacityHover=0&borderColorHover=%23ccc&fcHover=%231999d1&iconColorHover=%231999d1&bgColorActive=%230098c4&bgTextureActive=flat&bgImgOpacityActive=0&borderColorActive=%230098c4&fcActive=%23ffffff&iconColorActive=%23ffffff&bgColorHighlight=%23203741&bgTextureHighlight=gloss_wave&bgImgOpacityHighlight=55&borderColorHighlight=%231999d1&fcHighlight=%23ffffff&iconColorHighlight=%233383bb&bgColorError=%23c0402a&bgTextureError=flat&bgImgOpacityError=100&borderColorError=%23c0402a&fcError=%23ffffff&iconColorError=%23fbc856&bgColorOverlay=%235c5c5c&bgTextureOverlay=flat&bgImgOpacityOverlay=50&opacityOverlay=80&bgColorShadow=%23aaaaaa&bgTextureShadow=flat&bgImgOpacityShadow=0&opacityShadow=0&thicknessShadow=0px&offsetTopShadow=-4px&offsetLeftShadow=-4px&cornerRadiusShadow=0px
+* Copyright 2014 jQuery Foundation and other contributors; Licensed MIT */
+
+/* Layout helpers
+----------------------------------*/
+.ui-helper-hidden {
+	display: none;
+}
+.ui-helper-hidden-accessible {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+}
+.ui-helper-reset {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	line-height: 1.3;
+	text-decoration: none;
+	font-size: 100%;
+	list-style: none;
+}
+.ui-helper-clearfix:before,
+.ui-helper-clearfix:after {
+	content: "";
+	display: table;
+	border-collapse: collapse;
+}
+.ui-helper-clearfix:after {
+	clear: both;
+}
+.ui-helper-clearfix {
+	min-height: 0; /* support: IE7 */
+}
+.ui-helper-zfix {
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	position: absolute;
+	opacity: 0;
+	filter:Alpha(Opacity=0);
+}
+
+.ui-front {
+	z-index: 100;
+}
+
+
+/* Interaction Cues
+----------------------------------*/
+.ui-state-disabled {
+	cursor: default !important;
+}
+
+
+/* Icons
+----------------------------------*/
+
+/* states and images */
+.ui-icon {
+	display: block;
+	text-indent: -99999px;
+	overflow: hidden;
+	background-repeat: no-repeat;
+}
+
+
+/* Misc visuals
+----------------------------------*/
+
+/* Overlays */
+.ui-widget-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+.ui-resizable {
+	position: relative;
+}
+.ui-resizable-handle {
+	position: absolute;
+	font-size: 0.1px;
+	display: block;
+}
+.ui-resizable-disabled .ui-resizable-handle,
+.ui-resizable-autohide .ui-resizable-handle {
+	display: none;
+}
+.ui-resizable-n {
+	cursor: n-resize;
+	height: 7px;
+	width: 100%;
+	top: -5px;
+	left: 0;
+}
+.ui-resizable-s {
+	cursor: s-resize;
+	height: 7px;
+	width: 100%;
+	bottom: -5px;
+	left: 0;
+}
+.ui-resizable-e {
+	cursor: e-resize;
+	width: 7px;
+	right: -5px;
+	top: 0;
+	height: 100%;
+}
+.ui-resizable-w {
+	cursor: w-resize;
+	width: 7px;
+	left: -5px;
+	top: 0;
+	height: 100%;
+}
+.ui-resizable-se {
+	cursor: se-resize;
+	width: 12px;
+	height: 12px;
+	right: 1px;
+	bottom: 1px;
+}
+.ui-resizable-sw {
+	cursor: sw-resize;
+	width: 9px;
+	height: 9px;
+	left: -5px;
+	bottom: -5px;
+}
+.ui-resizable-nw {
+	cursor: nw-resize;
+	width: 9px;
+	height: 9px;
+	left: -5px;
+	top: -5px;
+}
+.ui-resizable-ne {
+	cursor: ne-resize;
+	width: 9px;
+	height: 9px;
+	right: -5px;
+	top: -5px;
+}
+.ui-selectable-helper {
+	position: absolute;
+	z-index: 100;
+	border: 1px dotted black;
+}
+.ui-accordion .ui-accordion-header {
+	margin: 0;
+	outline: 0;
+	line-height: 1.3;
+	text-decoration: none;
+	font-size: 100%;
+	list-style: none;
+	display: block;
+	cursor: pointer;
+	position: relative;
+	margin-top: 2px;
+	padding: .5em .5em .5em .7em;
+	min-height: 0; /* support: IE7 */
+}
+.ui-accordion .ui-accordion-icons {
+	padding-left: 2.2em;
+}
+.ui-accordion .ui-accordion-noicons {
+	padding-left: .7em;
+}
+.ui-accordion .ui-accordion-icons .ui-accordion-icons {
+	padding-left: 2.2em;
+}
+.ui-accordion .ui-accordion-header .ui-accordion-header-icon {
+	position: absolute;
+	left: .5em;
+	top: 50%;
+	margin-top: -8px;
+}
+.ui-accordion .ui-accordion-content {
+	padding: 1em 2.2em;
+	border-top: 0;
+	overflow: auto;
+}
+.ui-autocomplete {
+	position: absolute;
+	top: 0;
+	left: 0;
+	cursor: default;
+}
+.ui-button {
+	display: inline-block;
+	position: relative;
+	padding: 0;
+	line-height: normal;
+	margin-right: .1em;
+	cursor: pointer;
+	vertical-align: middle;
+	text-align: center;
+	overflow: visible; /* removes extra width in IE */
+}
+.ui-button,
+.ui-button:link,
+.ui-button:visited,
+.ui-button:hover,
+.ui-button:active {
+	text-decoration: none;
+}
+/* to make room for the icon, a width needs to be set here */
+.ui-button-icon-only {
+	width: 2.2em;
+}
+/* button elements seem to need a little more width */
+button.ui-button-icon-only {
+	width: 2.4em;
+}
+.ui-button-icons-only {
+	width: 3.4em;
+}
+button.ui-button-icons-only {
+	width: 3.7em;
+}
+
+/* button text element */
+.ui-button .ui-button-text {
+	display: block;
+	line-height: normal;
+}
+.ui-button-text-only .ui-button-text {
+	padding: .4em 1em;
+}
+.ui-button-icon-only .ui-button-text,
+.ui-button-icons-only .ui-button-text {
+	padding: .4em;
+	text-indent: -9999999px;
+}
+.ui-button-text-icon-primary .ui-button-text,
+.ui-button-text-icons .ui-button-text {
+	padding: .4em 1em .4em 2.1em;
+}
+.ui-button-text-icon-secondary .ui-button-text,
+.ui-button-text-icons .ui-button-text {
+	padding: .4em 2.1em .4em 1em;
+}
+.ui-button-text-icons .ui-button-text {
+	padding-left: 2.1em;
+	padding-right: 2.1em;
+}
+/* no icon support for input elements, provide padding by default */
+input.ui-button {
+	padding: .4em 1em;
+}
+
+/* button icon element(s) */
+.ui-button-icon-only .ui-icon,
+.ui-button-text-icon-primary .ui-icon,
+.ui-button-text-icon-secondary .ui-icon,
+.ui-button-text-icons .ui-icon,
+.ui-button-icons-only .ui-icon {
+	position: absolute;
+	top: 50%;
+	margin-top: -8px;
+}
+.ui-button-icon-only .ui-icon {
+	left: 50%;
+	margin-left: -8px;
+}
+.ui-button-text-icon-primary .ui-button-icon-primary,
+.ui-button-text-icons .ui-button-icon-primary,
+.ui-button-icons-only .ui-button-icon-primary {
+	left: .5em;
+}
+.ui-button-text-icon-secondary .ui-button-icon-secondary,
+.ui-button-text-icons .ui-button-icon-secondary,
+.ui-button-icons-only .ui-button-icon-secondary {
+	right: .5em;
+}
+
+/* button sets */
+.ui-buttonset {
+	margin-right: 7px;
+}
+.ui-buttonset .ui-button {
+	margin-left: 0;
+	margin-right: -.3em;
+}
+
+/* workarounds */
+/* reset extra padding in Firefox, see h5bp.com/l */
+input.ui-button::-moz-focus-inner,
+button.ui-button::-moz-focus-inner {
+	border: 0;
+	padding: 0;
+}
+.ui-datepicker {
+	width: 17em;
+	padding: .2em .2em 0;
+	display: none;
+}
+.ui-datepicker .ui-datepicker-header {
+	position: relative;
+	padding: .2em 0;
+}
+.ui-datepicker .ui-datepicker-prev,
+.ui-datepicker .ui-datepicker-next {
+	position: absolute;
+	top: 2px;
+	width: 1.8em;
+	height: 1.8em;
+}
+.ui-datepicker .ui-datepicker-prev-hover,
+.ui-datepicker .ui-datepicker-next-hover {
+	top: 1px;
+}
+.ui-datepicker .ui-datepicker-prev {
+	left: 2px;
+}
+.ui-datepicker .ui-datepicker-next {
+	right: 2px;
+}
+.ui-datepicker .ui-datepicker-prev-hover {
+	left: 1px;
+}
+.ui-datepicker .ui-datepicker-next-hover {
+	right: 1px;
+}
+.ui-datepicker .ui-datepicker-prev span,
+.ui-datepicker .ui-datepicker-next span {
+	display: block;
+	position: absolute;
+	left: 50%;
+	margin-left: -8px;
+	top: 50%;
+	margin-top: -8px;
+}
+.ui-datepicker .ui-datepicker-title {
+	margin: 0 2.3em;
+	line-height: 1.8em;
+	text-align: center;
+}
+.ui-datepicker .ui-datepicker-title select {
+	font-size: 1em;
+	margin: 1px 0;
+}
+.ui-datepicker select.ui-datepicker-month,
+.ui-datepicker select.ui-datepicker-year {
+	width: 49%;
+}
+.ui-datepicker table {
+	width: 100%;
+	font-size: .9em;
+	border-collapse: collapse;
+	margin: 0 0 .4em;
+}
+.ui-datepicker th {
+	padding: .7em .3em;
+	text-align: center;
+	font-weight: bold;
+	border: 0;
+}
+.ui-datepicker td {
+	border: 0;
+	padding: 1px;
+}
+.ui-datepicker td span,
+.ui-datepicker td a {
+	display: block;
+	padding: .2em;
+	text-align: right;
+	text-decoration: none;
+}
+.ui-datepicker .ui-datepicker-buttonpane {
+	background-image: none;
+	margin: .7em 0 0 0;
+	padding: 0 .2em;
+	border-left: 0;
+	border-right: 0;
+	border-bottom: 0;
+}
+.ui-datepicker .ui-datepicker-buttonpane button {
+	float: right;
+	margin: .5em .2em .4em;
+	cursor: pointer;
+	padding: .2em .6em .3em .6em;
+	width: auto;
+	overflow: visible;
+}
+.ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-current {
+	float: left;
+}
+
+/* with multiple calendars */
+.ui-datepicker.ui-datepicker-multi {
+	width: auto;
+}
+.ui-datepicker-multi .ui-datepicker-group {
+	float: left;
+}
+.ui-datepicker-multi .ui-datepicker-group table {
+	width: 95%;
+	margin: 0 auto .4em;
+}
+.ui-datepicker-multi-2 .ui-datepicker-group {
+	width: 50%;
+}
+.ui-datepicker-multi-3 .ui-datepicker-group {
+	width: 33.3%;
+}
+.ui-datepicker-multi-4 .ui-datepicker-group {
+	width: 25%;
+}
+.ui-datepicker-multi .ui-datepicker-group-last .ui-datepicker-header,
+.ui-datepicker-multi .ui-datepicker-group-middle .ui-datepicker-header {
+	border-left-width: 0;
+}
+.ui-datepicker-multi .ui-datepicker-buttonpane {
+	clear: left;
+}
+.ui-datepicker-row-break {
+	clear: both;
+	width: 100%;
+	font-size: 0;
+}
+
+/* RTL support */
+.ui-datepicker-rtl {
+	direction: rtl;
+}
+.ui-datepicker-rtl .ui-datepicker-prev {
+	right: 2px;
+	left: auto;
+}
+.ui-datepicker-rtl .ui-datepicker-next {
+	left: 2px;
+	right: auto;
+}
+.ui-datepicker-rtl .ui-datepicker-prev:hover {
+	right: 1px;
+	left: auto;
+}
+.ui-datepicker-rtl .ui-datepicker-next:hover {
+	left: 1px;
+	right: auto;
+}
+.ui-datepicker-rtl .ui-datepicker-buttonpane {
+	clear: right;
+}
+.ui-datepicker-rtl .ui-datepicker-buttonpane button {
+	float: left;
+}
+.ui-datepicker-rtl .ui-datepicker-buttonpane button.ui-datepicker-current,
+.ui-datepicker-rtl .ui-datepicker-group {
+	float: right;
+}
+.ui-datepicker-rtl .ui-datepicker-group-last .ui-datepicker-header,
+.ui-datepicker-rtl .ui-datepicker-group-middle .ui-datepicker-header {
+	border-right-width: 0;
+	border-left-width: 1px;
+}
+.ui-dialog {
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: .2em;
+	outline: 0;
+}
+.ui-dialog .ui-dialog-titlebar {
+	padding: .4em 1em;
+	position: relative;
+}
+.ui-dialog .ui-dialog-title {
+	float: left;
+	margin: .1em 0;
+	white-space: nowrap;
+	width: 90%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.ui-dialog .ui-dialog-titlebar-close {
+	position: absolute;
+	right: .3em;
+	top: 50%;
+	width: 20px;
+	margin: -10px 0 0 0;
+	padding: 1px;
+	height: 20px;
+}
+.ui-dialog .ui-dialog-content {
+	position: relative;
+	border: 0;
+	padding: .5em 1em;
+	background: none;
+	overflow: auto;
+}
+.ui-dialog .ui-dialog-buttonpane {
+	text-align: left;
+	border-width: 1px 0 0 0;
+	background-image: none;
+	margin-top: .5em;
+	padding: .3em 1em .5em .4em;
+}
+.ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
+	float: right;
+}
+.ui-dialog .ui-dialog-buttonpane button {
+	margin: .5em .4em .5em 0;
+	cursor: pointer;
+}
+.ui-dialog .ui-resizable-se {
+	width: 12px;
+	height: 12px;
+	right: -5px;
+	bottom: -5px;
+	background-position: 16px 16px;
+}
+.ui-draggable .ui-dialog-titlebar {
+	cursor: move;
+}
+.ui-menu {
+	list-style: none;
+	padding: 2px;
+	margin: 0;
+	display: block;
+	outline: none;
+}
+.ui-menu .ui-menu {
+	margin-top: -3px;
+	position: absolute;
+}
+.ui-menu .ui-menu-item {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	/* support: IE10, see #8844 */
+	list-style-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7);
+}
+.ui-menu .ui-menu-divider {
+	margin: 5px -2px 5px -2px;
+	height: 0;
+	font-size: 0;
+	line-height: 0;
+	border-width: 1px 0 0 0;
+}
+.ui-menu .ui-menu-item a {
+	text-decoration: none;
+	display: block;
+	padding: 2px .4em;
+	line-height: 1.5;
+	min-height: 0; /* support: IE7 */
+	font-weight: normal;
+}
+.ui-menu .ui-menu-item a.ui-state-focus,
+.ui-menu .ui-menu-item a.ui-state-active {
+	font-weight: normal;
+	margin: -1px;
+}
+
+.ui-menu .ui-state-disabled {
+	font-weight: normal;
+	margin: .4em 0 .2em;
+	line-height: 1.5;
+}
+.ui-menu .ui-state-disabled a {
+	cursor: default;
+}
+
+/* icon support */
+.ui-menu-icons {
+	position: relative;
+}
+.ui-menu-icons .ui-menu-item a {
+	position: relative;
+	padding-left: 2em;
+}
+
+/* left-aligned */
+.ui-menu .ui-icon {
+	position: absolute;
+	top: .2em;
+	left: .2em;
+}
+
+/* right-aligned */
+.ui-menu .ui-menu-icon {
+	position: static;
+	float: right;
+}
+.ui-progressbar {
+	height: 2em;
+	text-align: left;
+	overflow: hidden;
+}
+.ui-progressbar .ui-progressbar-value {
+	margin: -1px;
+	height: 100%;
+}
+.ui-progressbar .ui-progressbar-overlay {
+	background: url("/pentaho/api/repos/pentaho-cdf-dd/css/sunny/images/animated-overlay.gif");
+	height: 100%;
+	filter: alpha(opacity=25);
+	opacity: 0.25;
+}
+.ui-progressbar-indeterminate .ui-progressbar-value {
+	background-image: none;
+}
+.ui-slider {
+	position: relative;
+	text-align: left;
+}
+.ui-slider .ui-slider-handle {
+	position: absolute;
+	z-index: 2;
+	width: 1.2em;
+	height: 1.2em;
+	cursor: default;
+}
+.ui-slider .ui-slider-range {
+	position: absolute;
+	z-index: 1;
+	font-size: .7em;
+	display: block;
+	border: 0;
+	background-position: 0 0;
+}
+
+/* For IE8 - See #6727 */
+.ui-slider.ui-state-disabled .ui-slider-handle,
+.ui-slider.ui-state-disabled .ui-slider-range {
+	filter: inherit;
+}
+
+.ui-slider-horizontal {
+	height: .8em;
+}
+.ui-slider-horizontal .ui-slider-handle {
+	top: -.3em;
+	margin-left: -.6em;
+}
+.ui-slider-horizontal .ui-slider-range {
+	top: 0;
+	height: 100%;
+}
+.ui-slider-horizontal .ui-slider-range-min {
+	left: 0;
+}
+.ui-slider-horizontal .ui-slider-range-max {
+	right: 0;
+}
+
+.ui-slider-vertical {
+	width: .8em;
+	height: 100px;
+}
+.ui-slider-vertical .ui-slider-handle {
+	left: -.3em;
+	margin-left: 0;
+	margin-bottom: -.6em;
+}
+.ui-slider-vertical .ui-slider-range {
+	left: 0;
+	width: 100%;
+}
+.ui-slider-vertical .ui-slider-range-min {
+	bottom: 0;
+}
+.ui-slider-vertical .ui-slider-range-max {
+	top: 0;
+}
+.ui-spinner {
+	position: relative;
+	display: inline-block;
+	overflow: hidden;
+	padding: 0;
+	vertical-align: middle;
+}
+.ui-spinner-input {
+	border: none;
+	background: none;
+	color: inherit;
+	padding: 0;
+	margin: .2em 0;
+	vertical-align: middle;
+	margin-left: .4em;
+	margin-right: 22px;
+}
+.ui-spinner-button {
+	width: 16px;
+	height: 50%;
+	font-size: .5em;
+	padding: 0;
+	margin: 0;
+	text-align: center;
+	position: absolute;
+	cursor: default;
+	display: block;
+	overflow: hidden;
+	right: 0;
+}
+/* more specificity required here to override default borders */
+.ui-spinner a.ui-spinner-button {
+	border-top: none;
+	border-bottom: none;
+	border-right: none;
+}
+/* vertically center icon */
+.ui-spinner .ui-icon {
+	position: absolute;
+	margin-top: -8px;
+	top: 50%;
+	left: 0;
+}
+.ui-spinner-up {
+	top: 0;
+}
+.ui-spinner-down {
+	bottom: 0;
+}
+
+/* TR overrides */
+.ui-spinner .ui-icon-triangle-1-s {
+	/* need to fix icons sprite */
+	background-position: -65px -16px;
+}
+.ui-tabs {
+	position: relative;/* position: relative prevents IE scroll bug (element with position: relative inside container with overflow: auto appear as "fixed") */
+	padding: .2em;
+}
+.ui-tabs .ui-tabs-nav {
+	margin: 0;
+	padding: .2em .2em 0;
+}
+.ui-tabs .ui-tabs-nav li {
+	list-style: none;
+	float: left;
+	position: relative;
+	top: 0;
+	margin: 1px .2em 0 0;
+	border-bottom-width: 0;
+	padding: 0;
+	white-space: nowrap;
+}
+.ui-tabs .ui-tabs-nav .ui-tabs-anchor {
+	float: left;
+	padding: .5em 1em;
+	text-decoration: none;
+}
+.ui-tabs .ui-tabs-nav li.ui-tabs-active {
+	margin-bottom: -1px;
+	padding-bottom: 1px;
+}
+.ui-tabs .ui-tabs-nav li.ui-tabs-active .ui-tabs-anchor,
+.ui-tabs .ui-tabs-nav li.ui-state-disabled .ui-tabs-anchor,
+.ui-tabs .ui-tabs-nav li.ui-tabs-loading .ui-tabs-anchor {
+	cursor: text;
+}
+.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-active .ui-tabs-anchor {
+	cursor: pointer;
+}
+.ui-tabs .ui-tabs-panel {
+	display: block;
+	border-width: 0;
+	padding: 1em 1.4em;
+	background: none;
+}
+.ui-tooltip {
+	padding: 8px;
+	position: absolute;
+	z-index: 9999;
+	max-width: 300px;
+	-webkit-box-shadow: 0 0 5px #aaa;
+	box-shadow: 0 0 5px #aaa;
+}
+body .ui-tooltip {
+	border-width: 2px;
+}
+
+/* Component containers
+----------------------------------*/
+.ui-widget {
+	font-family: Open Sans,Arial,sans-serif;
+	font-size: 1.1em;
+}
+.ui-widget .ui-widget {
+	font-size: 1em;
+}
+.ui-widget input,
+.ui-widget select,
+.ui-widget textarea,
+.ui-widget button {
+	font-family: Open Sans,Arial,sans-serif;
+	font-size: 1em;
+}
+.ui-widget-content {
+	border: 1px solid #aaaaaa;
+	background: #f5f5f5 url("/pentaho/api/repos/pentaho-cdf-dd/css/sunny/images/ui-bg_flat_0_f5f5f5_40x100.png") 50% 50% repeat-x;
+	color: #555;
+}
+.ui-widget-content a {
+	color: #555;
+}
+.ui-widget-header {
+	border: 1px solid #0098c4;
+	background: #0098c4 url("/pentaho/api/repos/pentaho-cdf-dd/css/sunny/images/ui-bg_flat_0_0098c4_40x100.png") 50% 50% repeat-x;
+	color: #ffffff;
+	font-weight: bold;
+}
+.ui-widget-header a {
+	color: #ffffff;
+}
+
+/* Interaction states
+----------------------------------*/
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default {
+	border: 1px solid #eee;
+	background: #eaedee url("/pentaho/api/repos/pentaho-cdf-dd/css/sunny/images/ui-bg_flat_0_eaedee_40x100.png") 50% 50% repeat-x;
+	font-weight: normal;
+	color: #555;
+}
+.ui-state-default a,
+.ui-state-default a:link,
+.ui-state-default a:visited {
+	color: #555;
+	text-decoration: none;
+}
+.ui-state-hover,
+.ui-widget-content .ui-state-hover,
+.ui-widget-header .ui-state-hover,
+.ui-state-focus,
+.ui-widget-content .ui-state-focus,
+.ui-widget-header .ui-state-focus {
+	border: 1px solid #ccc;
+	background: #ddd url("/pentaho/api/repos/pentaho-cdf-dd/css/sunny/images/ui-bg_flat_0_ddd_40x100.png") 50% 50% repeat-x;
+	font-weight: normal;
+	color: #1999d1;
+}
+.ui-state-hover a,
+.ui-state-hover a:hover,
+.ui-state-hover a:link,
+.ui-state-hover a:visited,
+.ui-state-focus a,
+.ui-state-focus a:hover,
+.ui-state-focus a:link,
+.ui-state-focus a:visited {
+	color: #1999d1;
+	text-decoration: none;
+}
+.ui-state-active,
+.ui-widget-content .ui-state-active,
+.ui-widget-header .ui-state-active {
+	border: 1px solid #0098c4;
+	background: #0098c4 url("/pentaho/api/repos/pentaho-cdf-dd/css/sunny/images/ui-bg_flat_0_0098c4_40x100.png") 50% 50% repeat-x;
+	font-weight: normal;
+	color: #ffffff;
+}
+.ui-state-active a,
+.ui-state-active a:link,
+.ui-state-active a:visited {
+	color: #ffffff;
+	text-decoration: none;
+}
+
+/* Interaction Cues
+----------------------------------*/
+.ui-state-highlight,
+.ui-widget-content .ui-state-highlight,
+.ui-widget-header .ui-state-highlight {
+	border: 1px solid #1999d1;
+	background: #203741 url("/pentaho/api/repos/pentaho-cdf-dd/css/sunny/images/ui-bg_gloss-wave_55_203741_500x100.png") 50% top repeat-x;
+	color: #ffffff;
+}
+.ui-state-highlight a,
+.ui-widget-content .ui-state-highlight a,
+.ui-widget-header .ui-state-highlight a {
+	color: #ffffff;
+}
+.ui-state-error,
+.ui-widget-content .ui-state-error,
+.ui-widget-header .ui-state-error {
+	border: 1px solid #c0402a;
+	background: #c0402a url("/pentaho/api/repos/pentaho-cdf-dd/css/sunny/images/ui-bg_flat_100_c0402a_40x100.png") 50% 50% repeat-x;
+	color: #ffffff;
+}
+.ui-state-error a,
+.ui-widget-content .ui-state-error a,
+.ui-widget-header .ui-state-error a {
+	color: #ffffff;
+}
+.ui-state-error-text,
+.ui-widget-content .ui-state-error-text,
+.ui-widget-header .ui-state-error-text {
+	color: #ffffff;
+}
+.ui-priority-primary,
+.ui-widget-content .ui-priority-primary,
+.ui-widget-header .ui-priority-primary {
+	font-weight: bold;
+}
+.ui-priority-secondary,
+.ui-widget-content .ui-priority-secondary,
+.ui-widget-header .ui-priority-secondary {
+	opacity: .7;
+	filter:Alpha(Opacity=70);
+	font-weight: normal;
+}
+.ui-state-disabled,
+.ui-widget-content .ui-state-disabled,
+.ui-widget-header .ui-state-disabled {
+	opacity: .35;
+	filter:Alpha(Opacity=35);
+	background-image: none;
+}
+.ui-state-disabled .ui-icon {
+	filter:Alpha(Opacity=35); /* For IE8 - See #6059 */
+}
+
+/* Icons
+----------------------------------*/
+
+/* states and images */
+.ui-icon {
+	width: 16px;
+	height: 16px;
+}
+.ui-icon,
+.ui-widget-content .ui-icon {
+	background-image: url("/pentaho/api/repos/pentaho-cdf-dd/css/sunny/images/ui-icons_d19405_256x240.png");
+}
+.ui-widget-header .ui-icon {
+	background-image: url("/pentaho/api/repos/pentaho-cdf-dd/css/sunny/images/ui-icons_999999_256x240.png");
+}
+.ui-state-default .ui-icon {
+	background-image: url("/pentaho/api/repos/pentaho-cdf-dd/css/sunny/images/ui-icons_3d3d3d_256x240.png");
+}
+.ui-state-hover .ui-icon,
+.ui-state-focus .ui-icon {
+	background-image: url("/pentaho/api/repos/pentaho-cdf-dd/css/sunny/images/ui-icons_1999d1_256x240.png");
+}
+.ui-state-active .ui-icon {
+	background-image: url("/pentaho/api/repos/pentaho-cdf-dd/css/sunny/images/ui-icons_ffffff_256x240.png");
+}
+.ui-state-highlight .ui-icon {
+	background-image: url("/pentaho/api/repos/pentaho-cdf-dd/css/sunny/images/ui-icons_3383bb_256x240.png");
+}
+.ui-state-error .ui-icon,
+.ui-state-error-text .ui-icon {
+	background-image: url("/pentaho/api/repos/pentaho-cdf-dd/css/sunny/images/ui-icons_fbc856_256x240.png");
+}
+
+/* positioning */
+.ui-icon-blank { background-position: 16px 16px; }
+.ui-icon-carat-1-n { background-position: 0 0; }
+.ui-icon-carat-1-ne { background-position: -16px 0; }
+.ui-icon-carat-1-e { background-position: -32px 0; }
+.ui-icon-carat-1-se { background-position: -48px 0; }
+.ui-icon-carat-1-s { background-position: -64px 0; }
+.ui-icon-carat-1-sw { background-position: -80px 0; }
+.ui-icon-carat-1-w { background-position: -96px 0; }
+.ui-icon-carat-1-nw { background-position: -112px 0; }
+.ui-icon-carat-2-n-s { background-position: -128px 0; }
+.ui-icon-carat-2-e-w { background-position: -144px 0; }
+.ui-icon-triangle-1-n { background-position: 0 -16px; }
+.ui-icon-triangle-1-ne { background-position: -16px -16px; }
+.ui-icon-triangle-1-e { background-position: -32px -16px; }
+.ui-icon-triangle-1-se { background-position: -48px -16px; }
+.ui-icon-triangle-1-s { background-position: -64px -16px; }
+.ui-icon-triangle-1-sw { background-position: -80px -16px; }
+.ui-icon-triangle-1-w { background-position: -96px -16px; }
+.ui-icon-triangle-1-nw { background-position: -112px -16px; }
+.ui-icon-triangle-2-n-s { background-position: -128px -16px; }
+.ui-icon-triangle-2-e-w { background-position: -144px -16px; }
+.ui-icon-arrow-1-n { background-position: 0 -32px; }
+.ui-icon-arrow-1-ne { background-position: -16px -32px; }
+.ui-icon-arrow-1-e { background-position: -32px -32px; }
+.ui-icon-arrow-1-se { background-position: -48px -32px; }
+.ui-icon-arrow-1-s { background-position: -64px -32px; }
+.ui-icon-arrow-1-sw { background-position: -80px -32px; }
+.ui-icon-arrow-1-w { background-position: -96px -32px; }
+.ui-icon-arrow-1-nw { background-position: -112px -32px; }
+.ui-icon-arrow-2-n-s { background-position: -128px -32px; }
+.ui-icon-arrow-2-ne-sw { background-position: -144px -32px; }
+.ui-icon-arrow-2-e-w { background-position: -160px -32px; }
+.ui-icon-arrow-2-se-nw { background-position: -176px -32px; }
+.ui-icon-arrowstop-1-n { background-position: -192px -32px; }
+.ui-icon-arrowstop-1-e { background-position: -208px -32px; }
+.ui-icon-arrowstop-1-s { background-position: -224px -32px; }
+.ui-icon-arrowstop-1-w { background-position: -240px -32px; }
+.ui-icon-arrowthick-1-n { background-position: 0 -48px; }
+.ui-icon-arrowthick-1-ne { background-position: -16px -48px; }
+.ui-icon-arrowthick-1-e { background-position: -32px -48px; }
+.ui-icon-arrowthick-1-se { background-position: -48px -48px; }
+.ui-icon-arrowthick-1-s { background-position: -64px -48px; }
+.ui-icon-arrowthick-1-sw { background-position: -80px -48px; }
+.ui-icon-arrowthick-1-w { background-position: -96px -48px; }
+.ui-icon-arrowthick-1-nw { background-position: -112px -48px; }
+.ui-icon-arrowthick-2-n-s { background-position: -128px -48px; }
+.ui-icon-arrowthick-2-ne-sw { background-position: -144px -48px; }
+.ui-icon-arrowthick-2-e-w { background-position: -160px -48px; }
+.ui-icon-arrowthick-2-se-nw { background-position: -176px -48px; }
+.ui-icon-arrowthickstop-1-n { background-position: -192px -48px; }
+.ui-icon-arrowthickstop-1-e { background-position: -208px -48px; }
+.ui-icon-arrowthickstop-1-s { background-position: -224px -48px; }
+.ui-icon-arrowthickstop-1-w { background-position: -240px -48px; }
+.ui-icon-arrowreturnthick-1-w { background-position: 0 -64px; }
+.ui-icon-arrowreturnthick-1-n { background-position: -16px -64px; }
+.ui-icon-arrowreturnthick-1-e { background-position: -32px -64px; }
+.ui-icon-arrowreturnthick-1-s { background-position: -48px -64px; }
+.ui-icon-arrowreturn-1-w { background-position: -64px -64px; }
+.ui-icon-arrowreturn-1-n { background-position: -80px -64px; }
+.ui-icon-arrowreturn-1-e { background-position: -96px -64px; }
+.ui-icon-arrowreturn-1-s { background-position: -112px -64px; }
+.ui-icon-arrowrefresh-1-w { background-position: -128px -64px; }
+.ui-icon-arrowrefresh-1-n { background-position: -144px -64px; }
+.ui-icon-arrowrefresh-1-e { background-position: -160px -64px; }
+.ui-icon-arrowrefresh-1-s { background-position: -176px -64px; }
+.ui-icon-arrow-4 { background-position: 0 -80px; }
+.ui-icon-arrow-4-diag { background-position: -16px -80px; }
+.ui-icon-extlink { background-position: -32px -80px; }
+.ui-icon-newwin { background-position: -48px -80px; }
+.ui-icon-refresh { background-position: -64px -80px; }
+.ui-icon-shuffle { background-position: -80px -80px; }
+.ui-icon-transfer-e-w { background-position: -96px -80px; }
+.ui-icon-transferthick-e-w { background-position: -112px -80px; }
+.ui-icon-folder-collapsed { background-position: 0 -96px; }
+.ui-icon-folder-open { background-position: -16px -96px; }
+.ui-icon-document { background-position: -32px -96px; }
+.ui-icon-document-b { background-position: -48px -96px; }
+.ui-icon-note { background-position: -64px -96px; }
+.ui-icon-mail-closed { background-position: -80px -96px; }
+.ui-icon-mail-open { background-position: -96px -96px; }
+.ui-icon-suitcase { background-position: -112px -96px; }
+.ui-icon-comment { background-position: -128px -96px; }
+.ui-icon-person { background-position: -144px -96px; }
+.ui-icon-print { background-position: -160px -96px; }
+.ui-icon-trash { background-position: -176px -96px; }
+.ui-icon-locked { background-position: -192px -96px; }
+.ui-icon-unlocked { background-position: -208px -96px; }
+.ui-icon-bookmark { background-position: -224px -96px; }
+.ui-icon-tag { background-position: -240px -96px; }
+.ui-icon-home { background-position: 0 -112px; }
+.ui-icon-flag { background-position: -16px -112px; }
+.ui-icon-calendar { background-position: -32px -112px; }
+.ui-icon-cart { background-position: -48px -112px; }
+.ui-icon-pencil { background-position: -64px -112px; }
+.ui-icon-clock { background-position: -80px -112px; }
+.ui-icon-disk { background-position: -96px -112px; }
+.ui-icon-calculator { background-position: -112px -112px; }
+.ui-icon-zoomin { background-position: -128px -112px; }
+.ui-icon-zoomout { background-position: -144px -112px; }
+.ui-icon-search { background-position: -160px -112px; }
+.ui-icon-wrench { background-position: -176px -112px; }
+.ui-icon-gear { background-position: -192px -112px; }
+.ui-icon-heart { background-position: -208px -112px; }
+.ui-icon-star { background-position: -224px -112px; }
+.ui-icon-link { background-position: -240px -112px; }
+.ui-icon-cancel { background-position: 0 -128px; }
+.ui-icon-plus { background-position: -16px -128px; }
+.ui-icon-plusthick { background-position: -32px -128px; }
+.ui-icon-minus { background-position: -48px -128px; }
+.ui-icon-minusthick { background-position: -64px -128px; }
+.ui-icon-close { background-position: -80px -128px; }
+.ui-icon-closethick { background-position: -96px -128px; }
+.ui-icon-key { background-position: -112px -128px; }
+.ui-icon-lightbulb { background-position: -128px -128px; }
+.ui-icon-scissors { background-position: -144px -128px; }
+.ui-icon-clipboard { background-position: -160px -128px; }
+.ui-icon-copy { background-position: -176px -128px; }
+.ui-icon-contact { background-position: -192px -128px; }
+.ui-icon-image { background-position: -208px -128px; }
+.ui-icon-video { background-position: -224px -128px; }
+.ui-icon-script { background-position: -240px -128px; }
+.ui-icon-alert { background-position: 0 -144px; }
+.ui-icon-info { background-position: -16px -144px; }
+.ui-icon-notice { background-position: -32px -144px; }
+.ui-icon-help { background-position: -48px -144px; }
+.ui-icon-check { background-position: -64px -144px; }
+.ui-icon-bullet { background-position: -80px -144px; }
+.ui-icon-radio-on { background-position: -96px -144px; }
+.ui-icon-radio-off { background-position: -112px -144px; }
+.ui-icon-pin-w { background-position: -128px -144px; }
+.ui-icon-pin-s { background-position: -144px -144px; }
+.ui-icon-play { background-position: 0 -160px; }
+.ui-icon-pause { background-position: -16px -160px; }
+.ui-icon-seek-next { background-position: -32px -160px; }
+.ui-icon-seek-prev { background-position: -48px -160px; }
+.ui-icon-seek-end { background-position: -64px -160px; }
+.ui-icon-seek-start { background-position: -80px -160px; }
+/* ui-icon-seek-first is deprecated, use ui-icon-seek-start instead */
+.ui-icon-seek-first { background-position: -80px -160px; }
+.ui-icon-stop { background-position: -96px -160px; }
+.ui-icon-eject { background-position: -112px -160px; }
+.ui-icon-volume-off { background-position: -128px -160px; }
+.ui-icon-volume-on { background-position: -144px -160px; }
+.ui-icon-power { background-position: 0 -176px; }
+.ui-icon-signal-diag { background-position: -16px -176px; }
+.ui-icon-signal { background-position: -32px -176px; }
+.ui-icon-battery-0 { background-position: -48px -176px; }
+.ui-icon-battery-1 { background-position: -64px -176px; }
+.ui-icon-battery-2 { background-position: -80px -176px; }
+.ui-icon-battery-3 { background-position: -96px -176px; }
+.ui-icon-circle-plus { background-position: 0 -192px; }
+.ui-icon-circle-minus { background-position: -16px -192px; }
+.ui-icon-circle-close { background-position: -32px -192px; }
+.ui-icon-circle-triangle-e { background-position: -48px -192px; }
+.ui-icon-circle-triangle-s { background-position: -64px -192px; }
+.ui-icon-circle-triangle-w { background-position: -80px -192px; }
+.ui-icon-circle-triangle-n { background-position: -96px -192px; }
+.ui-icon-circle-arrow-e { background-position: -112px -192px; }
+.ui-icon-circle-arrow-s { background-position: -128px -192px; }
+.ui-icon-circle-arrow-w { background-position: -144px -192px; }
+.ui-icon-circle-arrow-n { background-position: -160px -192px; }
+.ui-icon-circle-zoomin { background-position: -176px -192px; }
+.ui-icon-circle-zoomout { background-position: -192px -192px; }
+.ui-icon-circle-check { background-position: -208px -192px; }
+.ui-icon-circlesmall-plus { background-position: 0 -208px; }
+.ui-icon-circlesmall-minus { background-position: -16px -208px; }
+.ui-icon-circlesmall-close { background-position: -32px -208px; }
+.ui-icon-squaresmall-plus { background-position: -48px -208px; }
+.ui-icon-squaresmall-minus { background-position: -64px -208px; }
+.ui-icon-squaresmall-close { background-position: -80px -208px; }
+.ui-icon-grip-dotted-vertical { background-position: 0 -224px; }
+.ui-icon-grip-dotted-horizontal { background-position: -16px -224px; }
+.ui-icon-grip-solid-vertical { background-position: -32px -224px; }
+.ui-icon-grip-solid-horizontal { background-position: -48px -224px; }
+.ui-icon-gripsmall-diagonal-se { background-position: -64px -224px; }
+.ui-icon-grip-diagonal-se { background-position: -80px -224px; }
+
+
+/* Misc visuals
+----------------------------------*/
+
+/* Corner radius */
+.ui-corner-all,
+.ui-corner-top,
+.ui-corner-left,
+.ui-corner-tl {
+	border-top-left-radius: 0px;
+}
+.ui-corner-all,
+.ui-corner-top,
+.ui-corner-right,
+.ui-corner-tr {
+	border-top-right-radius: 0px;
+}
+.ui-corner-all,
+.ui-corner-bottom,
+.ui-corner-left,
+.ui-corner-bl {
+	border-bottom-left-radius: 0px;
+}
+.ui-corner-all,
+.ui-corner-bottom,
+.ui-corner-right,
+.ui-corner-br {
+	border-bottom-right-radius: 0px;
+}
+
+/* Overlays */
+.ui-widget-overlay {
+	background: #5c5c5c url("/pentaho/api/repos/pentaho-cdf-dd/css/sunny/images/ui-bg_flat_50_5c5c5c_40x100.png") 50% 50% repeat-x;
+	opacity: .8;
+	filter: Alpha(Opacity=80);
+}
+.ui-widget-shadow {
+	margin: -4px 0 0 -4px;
+	padding: 0px;
+	background: #aaaaaa url("/pentaho/api/repos/pentaho-cdf-dd/css/sunny/images/ui-bg_flat_0_aaaaaa_40x100.png") 50% 50% repeat-x;
+	opacity: 0;
+	filter: Alpha(Opacity=0);
+	border-radius: 0px;
+}/* CDF-271, maintaing some aditional styling (not included in theme roller generated custom theme)
+ in a seperate file to simplify future lib updates */
+.ui-widget-content tr.ui-state-active { background: #0098c4; color: #fff; }
+.ui-widget-content li:hover {
+	background: #eee;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+.ui-widget-content li:hover > a{
+	color: #555;
+}
+.ui-accordion-header:hover { font-weight: normal; }
+.ui-accordion .ui-accordion-header { font-weight: normal; }/*
+------------------------------
+	grey theme
+------------------------------
+*/
+.greyJqiwarning .greyJqi{ background-color: #cccccc; }
+.greyJqifade{
+	position: absolute;
+	background-color: #ffffff;
+}
+div.greyJqi{
+	position: absolute;
+	background-color: transparent;
+	padding: 10px;
+	text-align: left;
+}
+div.greyJqi .greyJqiclose{
+    float: right;
+    margin: -20px 0 0 0;
+    cursor: pointer;
+    color: #777777;
+    font-size: 11px;
+}
+div.greyJqi .greyJqicontainer{
+	position: relative;
+	background-color: #DBDBDB;
+	border: solid 1px #5F5D5A;
+	color: #000000;
+}
+div.greyJqi .greyJqimessage {
+	position: relative;
+	background-color: #DBDBDB;
+	border-top: solid 1px #C6B8AE;
+	border-bottom: solid 1px #C6B8AE;
+	height:350px;
+}
+div.greyJqi .greyJqimessage h3 {
+	margin: 0;
+	padding: 7px 0 7px 15px;
+	color: #4D4A47;
+}
+
+.popup h2 {
+	float: left;
+	color: #12a2d8;
+	line-height: 20px;
+	font-size: 15px;
+	font-weight: bold;
+	position: relative;
+	top: -10px;
+}
+
+div.greyJqi .greyJqimessage p{
+	padding: 10px;
+	color: #777777;
+}
+div.greyJqi .greyJqimessage img.helpImg{
+	position: absolute;
+	bottom: -25px;
+	left: 10px;
+}
+div.greyJqi .greyJqibuttons{
+	text-align: right;
+}
+div.greyJqi button{
+	border: solid #777777 1px;
+	font-size: 12px;
+	padding: 3px 10px 3px 10px;
+	margin: 5px 5px 5px 10px;
+}
+div.greyJqi button:hover{
+	border: solid #aaaaaa 1px;
+}
+
+/* this makes it possible to add next button beside scrollable */
+div.scrollable {
+	float:left;		
+}
+
+/* prev, next, prevPage and nextPage buttons */
+a.prev, a.next, a.prevPage, a.nextPage {
+	display:block;
+	width:18px;
+	height:24px;
+	background:url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/arrow_left.png) no-repeat;
+	float:left;
+	margin:43px 10px;
+	cursor:pointer;
+	background-position: -72px 0px;
+}
+
+/* mouseover state */
+a.prev:hover, a.next:hover, a.prevPage:hover, a.nextPage:hover {
+	background-position: -24px 0px;		
+}
+
+/* disabled navigational button */
+a.disabled {
+	visibility:hidden !important;		
+}
+
+/* next button uses another background image */
+a.next, a.nextPage {
+	background-image:url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/arrow_right.png);
+	clear:right;	
+}
+
+
+
+/*********** navigator ***********/
+
+
+/* position and dimensions of the navigator */
+div.navi {
+	margin-left:328px;
+	width:200px;
+	height:20px;
+}
+
+
+/* items inside navigator */
+div.navi a {
+	width:8px;
+	height:8px;
+	float:left;
+	margin:3px;
+	background:url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/navigator.png) 0 0 no-repeat;     
+	cursor:pointer;	
+}
+
+/* mouseover state */
+div.navi a:hover {
+	background-position:0 -8px;      
+}
+
+/* active state (current page state) */
+div.navi a.active {
+	background-position:0 -16px;     
+} 	
+
+/* root element for the whole scrollable setup */
+div.scrollable {  
+	position:relative;
+	overflow:hidden;
+	width: 646px;	 
+	height:300px;	
+}
+
+/* 
+	root element for scrollable items. It is 
+	absolutely positioned with large width. 
+*/
+#thumbs {	
+	position:absolute;
+	width:20000em;	
+	clear:both;
+	border:1px solid #222;
+}
+
+#thumbs img{
+	margin: 0;
+}
+
+/* custom positioning for navigational links */
+a.prev, a.next {
+	margin-top:118px;	
+}
+
+/* single item */
+#thumbs div {
+	float:left;
+	width:214px;
+	height:300px;
+	background:#333 url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/scrollable-gradient.png) repeat-x 0 146px;
+	color:#fff;
+	border-left:1px solid #333;
+	cursor:pointer;
+}
+
+/* style when mouse is over the item */
+#thumbs div.hover {
+	background-color:#444;	
+}
+
+/* style when element is active (clicked) */
+#thumbs div.active {
+	background-color:#066;
+	cursor:default;
+}
+
+#thumbs h3, #thumbs p, #thumbs span {
+	margin:13px;		
+	font-family:"bitstream vera sans";
+	font-size:13px;
+	color:#fff;	
+}
+
+#thumbs h3 em {
+	font-style:normal;
+	color:yellow;
+}
+UL.jqueryFileTree {
+	font-family: Verdana, sans-serif;
+	font-size: 11px;
+	line-height: 18px;
+	padding: 0px;
+	margin: 0px;
+}
+
+UL.jqueryFileTree LI {
+	list-style: none;
+	padding: 0px;
+	padding-left: 20px;
+	margin: 0px;
+	white-space: nowrap;
+}
+
+UL.jqueryFileTree A {
+	color: #666 !important;
+	text-decoration: none;
+	display: block;
+	padding: 0px 2px;
+}
+
+UL.jqueryFileTree A:hover {
+	background: #666;
+	color: #f5f5f5!important;
+	text-shadow:none;
+}
+
+/* Core Styles */
+.jqueryFileTree LI.directory { background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/filetree/directory.png) left top no-repeat; }
+.jqueryFileTree LI.expanded { background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/filetree/folder_open.png) left top no-repeat; }
+.jqueryFileTree LI.file { background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/filetree/file.png) left top no-repeat; }
+.jqueryFileTree LI.wait { background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/filetree/spinner.gif) left top no-repeat; }
+/* File Extensions*/
+.jqueryFileTree LI.ext_3gp { background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/filetree/film.png) left top no-repeat; }
+.jqueryFileTree LI.ext_afp { background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/filetree/code.png) left top no-repeat; }
+.jqueryFileTree LI.ext_afpa { background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/filetree/code.png) left top no-repeat; }
+.jqueryFileTree LI.ext_asp { background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/filetree/code.png) left top no-repeat; }
+.jqueryFileTree LI.ext_aspx { background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/filetree/code.png) left top no-repeat; }
+.jqueryFileTree LI.ext_avi { background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/filetree/film.png) left top no-repeat; }
+.jqueryFileTree LI.ext_bat { background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/filetree/application.png) left top no-repeat; }
+.jqueryFileTree LI.ext_bmp { background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/filetree/picture.png) left top no-repeat; }
+.jqueryFileTree LI.ext_c { background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/filetree/code.png) left top no-repeat; }
+.jqueryFileTree LI.ext_cfm { background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/filetree/code.png) left top no-repeat; }
+.jqueryFileTree LI.ext_cgi { background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/filetree/code.png) left top no-repeat; }
+.jqueryFileTree LI.ext_com { background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/filetree/application.png) left top no-repeat; }
+.jqueryFileTree LI.ext_cpp { background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/filetree/code.png) left top no-repeat; }
+.jqueryFileTree LI.ext_css { background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/filetree/css.png) left top no-repeat; }
+.jqueryFileTree LI.ext_doc { background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/filetree/doc.png) left top no-repeat; }
+.jqueryFileTree LI.ext_exe { background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/filetree/application.png) left top no-repeat; }
+.jqueryFileTree LI.ext_gif { background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/filetree/picture.png) left top no-repeat; }
+.jqueryFileTree LI.ext_fla { background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/filetree/flash.png) left top no-repeat; }
+.jqueryFileTree LI.ext_h { background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/filetree/code.png) left top no-repeat; }
+.jqueryFileTree LI.ext_htm { background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/filetree/html.png) left top no-repeat; }
+.jqueryFileTree LI.ext_html { background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/filetree/html.png) left top no-repeat; }
+.jqueryFileTree LI.ext_jar { background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/filetree/java.png) left top no-repeat; }
+.jqueryFileTree LI.ext_jpg { background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/filetree/picture.png) left top no-repeat; }
+.jqueryFileTree LI.ext_jpeg { background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/filetree/picture.png) left top no-repeat; }
+.jqueryFileTree LI.ext_js { background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/filetree/script.png) left top no-repeat; }
+.jqueryFileTree LI.ext_lasso { background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/filetree/code.png) left top no-repeat; }
+.jqueryFileTree LI.ext_log { background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/filetree/txt.png) left top no-repeat; }
+.jqueryFileTree LI.ext_m4p { background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/filetree/music.png) left top no-repeat; }
+.jqueryFileTree LI.ext_mov { background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/filetree/film.png) left top no-repeat; }
+.jqueryFileTree LI.ext_mp3 { background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/filetree/music.png) left top no-repeat; }
+.jqueryFileTree LI.ext_mp4 { background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/filetree/film.png) left top no-repeat; }
+.jqueryFileTree LI.ext_mpg { background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/filetree/film.png) left top no-repeat; }
+.jqueryFileTree LI.ext_mpeg { background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/filetree/film.png) left top no-repeat; }
+.jqueryFileTree LI.ext_ogg { background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/filetree/music.png) left top no-repeat; }
+.jqueryFileTree LI.ext_pcx { background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/filetree/picture.png) left top no-repeat; }
+.jqueryFileTree LI.ext_pdf { background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/filetree/pdf.png) left top no-repeat; }
+.jqueryFileTree LI.ext_php { background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/filetree/php.png) left top no-repeat; }
+.jqueryFileTree LI.ext_png { background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/filetree/picture.png) left top no-repeat; }
+.jqueryFileTree LI.ext_ppt { background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/filetree/ppt.png) left top no-repeat; }
+.jqueryFileTree LI.ext_psd { background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/filetree/psd.png) left top no-repeat; }
+.jqueryFileTree LI.ext_pl { background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/filetree/script.png) left top no-repeat; }
+.jqueryFileTree LI.ext_py { background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/filetree/script.png) left top no-repeat; }
+.jqueryFileTree LI.ext_rb { background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/filetree/ruby.png) left top no-repeat; }
+.jqueryFileTree LI.ext_rbx { background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/filetree/ruby.png) left top no-repeat; }
+.jqueryFileTree LI.ext_rhtml { background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/filetree/ruby.png) left top no-repeat; }
+.jqueryFileTree LI.ext_rpm { background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/filetree/linux.png) left top no-repeat; }
+.jqueryFileTree LI.ext_ruby { background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/filetree/ruby.png) left top no-repeat; }
+.jqueryFileTree LI.ext_sql { background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/filetree/db.png) left top no-repeat; }
+.jqueryFileTree LI.ext_swf { background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/filetree/flash.png) left top no-repeat; }
+.jqueryFileTree LI.ext_tif { background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/filetree/picture.png) left top no-repeat; }
+.jqueryFileTree LI.ext_tiff { background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/filetree/picture.png) left top no-repeat; }
+.jqueryFileTree LI.ext_txt { background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/filetree/txt.png) left top no-repeat; }
+.jqueryFileTree LI.ext_vb { background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/filetree/code.png) left top no-repeat; }
+.jqueryFileTree LI.ext_wav { background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/filetree/music.png) left top no-repeat; }
+.jqueryFileTree LI.ext_wmv { background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/filetree/film.png) left top no-repeat; }
+.jqueryFileTree LI.ext_xls { background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/filetree/xls.png) left top no-repeat; }
+.jqueryFileTree LI.ext_xml { background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/filetree/code.png) left top no-repeat; }
+.jqueryFileTree LI.ext_zip { background: url(/pentaho/api/repos/pentaho-cdf-dd/css/../images/filetree/zip.png) left top no-repeat; }
+
+/*ADDED */
+
+.selectedFolder {
+	background: #0EC9E5;
+}
+
+.selectedFile {
+	background: #C6B8AE;
+}
+
+div.folderexplorer ,div.urltargetfolderexplorer {
+	position: relative;
+	background-color: #ffffff;
+	border-top: solid 1px #C6B8AE;
+	border-bottom: solid 1px #C6B8AE;
+	height:320px;
+	width:499px;	
+	overflow:scroll;
+}
+
+div.urltargetfolderexplorer{
+	width:380px;
+	height:200px;
+}
+span.folderexplorerfilelabel {
+	left:10px;
+	position: relative;
+}
+span.folderexplorerextralabels{
+	left:20px;
+	position: relative;
+}
+
+span.folderexplorerextralabel {
+	left:10px;
+	position: relative;
+}
+
+span.folderexplorerfileinput{
+	position: relative;
+	left:22px;
+	top:1px;
+}
+span.folderexplorernameinput {
+	position: relative;
+	left:43px;
+	top:1px;
+}
+
+hr.filexplorerhr {
+	position: relative;
+	background-color:#808080;
+	width:480px;
+	left:10px;
+	top:8px;
+}
+
+span.folderexplorerfileinput input{
+	width:290px;
+	border-color: #FF0000;
+}
+
+.folderexplorertitleinput {
+	position:relative;
+	width:380px;	
+	left: 63px;
+}
+
+.folderexplorerdescinput {
+	position:relative;
+	width:380px;	
+	left: 25px;
+}
+
+div.saveaslabel {
+	height:22px;
+	padding-top:3px;
+	padding-left:5px;
+	background-color: #DBDBDB;
+}
+
+.treeTableJqiwarning .treeTableJqi{ background-color: #cccccc; }
+.treeTableJqifade{
+	position: absolute;
+	background-color: #ffffff;
+}
+div.treeTableJqi{
+	position: absolute;
+	background-color: transparent;
+	padding: 10px;
+	text-align: left;
+}
+div.treeTableJqi .treeTableJqiclose{
+    float: right;
+    margin: -20px 0 0 0;
+    cursor: pointer;
+    color: #777777;
+    font-size: 11px;
+}
+div.treeTableJqi .treeTableJqicontainer{
+	position: relative;
+	background-color: #DBDBDB;
+	border: solid 1px #5F5D5A;
+	color: #000000;
+}
+div.treeTableJqi .treeTableJqimessage{
+	position: relative;
+	background-color: #ffffff;
+	border-top: solid 1px #C6B8AE;
+	border-bottom: solid 1px #C6B8AE;
+	height:445px;
+	width:501px;
+}
+
+div.treeTableJqi .treeTableJqimessage h3{
+	margin: 0;
+	padding: 7px 0 7px 15px;
+	color: #4D4A47;
+}
+div.treeTableJqi .treeTableJqimessage p{
+	padding: 10px;
+	color: #777777;
+}
+div.treeTableJqi .treeTableJqimessage img.helpImg{
+	position: absolute;
+	bottom: -25px;
+	left: 10px;
+}
+div.treeTableJqi .treeTableJqibuttons{
+	text-align: right;
+}
+div.treeTableJqi button{
+	border: solid #777777 1px;
+	font-size: 12px;
+	padding: 3px 10px 3px 10px;
+	margin: 5px 5px 5px 10px;
+	width: 50px;
+}
+div.treeTableJqi button:hover{
+	border: solid #aaaaaa 1px;
+}
+
+
+.treeTableNewJqiwarning .treeTableNewJqi{ background-color: #cccccc; }
+.treeTableNewJqifade{
+	position: absolute;
+	background-color: #ffffff;
+	top:-100px;
+}
+div.treeTableNewJqi{
+	position: absolute;
+	background-color: transparent;
+	padding: 10px;
+	text-align: left;
+}
+div.treeTableNewJqi .treeTableNewJqiclose{
+    float: right;
+    margin: -20px 0 0 0;
+    cursor: pointer;
+    color: #777777;
+    font-size: 11px;
+}
+div.treeTableNewJqi .treeTableNewJqicontainer{
+	position: relative;
+	background-color: #DBDBDB;
+	border: solid 1px #5F5D5A;
+	color: #000000;
+}
+div.treeTableNewJqi .treeTableNewJqimessage{
+	position: relative;
+	background-color: #DBDBDB;
+	border-top: solid 1px #C6B8AE;
+	border-bottom: solid 1px #C6B8AE;
+	height:345px;
+	width:500px;
+}
+
+div.treeTableNewJqi .treeTableNewJqimessage h3{
+	margin: 0;
+	padding: 7px 0 7px 15px;
+	color: #4D4A47;
+}
+div.treeTableNewJqi .treeTableNewJqimessage p{
+	padding: 10px;
+	color: #777777;
+}
+div.treeTableNewJqi .treeTableNewJqimessage img.helpImg{
+	position: absolute;
+	bottom: -25px;
+	left: 10px;
+}
+div.treeTableNewJqi .treeTableNewJqibuttons{
+	text-align: right;
+	height:150px;
+}
+	
+
+div.treeTableNewJqi button{
+	border: solid #777777 1px;
+	font-size: 12px;
+	padding: 3px 10px 3px 10px;
+	margin: 5px 5px 5px 10px;
+	top:2px;
+	width: auto;
+	position:relative;
+}
+div.treeTableNewJqi button:hover{
+	border: solid #aaaaaa 1px;
+}
+div.popup .popup-body-container.popup-list-body-container {
+  background-color: #F5F6F8;
+  padding: 20px 0 20px 20px;
+}
+
+.popup-list-body.overflow-container {
+  padding-right: 5px;
+}
+
+.popup-body-header {
+  margin-right: 20px;
+}
+
+.popup-list-buttons {
+  margin-bottom: 20px;
+}
+
+.popup-list-body-container.popup-remove-mode .add-button-container,
+.popup-list-body-container.popup-add-mode .remove-selection-button-container {
+  display: none;
+}
+
+.remove-selection-button-container {
+  position: relative;
+  box-sizing: border-box;
+  padding-right: 95px;
+}
+
+div.popup .popup-list-buttons button {
+  margin: 0;
+  padding: 0;
+}
+
+div.popup .remove-selection-button-container button {
+  color: #AF0E1A;
+  background-color: #DF9FA3;
+}
+
+div.popup .remove-selection-button-container button:hover, div.popup .remove-selection-button-container button:active {
+  color: #FFFFFF;
+  background-color: #AF0E1A;
+}
+
+div.popup .remove-selection-button-container button:active {
+  box-shadow: 0 3px 5px 0 #46060A inset;
+}
+
+div.popup button.popup-cancel-selection {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 80px;
+}
+
+div.popup button.popup-add-row-button, div.popup button.popup-remove-selection {
+  width: 100%;
+}
+
+.popup-text-input {
+  box-sizing: border-box;
+
+  height: 24px;
+  width: 100%;
+
+  margin: 0;
+  padding: 0 0 0 10px;
+  border: 1px solid #FFFFFF;
+}
+
+.popup-text-div {
+  box-sizing: border-box;
+  background-color: #FFFFFF;
+  height: 24px;
+  padding: 0 10px;
+  cursor: pointer;
+  border: 1px dashed #F5F6F8;
+}
+
+div.popup .popup-text-input:focus {
+  border: 1px Solid #005CA7;
+}
+
+.single-dimension-row .popup-text-input {
+  border: none;
+}
+
+.popup-list-body {
+  position: relative;
+  height: 296px;
+  padding-right: 20px;
+  overflow-y: auto;
+}
+
+div.StringArrayPopup {
+  width: 500px;
+  min-width: 500px;
+}
+
+div.StringListPopup {
+  width: 700px;
+  min-width: 700px;
+}
+
+div.ParameterListPopup {
+  width: 878px;
+  min-width: 878px;
+}
+
+.popup-list-row, .popup-sortable-holder, .popup-list-row-label, div.ui-sortable-helper {
+  position: relative;
+  background-color: #F5F6F8;
+  border: 1px solid #F5F6F8;
+
+  padding-left: 24px;
+  padding-right: 52px;
+}
+
+.popup-list-row.typed-row {
+  padding-right: 0;
+}
+
+.popup-list-row, .popup-sortable-holder, div.ui-sortable-helper {
+  height: 24px;
+}
+
+.popup-list-row.popup-drag-hover {
+  border: 1px Solid #005CA7;
+}
+
+.popup-sortable-holder {
+  border: 1px dashed #0072CE;
+}
+
+/** Remove Row Button */
+.popup-remove-row-select {
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 24px;
+  height: 24px;
+
+  border: 1px solid #EAEDEE;
+  background: #EAEDEE url("/pentaho/api/repos/pentaho-cdf-dd/css/../images/popups/close.svg") 0 0;
+}
+
+.popup-remove-hover .popup-remove-row-select, .popup-remove-selected .popup-remove-row-select {
+  cursor: pointer;
+  border: 1px solid #AF0E1A;
+  background: #AF0E1A url("/pentaho/api/repos/pentaho-cdf-dd/css/../images/popups/close.svg") -22px 0;
+}
+
+.popup-list-row.popup-remove-hover .popup-text-input,
+.popup-list-row.popup-remove-selected .popup-text-input {
+  color: #AF0E1A;
+}
+
+.popup-list-row.popup-remove-hover .popup-text-input {
+  border: 1px solid #F9ECED;
+  background-color: #F9ECED;
+}
+
+.popup-list-row.popup-remove-selected .popup-text-input {
+  border: 1px solid #DF9FA3;
+  background-color: #DF9FA3;
+}
+
+/**
+ * Drag Row Icon
+ */
+.popup-drag-icon, .popup-drag-icon .drag-icon-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 24px;
+}
+
+.popup-drag-icon {
+  background-color: #FFFFFF;
+}
+
+.popup-drag-icon span {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  margin: 2px 10px 2px 20px;
+  background: url("/pentaho/api/repos/pentaho-cdf-dd/css/../images/drag-icon.svg") -20px 0;
+}
+
+.popup-drag-icon:hover {
+  background-color: #0072CE;
+}
+
+.popup-remove-hover .popup-drag-icon, .popup-remove-selected .popup-drag-icon {
+  display: none;
+}
+
+div.ui-sortable-helper {
+  border: 1px solid #005CA7;
+}
+
+div.ui-sortable-helper .popup-drag-icon {
+  background-color: #005CA7;
+}
+
+div.ui-sortable .popup-drag-icon {
+  cursor: move; /* fallback if grab cursor is unsupported */
+  cursor: grab;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+}
+
+div.ui-sortable-helper, div.ui-sortable:active .popup-drag-icon {
+  cursor: move !important; /* fallback if grab cursor is unsupported */
+  cursor: grabbing !important;
+  cursor: -moz-grabbing !important;
+  cursor: -webkit-grabbing !important;
+}
+
+div.ui-sortable-helper .popup-drag-icon:hover span, .popup-drag-icon:hover span,
+div.ui-sortable-helper .popup-drag-icon span {
+  background-position: 0 0;
+}
+
+/** End of Drag Icon */
+
+.popup-arg-label, .popup-arg-label-small, .popup-arg-container,
+.popup-arg-container-small, .popup-value-label,
+.popup-value-label-small, .popup-value-container,
+.popup-value-container-small, .popup-default-label,
+.popup-default-container {
+  box-sizing: border-box;
+  float: left;
+}
+
+.popup-arg-label, .popup-arg-container {
+  width: 40%;
+}
+
+.popup-arg-label-small, .popup-arg-container-small {
+  width: 20%;
+}
+
+.typed-label .popup-label {
+  float: left;
+  width: 150px;
+  margin-right: 2px;
+}
+
+.typed-label .popup-type-label {
+  width: 200px;
+}
+
+.typed-row .popup-arg-container, .typed-row .popup-value-container,
+.typed-row .popup-input-container, .typed-row .popup-checkbox-container,
+.typed-row .popup-pattern-container {
+  float: left;
+  background: #FFFFFF;
+  height: 24px;
+  margin-right: 2px;
+}
+
+.popup-pattern-container:not(.date-type-selected) .pattern-input {
+  color: transparent;
+}
+
+.popup-pattern-container:not(.date-type-selected):after {
+  background-color: #CECECE;
+  content: "";
+  display: block;
+  height: 2px;
+  position: absolute;
+  margin: 0 10px;
+  top: 50%;
+  width: 130px;
+}
+
+.typed-row.popup-remove-hover .popup-checkbox-container {
+  border-color: #F9ECED;
+  background-color: #F9ECED;
+}
+
+.typed-row.popup-remove-selected .popup-checkbox-container {
+  border-color: #DF9FA3;
+  background-color: #DF9FA3;
+}
+
+.typed-row.popup-remove-hover input[type=checkbox] + .popup-input-label,
+.typed-row.popup-remove-selected input[type=checkbox] + .popup-input-label {
+  cursor: default;
+  color: #AF0E1A;
+  border-color: #AF0E1A;
+}
+
+.typed-row.popup-remove-hover input[type=checkbox]:checked + .popup-input-label:before,
+.typed-row.popup-remove-selected input[type=checkbox]:checked + .popup-input-label:before,
+.typed-row.popup-remove-hover .popup-pattern-container:not(.date-type-selected):after,
+.typed-row.popup-remove-selected .popup-pattern-container:not(.date-type-selected):after {
+  background-color: #AF0E1A;
+}
+
+.typed-row.popup-remove-hover input[type=checkbox]:checked + .popup-input-label:before {
+  border-color: #F9ECED;
+}
+
+.typed-row.popup-remove-selected input[type=checkbox] + .popup-input-label:before,
+.typed-row.popup-remove-selected input[type=checkbox] + .popup-input-label:hover:before {
+  border-color: #DF9FA3;
+}
+
+.typed-row .popup-arg-container, .typed-row .popup-value-container, .typed-row .popup-pattern-container {
+  width: 150px;
+}
+
+.typed-row .popup-checkbox-container {
+  width: 100px;
+}
+
+.single-dimension-row .popup-arg-container {
+  width: 100%;
+}
+
+.popup-value-label, .popup-value-container {
+  width: 60%;
+}
+
+.popup-value-label-small, .popup-value-container-small,
+.popup-default-label, .popup-default-container {
+  width: 40%;
+}
+
+.multi-dimension-row .popup-value-container,
+.multi-dimension-row .popup-value-container-small,
+.multi-dimension-row .popup-default-container {
+  padding-left: 1px;
+}
+
+.popup-remove-hover .popup-value-container, .popup-list-row.popup-remove-hover {
+  background-color: #F9ECED;
+}
+
+.popup-remove-selected .popup-value-container, .popup-list-row.popup-remove-selected {
+  background-color: #DF9FA3;
+}
+
+div.jqiStringList, div.jqiStringArray, div.jqiParameterList, div.jqiGenericSelect {
+  font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+  position: absolute;
+  background-color: #ffffff;
+  font-size: 11px;
+  text-align: left;
+  border: solid 1px #eeeeee;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  padding: 7px;
+}
+
+div.jqiGenericSelect {
+  width: 440px;
+}
+
+div.jqiStringList {
+  width: 640px;
+}
+
+div.jqiStringArray {
+  width: 260px;
+}
+
+div.jqiParameterList {
+  width: 800px;
+}
+
+.jqiStringListfade, .jqiGenericSelectfade, .jqiStringArrayfade {
+  position: absolute;
+  background-color: #aaaaaa;
+}
+
+div.jqiStringList .jqiStringListcontainer,
+div.jqiGenericSelect .jqiGenericSelectcontainer,
+div.jqiStringArray .jqiStringArraycontainer,
+div.jqiParameterList .jqiParameterListcontainer {
+  font-weight: bold;
+}
+
+div.jqiStringList .jqiStringListclose,
+div.jqiGenericSelect .jqiGenericSelectclose,
+div.jqiStringArray .jqiStringArrayclose,
+div.jqiParameterList .jqiParameterListClose {
+  position: absolute;
+  top: 4px;
+  right: -2px;
+  width: 18px;
+  cursor: default;
+  color: #bbbbbb;
+  font-weight: bold;
+}
+
+div.jqiStringList .jqiStringListmessage,
+div.jqiGenericSelect .jqiGenericSelectmessage,
+div.jqiStringArray .jqiStringArraymessage,
+div.jqiParameterList .jqiParameterListmessage {
+  padding: 10px;
+  line-height: 20px;
+  color: #444444;
+}
+
+div.jqiStringList .jqiStringListbuttons,
+div.jqiGenericSelect .jqiGenericSelectbuttons,
+div.jqiStringArray .jqiStringArraybuttons,
+div.jqiParameterList .jqiParameterListbuttons {
+  text-align: right;
+  padding: 5px 0 5px 0;
+  border: solid 1px #eeeeee;
+  background-color: #f4f4f4;
+}
+
+div.jqiStringList button,
+div.jqiGenericSelect button,
+div.jqiStringArray button,
+div.jqiParameterList button {
+  padding: 3px 10px;
+  margin: 0 10px;
+  background-color: #2F6073;
+  border: solid 1px #f4f4f4;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+div.jqiStringList button:hover,
+div.jqiGenericSelect button:hover,
+div.jqiStringArray button:hover,
+div.jqiParameterList button:hover {
+  background-color: #728A8C;
+}
+
+div.jqiStringList button.jqiStringListdefaultbutton,
+div.jqiGenericSelect .jqiGenericSelectdefaultbutton,
+div.jqiStringArray button.jqiStringArraydefaultbutton,
+div.jqiParameterList button.jqiParameterListdefaultbutton {
+  background-color: #BF5E26;
+}
+
+.jqiStringListwarning .jqiStringList .jqiStringListbuttons,
+.jqiGenericSelectwarning .jqiGenericSelect .jqiGenericSelectbuttons,
+.jqiStringArraywarning .jqiStringArray .jqiStringArraybuttons,
+.jqiParameterListwarning .jqiParameterList .jqiParameterListbuttons {
+  background-color: #BF5E26;
+}
+
+.jqiStringListParametersfade,
+.jqiGenericSelectParametersfade,
+.jqiParameterListParametersfade {
+  position: absolute;
+  background-color: #aaaaaa;
+}
+
+.jqiStringListParametersbox,
+.jqiGenericSelectParametersbox,
+.jqiParameterListParametersbox {
+  padding-top: 50px;
+}
+
+div.jqiStringListParameters,
+div.jqiGenericSelectParameters,
+div.jqiParameterListParameters {
+  width: 280px;
+  height: 275px;
+  font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+  position: absolute;
+  background-color: #F0F0F0;
+  font-size: 11px;
+  text-align: left;
+  border: solid 3px #B7B7B7;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+}
+
+div.jqiStringListParameters .jqiStringListParameterscontainer,
+div.jqiGenericSelectParameters .jqiGenericSelectParameterscontainer,
+div.jqiParameterListParameters .jqiParameterListParameterscontainer {
+  font-weight: bold;
+}
+
+div.jqiStringListParameters .jqiStringListParametersclose,
+div.jqiGenericSelectParameters .jqiGenericSelectParametersclose,
+div.jqiParameterListParameters .jqiParameterListParametersclose {
+  position: absolute;
+  top: 4px;
+  right: -2px;
+  width: 18px;
+  cursor: default;
+  color: #bbbbbb;
+  font-weight: bold;
+}
+
+div.jqiStringListParameters .jqiStringListParametersmessage,
+div.jqiGenericSelectParameters .jqiGenericSelectParametersmessage,
+div.jqiParameterListParameters .jqiParameterListParametersmessage {
+  color: #444444;
+}
+
+div.jqiStringListParameters .jqiStringListParametersbuttons,
+div.jqiGenericSelectParameters .jqiGenericSelectParametersbuttons,
+div.jqiParameterListParameters .jqiParameterListParametersbuttons {
+  text-align: right;
+  width: 267px;
+  top: -10px;
+}
+
+.jqiStringListParametersbuttons button,
+.jqiGenericSelectParametersbuttons button,
+.jqiParameterListParametersbuttons button {
+  font-size: 11px;
+}

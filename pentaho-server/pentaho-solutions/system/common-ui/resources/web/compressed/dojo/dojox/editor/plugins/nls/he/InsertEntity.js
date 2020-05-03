@@ -1,0 +1,1 @@
+define({insertEntity:"הוספת סמל "});

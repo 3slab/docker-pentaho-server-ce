@@ -1,0 +1,1 @@
+define(["dojo/robot"],function(){});

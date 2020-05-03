@@ -1,0 +1,14 @@
+<DesignerProperty>
+  <Header>
+    <Name>cccRangeRole</Name>
+    <Parent>BaseProperty</Parent>
+    <DefaultValue></DefaultValue>
+    <Description>Range Role</Description>
+    <Tooltip>The range visual role is a plot-level visual role that represents classification threshold values of the value visual role.</Tooltip>
+    <InputType>String</InputType>
+    <OutputType>String</OutputType>
+    <Order>477</Order>
+    <Advanced>true</Advanced>
+    <Version>2.0</Version>
+  </Header>
+</DesignerProperty>

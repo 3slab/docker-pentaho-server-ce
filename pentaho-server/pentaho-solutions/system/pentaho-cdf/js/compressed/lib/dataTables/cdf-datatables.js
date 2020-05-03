@@ -1,0 +1,1 @@
+define(["../lib/jquery","datatables"],function(e,n){return n});
