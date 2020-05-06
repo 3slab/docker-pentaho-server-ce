@@ -22,12 +22,16 @@ Variable | Description | Example
 `DOCKER_PENTAHO_POSTGRES_JACKRABBIT_URL` | The JDBC url for the Jackrabbit DB | `jdbc:postgresql://localhost:5432/jackrabbit`
 `DOCKER_PENTAHO_POSTGRES_JACKRABBIT_USERNAME` | The username for the Jackrabbit DB | `jcr_user`
 `DOCKER_PENTAHO_POSTGRES_JACKRABBIT_PASSWORD` | The password for the Jackrabbit DB | `password`
+`DOCKER_PENTAHO_TOMCAT_PROXY_PORT` | Set tomcat proxyPort settings in Connection | ``
+`DOCKER_PENTAHO_TOMCAT_PROXY_NAME` | Set tomcat proxyName settings in Connection | ``
+`DOCKER_PENTAHO_TOMCAT_PROXY_SCHEME` | Set tomcat scheme settings in Connection (if https adds secure settings) | ``
+`DOCKER_PENTAHO_CORS_ALLOWED_DOMAINS` | Enable CORS and setup allowed domains | ``
 
 Look at the [docker-compose file](./docker-compse.yaml) for example.
 
 ## Image build guide
 
-**IMPORTANT : this repository uses [GIT LFS](https://git-lfs.github.com/) to store [large files](./.gitattributes). Install this git extension before cloning it**
+**IMPORTANT : this repository uses [GIT LFS](https://git-lfs.github.com/) to store [large files](./.gitattributes). Install this git extension before cloning it. And don't forget to `git lfs pull` after cloning**
 
 ### Download
 

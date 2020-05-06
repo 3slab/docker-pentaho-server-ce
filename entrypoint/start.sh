@@ -55,6 +55,66 @@ then
     fi
 fi
 
+if [[ ! -z "$DOCKER_PENTAHO_TOMCAT_PROXY_PORT" && \
+      ! -z "$DOCKER_PENTAHO_TOMCAT_PROXY_NAME" && \
+      ! -z "$DOCKER_PENTAHO_TOMCAT_PROXY_SCHEME" ]]
+then
+    cp templates/server.xml ../pentaho-server/tomcat/conf/server.xml
+    if [ "$DOCKER_PENTAHO_TOMCAT_PROXY_SCHEME" == "https" ]
+    then
+        sed -i "s#DOCKER_PENTAHO_TOMCAT_PROXY_SETTINGS#proxyName=\"$DOCKER_PENTAHO_TOMCAT_PROXY_NAME\" proxyPort=\"$DOCKER_PENTAHO_TOMCAT_PROXY_PORT\" scheme=\"$DOCKER_PENTAHO_TOMCAT_PROXY_SCHEME\" secure=\"true\"#" ../pentaho-server/tomcat/conf/server.xml
+    else
+        sed -i "s#DOCKER_PENTAHO_TOMCAT_PROXY_SETTINGS#proxyName=\"$DOCKER_PENTAHO_TOMCAT_PROXY_NAME\" proxyPort=\"$DOCKER_PENTAHO_TOMCAT_PROXY_PORT\" scheme=\"$DOCKER_PENTAHO_TOMCAT_PROXY_SCHEME\"#" ../pentaho-server/tomcat/conf/server.xml
+    fi
+    sed -i "s#DOCKER_PENTAHO_TOMCAT_PROXY_SETTINGS#proxyName=\"$DOCKER_PENTAHO_TOMCAT_PROXY_NAME\" proxyPort=\"$DOCKER_PENTAHO_TOMCAT_PROXY_PORT\" scheme=\"$DOCKER_PENTAHO_TOMCAT_PROXY_SCHEME\"#" ../pentaho-server/tomcat/conf/server.xml
+
+    cp templates/server.properties ../pentaho-server/pentaho-solutions/system/server.properties
+    sed -i "s#DOCKER_PENTAHO_TOMCAT_PROXY_NAME#$DOCKER_PENTAHO_TOMCAT_PROXY_NAME#" ../pentaho-server/pentaho-solutions/system/server.properties
+    sed -i "s#DOCKER_PENTAHO_TOMCAT_PROXY_SCHEME#$DOCKER_PENTAHO_TOMCAT_PROXY_SCHEME#" ../pentaho-server/pentaho-solutions/system/server.properties
+else
+    cp templates/server.xml ../pentaho-server/tomcat/conf/server.xml
+    sed -i "s#DOCKER_PENTAHO_TOMCAT_PROXY_SETTINGS##" ../pentaho-server/tomcat/conf/server.xml
+
+    cp templates/server.properties ../pentaho-server/pentaho-solutions/system/server.properties
+    sed -i "s#DOCKER_PENTAHO_TOMCAT_PROXY_NAME#localhost:8080#" ../pentaho-server/pentaho-solutions/system/server.properties
+    sed -i "s#DOCKER_PENTAHO_TOMCAT_PROXY_SCHEME#$DOCKER_PENTAHO_TOMCAT_PROXY_SCHEME#" ../pentaho-server/pentaho-solutions/system/server.properties
+fi
+
+if [[ ! -z "$DOCKER_PENTAHO_CORS_ALLOWED_DOMAINS" ]]
+then
+    cp templates/cda-settings.xml ../pentaho-server/pentaho-solutions/system/cda/settings.xml
+    sed -i "s#DOCKER_PENTAHO_CORS_ENABLE#true#" ../pentaho-server/pentaho-solutions/system/cda/settings.xml
+    sed -i "s#DOCKER_PENTAHO_CORS_ALLOWED_DOMAINS#$DOCKER_PENTAHO_CORS_ALLOWED_DOMAINS#" ../pentaho-server/pentaho-solutions/system/cda/settings.xml
+
+    cp templates/pentaho-cdf-dd-settings.xml ../pentaho-server/pentaho-solutions/system/pentaho-cdf-dd/settings.xml
+    sed -i "s#DOCKER_PENTAHO_CORS_ENABLE#true#" ../pentaho-server/pentaho-solutions/system/pentaho-cdf-dd/settings.xml
+    sed -i "s#DOCKER_PENTAHO_CORS_ALLOWED_DOMAINS#$DOCKER_PENTAHO_CORS_ALLOWED_DOMAINS#" ../pentaho-server/pentaho-solutions/system/pentaho-cdf-dd/settings.xml
+
+    cp templates/pentaho-cdf-settings.xml ../pentaho-server/pentaho-solutions/system/pentaho-cdf/settings.xml
+    sed -i "s#DOCKER_PENTAHO_CORS_ENABLE#true#" ../pentaho-server/pentaho-solutions/system/pentaho-cdf/settings.xml
+    sed -i "s#DOCKER_PENTAHO_CORS_ALLOWED_DOMAINS#$DOCKER_PENTAHO_CORS_ALLOWED_DOMAINS#" ../pentaho-server/pentaho-solutions/system/pentaho-cdf/settings.xml
+
+    cp templates/pentaho.xml ../pentaho-server/pentaho-solutions/system/pentaho.xml
+    sed -i "s#DOCKER_PENTAHO_CORS_ENABLE#true#" ../pentaho-server/pentaho-solutions/system/pentaho.xml
+    sed -i "s#DOCKER_PENTAHO_CORS_ALLOWED_DOMAINS#$DOCKER_PENTAHO_CORS_ALLOWED_DOMAINS#" ../pentaho-server/pentaho-solutions/system/pentaho.xml
+else
+    cp templates/cda-settings.xml ../pentaho-server/pentaho-solutions/system/cda/settings.xml
+    sed -i "s#DOCKER_PENTAHO_CORS_ENABLE#false#" ../pentaho-server/pentaho-solutions/system/cda/settings.xml
+    sed -i "s#DOCKER_PENTAHO_CORS_ALLOWED_DOMAINS##" ../pentaho-server/pentaho-solutions/system/cda/settings.xml
+
+    cp templates/pentaho-cdf-dd-settings.xml ../pentaho-server/pentaho-solutions/system/pentaho-cdf-dd/settings.xml
+    sed -i "s#DOCKER_PENTAHO_CORS_ENABLE#false#" ../pentaho-server/pentaho-solutions/system/pentaho-cdf-dd/settings.xml
+    sed -i "s#DOCKER_PENTAHO_CORS_ALLOWED_DOMAINS##" ../pentaho-server/pentaho-solutions/system/pentaho-cdf-dd/settings.xml
+
+    cp templates/pentaho-cdf-settings.xml ../pentaho-server/pentaho-solutions/system/pentaho-cdf/settings.xml
+    sed -i "s#DOCKER_PENTAHO_CORS_ENABLE#false#" ../pentaho-server/pentaho-solutions/system/pentaho-cdf/settings.xml
+    sed -i "s#DOCKER_PENTAHO_CORS_ALLOWED_DOMAINS##" ../pentaho-server/pentaho-solutions/system/pentaho-cdf/settings.xml
+
+    cp templates/pentaho.xml ../pentaho-server/pentaho-solutions/system/pentaho.xml
+    sed -i "s#DOCKER_PENTAHO_CORS_ENABLE#false#" ../pentaho-server/pentaho-solutions/system/pentaho.xml
+    sed -i "s#DOCKER_PENTAHO_CORS_ALLOWED_DOMAINS##" ../pentaho-server/pentaho-solutions/system/pentaho.xml
+fi
+
 cd ../pentaho-server
 
 exec "$@"

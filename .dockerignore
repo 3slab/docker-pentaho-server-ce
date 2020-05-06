@@ -68,3 +68,4 @@ pentaho-server/tomcat/temp/*
 !pentaho-server/tomcat/temp/.gitkeep
 pentaho-server/tomcat/work/Catalina
 !pentaho-server/tomcat/work/.gitkeep
+/test-embed
