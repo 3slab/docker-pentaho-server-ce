@@ -17,11 +17,17 @@ services:
       - DOCKER_PENTAHO_POSTGRES_JACKRABBIT_URL=jdbc:postgresql://db:5432/jackrabbit
       - DOCKER_PENTAHO_POSTGRES_JACKRABBIT_USERNAME=jcr_user
       - DOCKER_PENTAHO_POSTGRES_JACKRABBIT_PASSWORD=password
+      - DOCKER_PENTAHO_CORS_ALLOWED_DOMAINS=http://localhost:8080
+      - DOCKER_PENTAHO_TOMCAT_PROXY_PORT=8080
+      - DOCKER_PENTAHO_TOMCAT_PROXY_NAME=localhost
+      - DOCKER_PENTAHO_TOMCAT_PROXY_SCHEME=http
     ports:
       - 8080:8080
+    volumes:
+      - ./pentaho-server:/home/pentaho/pentaho-server
+      - ./entrypoint:/home/pentaho/entrypoint
     depends_on:
       - db
-
   db:
     container_name: pentaho-postgres
     image: postgres
