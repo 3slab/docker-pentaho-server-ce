@@ -1,0 +1,149 @@
+{% set pagetitle = 'Enter your username and password'|trans %}
+
+{% extends "@core/suez_base.twig" %}
+
+{% block postload %}
+    <script src="/{{ baseurlpath }}module.php/core/assets/js/loginuserpass.js"></script>
+{% endblock %}
+
+{% block content %}
+
+    <div class="sz-header tsme-header unlogged d-flex align-items-stretch justify-content-between bg-white text-primary">
+        <a class="tsme-header__brand px-3" href="#!"><img
+                    src="https://tmatlasstorageaccount.blob.core.windows.net/assets/toulouse-metropole-logo.svg" class="logo_idp" alt="Logo Suez"
+                    height="32"></a>
+
+    </div>
+    <div class="tsme-container">
+        <div class="container-fluid tsme-login">
+        <div class="tsme-login__container m-auto">
+            <div class="row">
+                <div class="col-md">
+                    <div class="tsme-login-block bg-white p-4 my-0 mx-4"><h3
+                                class="tsme-login-block__title sz-underline">ESPACE DE CONNEXION</h3>
+                        <form  action="?" method="post" id="login-form" name="login-form">
+                            <div class="form-group tsme-form-group">
+                                <div class="sz-form-group"><label
+                                            class="sz-label-input font-weight-bold position-relative d-block">E-mail</label>
+                                    <div class="mb-3 input-group">
+                                        <div class="sz-form-group__input-group-icon position-absolute h-100 input-group-prepend">
+                                            <i class="mdi mdi-account" aria-hidden="true"></i></div>
+                                        <input id="username"
+                                               name="username" {{ forceUsername ? 'disabled="disabled"' }}
+                                               placeholder="{{ username | default('Saisir votre adresse mail') }}"
+                                               type="email"
+                                               class="sz-form-group__sz-input-text border-0 bg-light sz-form-group__sz-input-text--icon form-control edge"
+                                                {%- if not forceUsername %} tabindex="1" value="{{ username }}" {% endif %}
+                                                {%- if not forceUsername and not username %} autofocus {% endif %} />
+                                        <span class="sz-form-group__input-group-icon-valid position-absolute bg-secondary d-none align-items-center justify-content-center text-white font-weight-bold"><i class="mdi mdi-check" aria-hidden="true"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group tsme-form-group">
+                                <div class="sz-form-group"><label
+                                            class="sz-label-input font-weight-bold position-relative d-block">Mot de
+                                        passe</label>
+                                    <div class="mb-3 input-group">
+                                        <div class="sz-form-group__input-group-icon position-absolute h-100 input-group-prepend">
+                                            <i class="mdi mdi-lock" aria-hidden="true"></i></div>
+                                        <input id="password" name="password" placeholder="Saisir votre mot de passe"
+                                               type="password" tabindex="2"
+                                               class="sz-form-group__sz-input-text border-0 bg-light sz-form-group__sz-input-text--icon form-control edge"
+                                               value="" {%- if forceUsername or username %} autofocus {% endif %} />
+                                        <span class="sz-form-group__input-group-icon-valid position-absolute bg-secondary d-none align-items-center justify-content-center text-white font-weight-bold"><i class="mdi mdi-check" aria-hidden="true"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {% if rememberMeEnabled -%}
+                                <div class="form-group sz-form-group">
+                                    <div class="sz-checkbox font-weight-bold custom-control custom-checkbox"><input
+                                                type="checkbox" id="remember_me" name="remember_me" value="Yes"
+                                                class="custom-control-input"><label
+                                                title="" type="checkbox" for="remember_me"
+                                                class="custom-control-label">Se
+                                            souvenir de moi</label></div>
+                                </div>
+                            {%- endif %}
+
+                            {% if errorcode -%}
+                            <div role="alert"
+                                 class="fade sz-alert d-flex align-items-stretch justify-content-between font-weight-bold my-3 w-100 pl-3 p-0 border-0 text-white alert alert-danger show">
+                                <div class="sz-alert__text d-flex align-items-center">
+                                    {% set errtitles = errorcodes['title'] %}
+                                    {% set errtitle = errtitles[errorcode] %}
+
+
+                                    {#{% set errdescs = errorcodes['descr'] %}#}
+                                    {#{% set errdesc = errdescs[errorcode] %}#}
+                                    {#{ errdesc|trans(errorparams) }#}
+                                    {{ errtitle|trans(errorparams) }}
+                                </div>
+                                <div class="sz-alert__icon d-flex align-items-center px-2">
+                                    <i class="mdi h4 my-0 ml-auto mdi-alert mr-3"></i>
+                                </div>
+                            </div>
+                            {%- endif %}
+
+                            <button type="submit" id="submit_button" class="sz-btn sz-btn-secondary" disabled>Je me
+                                connecte
+                            </button>
+                            {% if forgetPasswordUrl -%}
+                                <p class="forgot-pwd"><a id="forgot-pwd" href="{{ forgetPasswordUrl }}" >Mot de passe oublié ? </a></p>
+                            {%- endif %}
+                            {%- for name, value in stateparams %}
+                                <input type="hidden" name="{{ name }}" value="{{ value }}"/>
+                            {%- endfor %}
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="tsme-login-text text-white p-5">
+                        <h2 class="tsme-login-text__title font-weight-bold">
+                            ATLAS.NET
+                        </h2>
+                        <p>Accès digital au service de l'assainissement de Toulouse Métropole</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+  <script type="text/javascript">
+  document.getElementById('username').addEventListener("blur", handleFocusOut, true);
+  document.getElementById('password').addEventListener("keyup", handleFocusOutPwd, true);
+  function isEmail(email){
+    const regex = /^([a-zA-Z0-9_.+-])+@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    return regex.test(email);
+  }
+  function isPwd(pwd) {
+    const regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
+    return regex.test(pwd);
+  }
+  function handleFocusOut(e) {
+      let nextParent = e.target.nextSibling;
+      if (isEmail(e.target.value)) {
+        e.target.classList.remove("sz-form-group__sz-input-text--error");
+        nextParent.nextSibling.classList.remove("d-none");
+      }
+      if (e.target.value.length > 0 && !isEmail(e.target.value)) {
+        e.target.className += " sz-form-group__sz-input-text--error";
+        e.target.classList.remove("border-0");
+        nextParent.nextSibling.classList.add("d-none");
+      }
+      if (e.target.value.length === 0) {
+        e.target.classList.remove("sz-form-group__sz-input-text--error");
+      }
+  }
+  function handleFocusOutPwd(e) {
+    if (e.target.value.length === 0) {
+    document.getElementById('submit_button').setAttribute('disabled', 'disabled');
+    }
+    else {
+    document.getElementById('submit_button').removeAttribute('disabled');
+    }
+  }
+  </script>
+{% endblock %}
