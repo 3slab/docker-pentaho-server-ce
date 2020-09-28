@@ -17,12 +17,12 @@ services:
       - DOCKER_PENTAHO_POSTGRES_JACKRABBIT_URL=jdbc:postgresql://db:5432/jackrabbit
       - DOCKER_PENTAHO_POSTGRES_JACKRABBIT_USERNAME=jcr_user
       - DOCKER_PENTAHO_POSTGRES_JACKRABBIT_PASSWORD=password
-      - DOCKER_PENTAHO_CORS_ALLOWED_DOMAINS=http://localhost:8080
-      - DOCKER_PENTAHO_TOMCAT_PROXY_PORT=8080
+      - DOCKER_PENTAHO_CORS_ALLOWED_DOMAINS=http://localhost:8081
+      - DOCKER_PENTAHO_TOMCAT_PROXY_PORT=8081
       - DOCKER_PENTAHO_TOMCAT_PROXY_NAME=localhost
       - DOCKER_PENTAHO_TOMCAT_PROXY_SCHEME=http
     ports:
-      - 8080:8080
+      - 8081:8080
     volumes:
       - ./pentaho-server:/home/pentaho/pentaho-server
       - ./entrypoint:/home/pentaho/entrypoint
@@ -43,3 +43,76 @@ services:
     restart: always
     ports:
       - 8888:8080
+  ########################
+  #### AUTHENTICATION ####
+  ########################
+  ldap-openldap:
+    container_name: "ldap-openldap"
+    image: osixia/openldap:1.2.5
+    environment: # using an .env file here seems to break things.
+      LDAP_LOG_LEVEL: "256"
+      LDAP_ORGANISATION: "3S"
+      LDAP_DOMAIN: "atlas360.fr"
+      LDAP_BACKEND: "mdb"
+      LDAP_TLS: "true"
+      LDAP_TLS_ENFORCE: "false"
+      LDAP_REMOVE_CONFIG_AFTER_SETUP: "false"
+      LDAP_RFC2307BIS_SCHEMA: "true"
+    volumes:
+      - /var/lib/ldap
+      - /etc/ldap/slapd.d
+      - /container/service/slapd/assets/certs/
+      - ./ldif:/container/service/slapd/assets/config/bootstrap/ldif/custom
+    ports:
+      - "389:389"
+      - "636:636"
+    hostname: "atlas360.fr"
+
+  ldapadmin:
+    image: suezenv/phpldapadmin-docker
+    container_name: "atlas_pce_ldapadmin"
+    environment: # using an .env file here seems to break things.
+      LDAP_URL: "ldap-openldap"
+      LDAP_BASE: "dc=atlas360,dc=fr"
+      LDAP_ADMIN: "cn=admin,dc=atlas360,dc=fr"
+    volumes:
+      - ./phpldapadmin/templates/creation:/etc/phpldapadmin/templates/creation
+    ports:
+      - "8080:80"
+    depends_on:
+      - ldap-openldap
+
+  atlas-pce-idp:
+    container_name: 'atlas_pce_idp'
+    image: 'suezenv/simplesamlphp:latest'
+    ports:
+      - '8443:80'
+    volumes:
+        - './simplesamlphp/certs:/var/simplesamlphp/cert/'
+        - './simplesamlphp/design/modules/suez/default-enable:/var/simplesamlphp/modules/suez/default-enable'
+        - './simplesamlphp/design/modules/suez/www/static/media/sludge/bgHome.png:/var/simplesamlphp/modules/suez/www/static/media/sludge/bgHome.png'
+        - './simplesamlphp/design/modules/suez/themes/sludge/core/loginuserpass.twig:/var/simplesamlphp/modules/suez/themes/sludge/core/loginuserpass.twig'
+        - './simplesamlphp/design/modules/suez/themes/sludge/core/suez_base.twig:/var/simplesamlphp/modules/suez/themes/sludge/core/suez_base.twig'
+        - './simplesamlphp/design/modules/suez/themes/sludge/default/base.twig:/var/simplesamlphp/modules/suez/themes/sludge/default/base.twig'
+        - './simplesamlphp/design/modules/suez/themes/sludge/default/style.css.twig:/var/simplesamlphp/modules/suez/themes/sludge/default/style.css.twig'
+        - './simplesamlphp/var-simplesamlphp/metadata/saml20-sp-remote.php:/var/simplesamlphp/metadata/saml20-sp-remote.php'
+        - './simplesamlphp/var-simplesamlphp/metadata/saml20-idp-hosted.php:/var/simplesamlphp/metadata/saml20-idp-hosted.php'
+        - './simplesamlphp/var-simplesamlphp/config/authsources.php:/var/simplesamlphp/config/authsources.php'
+        - './simplesamlphp/var-simplesamlphp/config/config.php:/var/simplesamlphp/config/config.php'
+        - './simplesamlphp/etc-httpd/conf.d/ssp.conf:/etc/httpd/conf.d/ssp.conf'
+    links:
+      - 'ldap-openldap'
+  self-service-password:
+    container_name: 'atlas_pce_self_service_password'
+    image: 'suezenv/self-service-password:1.0.0'
+    volumes:
+      - './self-service-password/config/lang/notification_body.php:/usr/share/self-service-password/lang/notification_body.php'
+      - './self-service-password/config/lang/reset_password_body.php:/usr/share/self-service-password/lang/reset_password_body.php'
+      - './self-service-password/config/lang/fr.inc.php:/usr/share/self-service-password/lang/fr.inc.php'
+      - './self-service-password/config/conf/config.inc.php:/usr/share/self-service-password/conf/config.inc.php'
+      - './self-service-password/config/conf/self-service-password.css:/usr/share/self-service-password/css/self-service-password.css'
+      - './self-service-password/config/images/NM.svg:/usr/share/self-service-password/images/NM.svg'
+      - './self-service-password/config/images/bgHome.png:/usr/share/self-service-password/images/bgHome.png'
+    env_file: '.env'
+    ports:
+      - '4002:80'
