@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="http://lotfi-dev-env.francecentral.cloudapp.azure.com:8443/simplesaml/saml2/idp/metadata.php">
+  <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+    <md:KeyDescriptor use="signing">
+      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+        <ds:X509Data>
+          <ds:X509Certificate>MIIEITCCAwmgAwIBAgIJAPMs4xeHcUuxMA0GCSqGSIb3DQEBCwUAMIGmMQswCQYDVQQGEwJGUjEXMBUGA1UECAwOSGF1dHMtZGUtc2VpbmUxETAPBgNVBAcMCFN1cmVzbmVzMQ0wCwYDVQQKDARTdWV6MRcwFQYDVQQLDA5TbWFydCBTb2x1dGlvbjEWMBQGA1UEAwwNaWRwLmdhaWE5Mi5mcjErMCkGCSqGSIb3DQEJARYcdGhvbWFzLmxlY2FycGVudGllckBzdWV6LmNvbTAeFw0xODExMTQxNTMyMDlaFw0yODExMTMxNTMyMDlaMIGmMQswCQYDVQQGEwJGUjEXMBUGA1UECAwOSGF1dHMtZGUtc2VpbmUxETAPBgNVBAcMCFN1cmVzbmVzMQ0wCwYDVQQKDARTdWV6MRcwFQYDVQQLDA5TbWFydCBTb2x1dGlvbjEWMBQGA1UEAwwNaWRwLmdhaWE5Mi5mcjErMCkGCSqGSIb3DQEJARYcdGhvbWFzLmxlY2FycGVudGllckBzdWV6LmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAOcnGUSx+Asp5/OjxxlkTUZnt582L8nTIOK6Wwo2zDdn3k/G6OH4HFxzcf8vXx2zsWJz5zFjccxFhVwI+uJXoNHDFI5norIAPqk38mJgUbuB5HmS5n56r9/iEoXhfY0ie8HSs4YK726KuJMZZCOqcp6qoSPt7iZLX825j03GwCX8kYKA5YpqGuiu5FLNVKGGUlOP5aVLFJVH0T2r2G3MPgZuJ3MY984TLld3OV0GbVnJgC0T9dUEB2eUxbcCHJAY72cHMqHIDB9+3Y3DjHVaYQKgbdUxApfySftxXSJZwLGdIPvnQoqHkLQRtAvFjnlnU+lZaChYsjGoMQPAslyR2fMCAwEAAaNQME4wHQYDVR0OBBYEFND6mDbWKYA5b5RpQNqCG++Scql7MB8GA1UdIwQYMBaAFND6mDbWKYA5b5RpQNqCG++Scql7MAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQELBQADggEBAHlk/0e0DayyImOfeLxdTBUYHzHlj/41f+42zvJ3mCv966UNjOOdZdCS5i+YKzgbMqTcx+5eHVN1YRKBuy35JJfvyP+svZB7MLmuPSfLUkbiL1Ar2RYGcMOCCedOyz29lka4XGqhnk9GR2CIUkVUW07tH/T8/ikcM6iD3W3rptumraV11fCZFSTZBGUmsj5L2Jsu5pyDq+qxQ4HHeawZW6IBcXcny33gennBaxz0k1qJJmwVugCfKEYfIQGTyc1SS+8OR7KwXN2LvqxMb07P4WMLfHIJW1wVZOxmDDB4BkM0p2y0F5yddhoT7JNs/i1WVPYkbn1CVmRbH5iEfu8v9Es=</ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </md:KeyDescriptor>
+    <md:KeyDescriptor use="encryption">
+      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+        <ds:X509Data>
+          <ds:X509Certificate>MIIEITCCAwmgAwIBAgIJAPMs4xeHcUuxMA0GCSqGSIb3DQEBCwUAMIGmMQswCQYDVQQGEwJGUjEXMBUGA1UECAwOSGF1dHMtZGUtc2VpbmUxETAPBgNVBAcMCFN1cmVzbmVzMQ0wCwYDVQQKDARTdWV6MRcwFQYDVQQLDA5TbWFydCBTb2x1dGlvbjEWMBQGA1UEAwwNaWRwLmdhaWE5Mi5mcjErMCkGCSqGSIb3DQEJARYcdGhvbWFzLmxlY2FycGVudGllckBzdWV6LmNvbTAeFw0xODExMTQxNTMyMDlaFw0yODExMTMxNTMyMDlaMIGmMQswCQYDVQQGEwJGUjEXMBUGA1UECAwOSGF1dHMtZGUtc2VpbmUxETAPBgNVBAcMCFN1cmVzbmVzMQ0wCwYDVQQKDARTdWV6MRcwFQYDVQQLDA5TbWFydCBTb2x1dGlvbjEWMBQGA1UEAwwNaWRwLmdhaWE5Mi5mcjErMCkGCSqGSIb3DQEJARYcdGhvbWFzLmxlY2FycGVudGllckBzdWV6LmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAOcnGUSx+Asp5/OjxxlkTUZnt582L8nTIOK6Wwo2zDdn3k/G6OH4HFxzcf8vXx2zsWJz5zFjccxFhVwI+uJXoNHDFI5norIAPqk38mJgUbuB5HmS5n56r9/iEoXhfY0ie8HSs4YK726KuJMZZCOqcp6qoSPt7iZLX825j03GwCX8kYKA5YpqGuiu5FLNVKGGUlOP5aVLFJVH0T2r2G3MPgZuJ3MY984TLld3OV0GbVnJgC0T9dUEB2eUxbcCHJAY72cHMqHIDB9+3Y3DjHVaYQKgbdUxApfySftxXSJZwLGdIPvnQoqHkLQRtAvFjnlnU+lZaChYsjGoMQPAslyR2fMCAwEAAaNQME4wHQYDVR0OBBYEFND6mDbWKYA5b5RpQNqCG++Scql7MB8GA1UdIwQYMBaAFND6mDbWKYA5b5RpQNqCG++Scql7MAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQELBQADggEBAHlk/0e0DayyImOfeLxdTBUYHzHlj/41f+42zvJ3mCv966UNjOOdZdCS5i+YKzgbMqTcx+5eHVN1YRKBuy35JJfvyP+svZB7MLmuPSfLUkbiL1Ar2RYGcMOCCedOyz29lka4XGqhnk9GR2CIUkVUW07tH/T8/ikcM6iD3W3rptumraV11fCZFSTZBGUmsj5L2Jsu5pyDq+qxQ4HHeawZW6IBcXcny33gennBaxz0k1qJJmwVugCfKEYfIQGTyc1SS+8OR7KwXN2LvqxMb07P4WMLfHIJW1wVZOxmDDB4BkM0p2y0F5yddhoT7JNs/i1WVPYkbn1CVmRbH5iEfu8v9Es=</ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </md:KeyDescriptor>
+    <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="http://lotfi-dev-env.francecentral.cloudapp.azure.com:8443/simplesaml/saml2/idp/SingleLogoutService.php"/>
+    <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+    <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="http://lotfi-dev-env.francecentral.cloudapp.azure.com:8443/simplesaml/saml2/idp/SSOService.php"/>
+  </md:IDPSSODescriptor>
+  <md:ContactPerson contactType="technical">
+    <md:GivenName>Thomas</md:GivenName>
+    <md:SurName>Lecarpentier</md:SurName>
+    <md:EmailAddress>thomas.lecarpentier@suez.com</md:EmailAddress>
+  </md:ContactPerson>
+</md:EntityDescriptor>

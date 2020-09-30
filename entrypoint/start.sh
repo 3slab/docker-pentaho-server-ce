@@ -115,6 +115,21 @@ else
     sed -i "s#DOCKER_PENTAHO_CORS_ALLOWED_DOMAINS##" ../pentaho-server/pentaho-solutions/system/pentaho.xml
 fi
 
+if [[ ! -z "$DOCKER_PENTAHO_AUTH_MODE" && \
+      "$DOCKER_PENTAHO_AUTH_MODE" == "saml" ]]
+then
+    cp templates/saml/applicationContext-spring-security-saml.xml ../pentaho-server/pentaho-solutions/system/applicationContext-spring-security-saml.xml
+    cp templates/saml/logout.jsp ../pentaho-server/tomcat/webapps/pentaho/logout.jsp
+    cp templates/saml/pentaho.saml.cfg ../pentaho-server/pentaho-solutions/system/karaf/etc/pentaho.saml.cfg
+    cp templates/saml/pentaho-saml-sample-9.0.0.0-423.kar ../pentaho-server/pentaho-solutions/system/karaf/deploy/
+    #cp -R templates/saml/metadata ../pentaho-server/pentaho-solutions/
+    sed -i "s#APPLICATION_CONTEXT_SAML_IMPORT#applicationContext-spring-security-saml.xml#" ../pentaho-server/pentaho-solutions/system/pentaho-spring-beans.xml
+    sed -i "s#AUTH_SECURITY_PROVIDER#saml#" ../pentaho-server/pentaho-solutions/system/security.properties
+else
+    sed -i '/APPLICATION_CONTEXT_SAML_IMPORT/d' ../pentaho-server/pentaho-solutions/system/pentaho-spring-beans.xml
+    sed -i "s#AUTH_SECURITY_PROVIDER#jackrabbit#" ../pentaho-server/pentaho-solutions/system/security.properties
+
+fi
 cd ../pentaho-server
 
 exec "$@"

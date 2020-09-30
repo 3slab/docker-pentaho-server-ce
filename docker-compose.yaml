@@ -17,15 +17,17 @@ services:
       - DOCKER_PENTAHO_POSTGRES_JACKRABBIT_URL=jdbc:postgresql://db:5432/jackrabbit
       - DOCKER_PENTAHO_POSTGRES_JACKRABBIT_USERNAME=jcr_user
       - DOCKER_PENTAHO_POSTGRES_JACKRABBIT_PASSWORD=password
-      - DOCKER_PENTAHO_CORS_ALLOWED_DOMAINS=http://localhost:8081
+      - DOCKER_PENTAHO_CORS_ALLOWED_DOMAINS=http://lotfi-dev-env.francecentral.cloudapp.azure.com:8081
       - DOCKER_PENTAHO_TOMCAT_PROXY_PORT=8081
-      - DOCKER_PENTAHO_TOMCAT_PROXY_NAME=localhost
+      - DOCKER_PENTAHO_TOMCAT_PROXY_NAME=lotfi-dev-env.francecentral.cloudapp.azure.com
       - DOCKER_PENTAHO_TOMCAT_PROXY_SCHEME=http
+      - DOCKER_PENTAHO_AUTH_MODE=saml
     ports:
       - 8081:8080
     volumes:
       - ./pentaho-server:/home/pentaho/pentaho-server
       - ./entrypoint:/home/pentaho/entrypoint
+      - ./entrypoint/templates/saml/metadata:/home/pentaho/pentaho-server/pentaho-solutions/metadata/
     depends_on:
       - db
   db:
@@ -34,6 +36,8 @@ services:
     restart: always
     environment:
       POSTGRES_PASSWORD: example
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
     ports:
       - 5432:5432
 
@@ -62,7 +66,6 @@ services:
       - /var/lib/ldap
       - /etc/ldap/slapd.d
       - /container/service/slapd/assets/certs/
-      - ./ldif:/container/service/slapd/assets/config/bootstrap/ldif/custom
     ports:
       - "389:389"
       - "636:636"
