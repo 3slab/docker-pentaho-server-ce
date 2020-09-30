@@ -22,6 +22,11 @@ services:
       - DOCKER_PENTAHO_TOMCAT_PROXY_NAME=lotfi-dev-env.francecentral.cloudapp.azure.com
       - DOCKER_PENTAHO_TOMCAT_PROXY_SCHEME=http
       - DOCKER_PENTAHO_AUTH_MODE=saml
+      - |
+        DOCKER_PENTAHO_IDP_CERT=
+        -----BEGIN CERTIFICATE-----
+
+        -----END CERTIFICATE-----
     ports:
       - 8081:8080
     volumes:

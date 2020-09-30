@@ -26,6 +26,8 @@ Variable | Description | Example
 `DOCKER_PENTAHO_TOMCAT_PROXY_NAME` | Set tomcat proxyName settings in Connection | ``
 `DOCKER_PENTAHO_TOMCAT_PROXY_SCHEME` | Set tomcat scheme settings in Connection (if https adds secure settings) | ``
 `DOCKER_PENTAHO_CORS_ALLOWED_DOMAINS` | Enable CORS and setup allowed domains | ``
+`DOCKER_PENTAHO_AUTH_MODE` | Set the authentification method ex: SAML (if not set it will use the Jackrabbit authentification method) | ``
+`DOCKER_PENTAHO_IDP_CERT` | this variable s mandortory when the auth mode is SAML and his value is the IDP certificat | ``
 
 Look at the [docker-compose file](./docker-compse.yaml) for example.
 

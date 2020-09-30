@@ -125,6 +125,17 @@ then
     #cp -R templates/saml/metadata ../pentaho-server/pentaho-solutions/
     sed -i "s#APPLICATION_CONTEXT_SAML_IMPORT#applicationContext-spring-security-saml.xml#" ../pentaho-server/pentaho-solutions/system/pentaho-spring-beans.xml
     sed -i "s#AUTH_SECURITY_PROVIDER#saml#" ../pentaho-server/pentaho-solutions/system/security.properties
+    if  [[ ! -z "$DOCKER_PENTAHO_IDP_CERT" ]]
+    then
+        echo "$DOCKER_PENTAHO_IDP_CERT" | tee /tmp/idp_cert.crt
+        set +e
+        cd ../pentaho-server/jre/bin
+        ./keytool -importcert -alias idpca -file /tmp/idp_cert.crt -trustcacerts -keystore ../lib/security/cacerts -storepass changeit -noprompt
+        cd ../../
+    else
+        echo "the idp certificat is a mandatory environnement variable in the SAML mode"
+        exit 1
+    fi
 else
     sed -i '/APPLICATION_CONTEXT_SAML_IMPORT/d' ../pentaho-server/pentaho-solutions/system/pentaho-spring-beans.xml
     sed -i "s#AUTH_SECURITY_PROVIDER#jackrabbit#" ../pentaho-server/pentaho-solutions/system/security.properties
