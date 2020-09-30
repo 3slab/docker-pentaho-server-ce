@@ -418,7 +418,7 @@ $config = array(
         // Which attributes should be retrieved from the LDAP server.
         // This can be an array of attribute names, or NULL, in which case
         // all attributes are fetched.
-        'attributes' => array('cn', 'givenName', 'mail', 'sn', 'uid', 'uidNumber', 'entryUUID'),
+        'attributes' => array('cn', 'givenName','employeeType', 'mail', 'sn', 'uid', 'uidNumber', 'entryUUID'),
 
         // The pattern which should be used to create the users DN given the username.
         // %username% in this pattern will be replaced with the users username.

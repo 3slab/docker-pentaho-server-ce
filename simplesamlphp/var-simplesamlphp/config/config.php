@@ -20,7 +20,7 @@ $config = array(
      * external url, no matter where you come from (direct access or via the
      * reverse proxy).
      */
-    'baseurlpath' => 'http://idp-dev.atlas360.fr:8443/simplesaml/',
+    'baseurlpath' => 'http://lotfi-dev-env.francecentral.cloudapp.azure.com:8443/simplesaml/',
     'certdir' => 'cert/',
     'loggingdir' => 'log/',
     'datadir' => 'data/',
