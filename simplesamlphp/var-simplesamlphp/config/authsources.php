@@ -424,7 +424,7 @@ $config = array(
         // %username% in this pattern will be replaced with the users username.
         //
         // This option is not used if the search.enable option is set to TRUE.
-        'dnpattern' => 'uid=%username%,ou=Users,dc=atlas360,dc=fr',
+        'dnpattern' => 'uid=%username%,ou=Users,dc=pentaho,dc=fr',
 
         // As an alternative to specifying a pattern for the users DN, it is possible to
         // search for the username in a set of attributes. This is enabled by this option.
@@ -433,7 +433,7 @@ $config = array(
         // The DN which will be used as a base for the search.
         // This can be a single string, in which case only that DN is searched, or an
         // array of strings, in which case they will be searched in the order given.
-        'search.base' => 'ou=Users,dc=atlas360,dc=fr',
+        'search.base' => 'ou=Users,dc=pentaho,dc=fr',
 
         // The attribute(s) the username should match against.
         //
