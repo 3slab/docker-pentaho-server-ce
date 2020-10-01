@@ -59,7 +59,7 @@
 
    <appender name="PENTAHOCONSOLE" class="org.apache.log4j.ConsoleAppender">
       <param name="Target" value="System.out"/>
-      <param name="Threshold" value="DEBUG"/>
+      <param name="Threshold" value="INFO"/>
 
       <layout class="org.apache.log4j.PatternLayout">
          <!-- The default pattern: Date Priority [Category] Message\n -->
@@ -71,7 +71,7 @@
    <!-- Limit categories -->
    <!-- ================ -->
     <category name="org.apache.hadoop.io.retry">
-        <priority value="DEBUG" />
+        <priority value="INFO" />
     </category>
 
    <category name="org.hibernate">
@@ -113,7 +113,7 @@
 	
 	<category
 		name="org.pentaho.platform.osgi">
-		<priority value="DEBUG" />
+		<priority value="INFO" />
 	</category>
 	
 	<category
@@ -130,7 +130,7 @@
    </category>
    
    <category name="org.pentaho.platform.engine.core.system.status">
-    <priority value="DEBUG"/>
+    <priority value="INFO"/>
   </category>	
    
    <!-- =========================== -->
@@ -138,21 +138,21 @@
    <!-- =========================== -->
    
    <category name="RepositoryImportLog">
-      <priority value="DEBUG"/>
+      <priority value="INFO"/>
    </category>
 
   <logger name="org.pentaho.di.trans.Trans" additivity="false">
-    <level value="DEBUG"/>
+    <level value="INFO"/>
     <appender-ref ref="pdi-execution-appender"/>
   </logger>
 
   <logger name="org.pentaho.di.job.Job" additivity="false">
-    <level value="DEBUG"/>
+    <level value="INFO"/>
     <appender-ref ref="pdi-execution-appender"/>
   </logger>
 
   <category name="org.pentaho.hadoop.shim.DriverManager">
-      <priority value="DEBUG"/>
+      <priority value="INFO"/>
   </category>
 
    <!-- ======================= -->
@@ -165,7 +165,7 @@
       <appender-ref ref="PENTAHOFILE"/>
    </root>
 
-  <!--  optional logging DEBUG for the Mondrian OLAP Engine       -->
+  <!--  optional logging info for the Mondrian OLAP Engine       -->
    
    
    <!-- ========================================================= -->
