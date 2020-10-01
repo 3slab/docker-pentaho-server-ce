@@ -22,6 +22,8 @@ services:
       - DOCKER_PENTAHO_TOMCAT_PROXY_NAME=lotfi-dev-env.francecentral.cloudapp.azure.com
       - DOCKER_PENTAHO_TOMCAT_PROXY_SCHEME=http
       - DOCKER_PENTAHO_AUTH_MODE=saml
+      - DOCKER_PENTAHO_LDAP_ROLE_ATTRIBUTE=employeeType
+      - DOCKER_PENTAHO_IDP_URL=http://lotfi-dev-env.francecentral.cloudapp.azure.com:8443/simplesaml/saml2/idp/metadata.php
       - |
         DOCKER_PENTAHO_IDP_CERT=
         -----BEGIN CERTIFICATE-----

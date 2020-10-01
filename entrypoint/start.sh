@@ -123,20 +123,24 @@ then
     cp templates/saml/pentaho.saml.cfg ../pentaho-server/pentaho-solutions/system/karaf/etc/pentaho.saml.cfg
     cp templates/saml/pentaho-saml-sample-9.0.0.0-423.kar ../pentaho-server/pentaho-solutions/system/karaf/deploy/
     #cp -R templates/saml/metadata ../pentaho-server/pentaho-solutions/
-    sed -i "s#APPLICATION_CONTEXT_SAML_IMPORT#applicationContext-spring-security-saml.xml#" ../pentaho-server/pentaho-solutions/system/pentaho-spring-beans.xml
-    sed -i "s#AUTH_SECURITY_PROVIDER#saml#" ../pentaho-server/pentaho-solutions/system/security.properties
-    if  [[ ! -z "$DOCKER_PENTAHO_IDP_CERT" ]]
+    sed -i "s#DOCKER_PENTAHO_APPLICATION_CONTEXT_SAML_IMPORT#applicationContext-spring-security-saml.xml#" ../pentaho-server/pentaho-solutions/system/pentaho-spring-beans.xml
+    sed -i "s#DOCKER_PENTAHO_AUTH_SECURITY_PROVIDER#saml#" ../pentaho-server/pentaho-solutions/system/security.properties
+    if  [[ ! -z "$DOCKER_PENTAHO_IDP_CERT" && \
+           ! -z "$DOCKER_PENTAHO_IDP_URL" && \
+           ! -z "$DOCKER_PENTAHO_LDAP_ROLE_ATTRIBUTE" ]]
     then
+	sed -i "s#DOCKER_PENTAHO_IDP_URL#$DOCKER_PENTAHO_IDP_URL#" ../pentaho-server/pentaho-solutions/system/karaf/etc/pentaho.saml.cfg
+	sed -i "s#DOCKER_PENTAHO_LDAP_ROLE_ATTRIBUTE#$DOCKER_PENTAHO_LDAP_ROLE_ATTRIBUTE#" ../pentaho-server/pentaho-solutions/system/karaf/etc/pentaho.saml.cfg
         echo "$DOCKER_PENTAHO_IDP_CERT" | tee /tmp/idp_cert.crt
         set +e
         /home/pentaho/pentaho-server/jre/bin/keytool -importcert -alias idpca -file /tmp/idp_cert.crt -trustcacerts -keystore /home/pentaho/pentaho-server/jre/lib/security/cacerts -storepass changeit -noprompt
     else
-        echo "the idp certificat is a mandatory environnement variable in the SAML mode"
+        echo "some SAML  mandatory environnement variables is missing"
         exit 1
     fi
 else
-    sed -i '/APPLICATION_CONTEXT_SAML_IMPORT/d' ../pentaho-server/pentaho-solutions/system/pentaho-spring-beans.xml
-    sed -i "s#AUTH_SECURITY_PROVIDER#jackrabbit#" ../pentaho-server/pentaho-solutions/system/security.properties
+    sed -i '/DOCKER_PENTAHO_APPLICATION_CONTEXT_SAML_IMPORT/d' ../pentaho-server/pentaho-solutions/system/pentaho-spring-beans.xml
+    sed -i "s#DOCKER_PENTAHO_AUTH_SECURITY_PROVIDER#jackrabbit#" ../pentaho-server/pentaho-solutions/system/security.properties
 
 fi
 cd ../pentaho-server
