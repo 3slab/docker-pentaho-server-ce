@@ -129,9 +129,7 @@ then
     then
         echo "$DOCKER_PENTAHO_IDP_CERT" | tee /tmp/idp_cert.crt
         set +e
-        cd ../pentaho-server/jre/bin
-        ./keytool -importcert -alias idpca -file /tmp/idp_cert.crt -trustcacerts -keystore ../lib/security/cacerts -storepass changeit -noprompt
-        cd ../../
+        /home/pentaho/pentaho-server/jre/bin/keytool -importcert -alias idpca -file /tmp/idp_cert.crt -trustcacerts -keystore /home/pentaho/pentaho-server/jre/lib/security/cacerts -storepass changeit -noprompt
     else
         echo "the idp certificat is a mandatory environnement variable in the SAML mode"
         exit 1
