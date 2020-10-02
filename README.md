@@ -80,8 +80,9 @@ Run postgress database script (script are in pentaho-server/data/postgresql), to
     $ docker-compose exec db bash
     $ psql -h pentaho-postgre -U postgres # password => example
 ```
+Open `dev-pentaho.com:8081` to access to your dash board (test@pentaho.com/test)
 
-Add users in your ldap admin (`dev-pentaho.com:8080`) and assign a Pentaho Role in the LDAP arttibute used to correlate the Pentaho Roles
+You can also add users in your ldap admin (`dev-pentaho.com:8080`) and assign a Pentaho Role in the LDAP arttibute used to correlate the Pentaho Roles
 
 
 ## Image build guide

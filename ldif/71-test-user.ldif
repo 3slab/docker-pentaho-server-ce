@@ -1,0 +1,16 @@
+# Entry 1: uid=test@pentaho.com,ou=Users,dc=pentaho,dc=fr.
+dn: uid=test@pentaho.com,ou=Users,dc=pentaho,dc=fr
+cn: test@pentaho.com
+gidnumber: 500
+givenname: test
+homedirectory: /home/nohome
+loginshell: /bin/false
+mail: test@pentaho.com
+objectclass: inetOrgPerson
+objectclass: posixAccount
+objectclass: top
+sn: test
+uid: test@pentaho.com
+employeeType: Pentaho:Administrator
+uidnumber: 1000
+userpassword: {MD5}CY9rzUYh03PK3k6DJie09g==
