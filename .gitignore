@@ -74,6 +74,6 @@ pentaho-server/pentaho-solutions/system/applicationContext-spring-security-saml.
 pentaho-server/pentaho-solutions/system/karaf/deploy/pentaho-saml-sample-9.0.0.0-423.kar
 pentaho-server/pentaho-solutions/system/karaf/etc/pentaho.saml.cfg
 pentaho-server/tomcat/webapps/pentaho/logout.jsp
-
+pentaho-server/postgres-data
 
 /test-embed
