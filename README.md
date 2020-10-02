@@ -63,6 +63,12 @@ you can change your idp and sp metadata by updating the files in:
 
 you  can also change the `pentaho-server/templates/saml/metadata/keystore.jks` but make make sure you update also the related params in the `docker-compose.yaml`
 
+for  the mandatory environment variables you can configure them in the `docker-compose.yaml`
+
+if you want to use SAML authentification method make sure that all the SAML environment variables are well configured.
+
+if you want to use only the standard authentification method remove all SAML environment variables
+
 run this command to start
 ```bash
     $ docker-compose build

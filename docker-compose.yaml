@@ -17,13 +17,13 @@ services:
       - DOCKER_PENTAHO_POSTGRES_JACKRABBIT_URL=jdbc:postgresql://db:5432/jackrabbit
       - DOCKER_PENTAHO_POSTGRES_JACKRABBIT_USERNAME=jcr_user
       - DOCKER_PENTAHO_POSTGRES_JACKRABBIT_PASSWORD=password
-      - DOCKER_PENTAHO_CORS_ALLOWED_DOMAINS=http://lotfi-dev-env.francecentral.cloudapp.azure.com:8081
+      - DOCKER_PENTAHO_CORS_ALLOWED_DOMAINS=http://dev-pentaho.com:8081
       - DOCKER_PENTAHO_TOMCAT_PROXY_PORT=8081
-      - DOCKER_PENTAHO_TOMCAT_PROXY_NAME=lotfi-dev-env.francecentral.cloudapp.azure.com
+      - DOCKER_PENTAHO_TOMCAT_PROXY_NAME=dev-pentaho.com
       - DOCKER_PENTAHO_TOMCAT_PROXY_SCHEME=http
       - DOCKER_PENTAHO_AUTH_MODE=saml
       - DOCKER_PENTAHO_LDAP_ROLE_ATTRIBUTE=employeeType
-      - DOCKER_PENTAHO_IDP_URL=http://lotfi-dev-env.francecentral.cloudapp.azure.com:8443/simplesaml/saml2/idp/metadata.php
+      - DOCKER_PENTAHO_IDP_URL=http://dev-pentaho.com:8443/simplesaml/saml2/idp/metadata.php
       - DOCKER_PENTAHO_KESTORE_PASSWORD=nalle123
       - DOCKER_PENTAHO_KEYSTORE_USERNAME_PASSWORDS=apollo:nalle123,apollo01:nalle01
       - "DOCKER_PENTAHO_KEYSTORE_USERNAME_PASSWORD_DELIMITER=:"

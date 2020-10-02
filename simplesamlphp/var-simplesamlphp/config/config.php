@@ -20,7 +20,7 @@ $config = array(
      * external url, no matter where you come from (direct access or via the
      * reverse proxy).
      */
-    'baseurlpath' => 'http://lotfi-dev-env.francecentral.cloudapp.azure.com:8443/simplesaml/',
+    'baseurlpath' => 'http://dev-pentaho.com:8443/simplesaml/',
     'certdir' => 'cert/',
     'loggingdir' => 'log/',
     'datadir' => 'data/',
@@ -92,8 +92,8 @@ $config = array(
      * The email address will be used as the recipient address for error reports, and
      * also as the technical contact in generated metadata.
      */
-    'technicalcontact_name' => 'Thomas Lecarpentier',
-    'technicalcontact_email' => 'thomas.lecarpentier@suez.com',
+    'technicalcontact_name' => 'Suez 3slab',
+    'technicalcontact_email' => 'lab.smartsolutions@suez.com',
 
     /*
      * The timezone of the server. This option should be set to the timezone you want
@@ -178,7 +178,7 @@ $config = array(
      * This is an array of outputs. Each output has at least a 'class' option, which
      * selects the output.
      */
-    'statistics.out' => array(// Log statistics to the normal log.
+    'statistics.out' => array( // Log statistics to the normal log.
         /*
         array(
             'class' => 'core:Log',
@@ -191,8 +191,7 @@ $config = array(
             'class' => 'core:File',
             'directory' => '/var/log/stats',
         ),
-        */
-    ),
+        */),
 
     /*
      * Database
@@ -243,8 +242,7 @@ $config = array(
             'password' => 'secret',
             'persistent' => false,
         ),
-        */
-    ),
+        */),
 
     /*
      * Enable
@@ -266,14 +264,14 @@ $config = array(
      *
      * Example:
      */
-     'module.enable' => array(
-          // Setting to TRUE enables.
-          'exampleauth' => false,
-          // Setting to FALSE disables.
-           'saml' => true,
-          // Unset or NULL uses default.
-          'core' => null,
-     ),
+    'module.enable' => array(
+        // Setting to TRUE enables.
+        'exampleauth' => false,
+        // Setting to FALSE disables.
+        'saml' => true,
+        // Unset or NULL uses default.
+        'core' => null,
+    ),
 
     /*
      * This value is the duration of the session in seconds. Make sure that the time duration of
@@ -390,7 +388,8 @@ $config = array(
     /*
      * Languages available, RTL languages, and what language is default
      */
-    'language.available' => array('fr',
+    'language.available' => array(
+        'fr',
         /*
         'en', 'no', 'nn', 'se', 'da', 'de', 'sv', 'fi', 'es', 'fr', 'it', 'nl', 'lb', 'cs',
         'sl', 'lt', 'hr', 'hu', 'pl', 'pt', 'pt-br', 'tr', 'ja', 'zh', 'zh-tw', 'ru', 'et',
@@ -400,8 +399,7 @@ $config = array(
     'language.rtl' => array(
         /*
         'ar', 'dv', 'fa', 'ur', 'he'
-        */
-        ),
+        */),
     'language.default' => 'fr',
 
     /*
@@ -839,7 +837,5 @@ $config = array(
      * Example:
      *   'trusted.url.domains' => array('sp.example.com', 'app.example.com'),
      */
-    'trusted.url.domains' => array(
-
-    ),
+    'trusted.url.domains' => array(),
 );
