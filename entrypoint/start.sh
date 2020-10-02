@@ -127,10 +127,18 @@ then
     sed -i "s#DOCKER_PENTAHO_AUTH_SECURITY_PROVIDER#saml#" ../pentaho-server/pentaho-solutions/system/security.properties
     if  [[ ! -z "$DOCKER_PENTAHO_IDP_CERT" && \
            ! -z "$DOCKER_PENTAHO_IDP_URL" && \
-           ! -z "$DOCKER_PENTAHO_LDAP_ROLE_ATTRIBUTE" ]]
+           ! -z "$DOCKER_PENTAHO_LDAP_ROLE_ATTRIBUTE" && \
+           ! -z "$DOCKER_PENTAHO_KESTORE_PASSWORD" && \
+           ! -z "$DOCKER_PENTAHO_KEYSTORE_USERNAME_PASSWORDS" && \
+           ! -z "$DOCKER_PENTAHO_KEYSTORE_USERNAME_PASSWORD_DELIMITER" && \
+           ! -z "$DOCKER_PENTAHO_KEYSTORE_DEFAULT_KEY" ]]
     then
 	sed -i "s#DOCKER_PENTAHO_IDP_URL#$DOCKER_PENTAHO_IDP_URL#" ../pentaho-server/pentaho-solutions/system/karaf/etc/pentaho.saml.cfg
 	sed -i "s#DOCKER_PENTAHO_LDAP_ROLE_ATTRIBUTE#$DOCKER_PENTAHO_LDAP_ROLE_ATTRIBUTE#" ../pentaho-server/pentaho-solutions/system/karaf/etc/pentaho.saml.cfg
+	sed -i "s#DOCKER_PENTAHO_KESTORE_PASSWORD#$DOCKER_PENTAHO_KESTORE_PASSWORD#" ../pentaho-server/pentaho-solutions/system/karaf/etc/pentaho.saml.cfg
+	sed -i "s#DOCKER_PENTAHO_KEYSTORE_USERNAME_PASSWORDS#$DOCKER_PENTAHO_USERNAME_PASSWORDS#" ../pentaho-server/pentaho-solutions/system/karaf/etc/pentaho.saml.cfg
+	sed -i "s#DOCKER_PENTAHO_KEYSTORE_USERNAME_PASSWORD_DELIMITER#$DOCKER_PENTAHO_KEYSTORE_USERNAME_PASSWORD_DELIMITER#" ../pentaho-server/pentaho-solutions/system/karaf/etc/pentaho.saml.cfg
+	sed -i "s#DOCKER_PENTAHO_KEYSTORE_DEFAULT_KEY#$DOCKER_PENTAHO_KEYSTORE_DEFAULT_KEY#" ../pentaho-server/pentaho-solutions/system/karaf/etc/pentaho.saml.cfg
         echo "$DOCKER_PENTAHO_IDP_CERT" | tee /tmp/idp_cert.crt
         set +e
         /home/pentaho/pentaho-server/jre/bin/keytool -importcert -alias idpca -file /tmp/idp_cert.crt -trustcacerts -keystore /home/pentaho/pentaho-server/jre/lib/security/cacerts -storepass changeit -noprompt
