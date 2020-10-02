@@ -136,7 +136,7 @@ then
 	sed -i "s#DOCKER_PENTAHO_IDP_URL#$DOCKER_PENTAHO_IDP_URL#" ../pentaho-server/pentaho-solutions/system/karaf/etc/pentaho.saml.cfg
 	sed -i "s#DOCKER_PENTAHO_LDAP_ROLE_ATTRIBUTE#$DOCKER_PENTAHO_LDAP_ROLE_ATTRIBUTE#" ../pentaho-server/pentaho-solutions/system/karaf/etc/pentaho.saml.cfg
 	sed -i "s#DOCKER_PENTAHO_KESTORE_PASSWORD#$DOCKER_PENTAHO_KESTORE_PASSWORD#" ../pentaho-server/pentaho-solutions/system/karaf/etc/pentaho.saml.cfg
-	sed -i "s#DOCKER_PENTAHO_KEYSTORE_USERNAME_PASSWORDS#$DOCKER_PENTAHO_USERNAME_PASSWORDS#" ../pentaho-server/pentaho-solutions/system/karaf/etc/pentaho.saml.cfg
+	sed -i "s#DOCKER_PENTAHO_KEYSTORE_USERNAME_PASSWORDS#$DOCKER_PENTAHO_KEYSTORE_USERNAME_PASSWORDS#" ../pentaho-server/pentaho-solutions/system/karaf/etc/pentaho.saml.cfg
 	sed -i "s#DOCKER_PENTAHO_KEYSTORE_USERNAME_PASSWORD_DELIMITER#$DOCKER_PENTAHO_KEYSTORE_USERNAME_PASSWORD_DELIMITER#" ../pentaho-server/pentaho-solutions/system/karaf/etc/pentaho.saml.cfg
 	sed -i "s#DOCKER_PENTAHO_KEYSTORE_DEFAULT_KEY#$DOCKER_PENTAHO_KEYSTORE_DEFAULT_KEY#" ../pentaho-server/pentaho-solutions/system/karaf/etc/pentaho.saml.cfg
         echo "$DOCKER_PENTAHO_IDP_CERT" | tee /tmp/idp_cert.crt
