@@ -1,0 +1,4 @@
+dn: ou=Users,dc=pentaho,dc=fr
+objectClass: top
+objectClass: organizationalUnit
+ou: Users

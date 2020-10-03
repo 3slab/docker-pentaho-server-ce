@@ -26,8 +26,64 @@ Variable | Description | Example
 `DOCKER_PENTAHO_TOMCAT_PROXY_NAME` | Set tomcat proxyName settings in Connection | ``
 `DOCKER_PENTAHO_TOMCAT_PROXY_SCHEME` | Set tomcat scheme settings in Connection (if https adds secure settings) | ``
 `DOCKER_PENTAHO_CORS_ALLOWED_DOMAINS` | Enable CORS and setup allowed domains | ``
+`DOCKER_PENTAHO_AUTH_MODE` | Set the authentification method ex: SAML (if not set it will use the Jackrabbit authentification method) | ``
+`DOCKER_PENTAHO_LDAP_ROLE_ATTRIBUTE` | the LDAP arttibute used to correlate the Pentaho Roles | ``
+`DOCKER_PENTAHO_IDP_URL` | The url of the service we will be using as a identification provider | ``
+`DOCKER_PENTAHO_KESTORE_PASSWORD` | password to access the keystore, or empty for no password | ``
+`DOCKER_PENTAHO_KEYSTORE_USERNAME_PASSWORDS` | comma-separated list of 'username<saml.username.password.delimiter.char>password' used to access private keys | ``
+`DOCKER_PENTAHO_KEYSTORE_USERNAME_PASSWORD_DELIMITER` | delimiter char to be used in the comma-separated list | ``
+`DOCKER_PENTAHO_KEYSTORE_DEFAULT_KEY` | keystore default key | ``
+`DOCKER_PENTAHO_IDP_CERT` | this variable s mandortory when the auth mode is SAML and his value is the IDP certificat | ``
 
 Look at the [docker-compose file](./docker-compse.yaml) for example.
+
+## Developpement environnement setup
+
+### Requirements
+
+* docker-compose (>= 1.18) (check out [install procedure](https://docs.docker.com/compose/install/))
+* git (`sudo apt install git-all`)
+* GIT LFS (https://git-lfs.github.com/)
+
+Clone the code source and run this commands
+
+```bash
+    $ git lfs install
+    $ git lfs pull
+```
+add this line to your hosts file (/etc/hosts)
+```
+    127.0.0.1 dev-pentaho.com
+```
+
+you can change your idp and sp metadata by updating the files in:
+* pentaho-server/templates/saml/metadata/idp-metadata.xml
+* pentaho-server/templates/saml/metadata/sp-metadata.xml
+> :warning: make sure that you update also the IDP certificat in `docker-compose.yaml`
+
+you  can also change the `pentaho-server/templates/saml/metadata/keystore.jks` but make make sure you update also the related params in the `docker-compose.yaml`
+
+for  the mandatory environment variables you can configure them in the `docker-compose.yaml`
+
+if you want to use SAML authentification method make sure that all the SAML environment variables are well configured.
+
+if you want to use only the standard authentification method remove all SAML environment variables
+
+run this command to start
+```bash
+    $ docker-compose build
+    $ docker-compose up
+```
+
+Run postgress database script (script are in pentaho-server/data/postgresql), to connect to database run this commands:
+```bash
+    $ docker-compose exec db bash
+    $ psql -h pentaho-postgre -U postgres # password => example
+```
+Open `dev-pentaho.com:8081` to access to your dash board (test@pentaho.com/test)
+
+You can also add users in your ldap admin (`dev-pentaho.com:8080`) and assign a Pentaho Role in the LDAP arttibute used to correlate the Pentaho Roles
+
 
 ## Image build guide
 
