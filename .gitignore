@@ -76,4 +76,6 @@ pentaho-server/pentaho-solutions/system/karaf/etc/pentaho.saml.cfg
 pentaho-server/tomcat/webapps/pentaho/logout.jsp
 pentaho-server/postgres-data
 
+entrypoint/templates/saml/repository
+
 /test-embed

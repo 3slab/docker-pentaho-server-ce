@@ -322,8 +322,6 @@ explicitly covering such access.
     <property name="authenticationEventPublisher" ref="defaultAuthenticationEventPublisher"/>
   </bean>
 
-
-
 	<!-- ================================= -->
 	<!--   SPRING-SECURITY-SAML FILTERS    -->
 	<!-- ================================= -->

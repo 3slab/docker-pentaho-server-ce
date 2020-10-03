@@ -118,39 +118,52 @@ fi
 if [[ ! -z "$DOCKER_PENTAHO_AUTH_MODE" && \
       "$DOCKER_PENTAHO_AUTH_MODE" == "saml" ]]
 then
-    cp templates/saml/applicationContext-spring-security-saml.xml ../pentaho-server/pentaho-solutions/system/applicationContext-spring-security-saml.xml
-    cp templates/saml/logout.jsp ../pentaho-server/tomcat/webapps/pentaho/logout.jsp
-    cp templates/saml/pentaho.saml.cfg ../pentaho-server/pentaho-solutions/system/karaf/etc/pentaho.saml.cfg
-    cp templates/saml/pentaho-saml-sample-9.0.0.0-423.kar ../pentaho-server/pentaho-solutions/system/karaf/deploy/
-    #cp -R templates/saml/metadata ../pentaho-server/pentaho-solutions/
-    sed -i "s#DOCKER_PENTAHO_APPLICATION_CONTEXT_SAML_IMPORT#applicationContext-spring-security-saml.xml#" ../pentaho-server/pentaho-solutions/system/pentaho-spring-beans.xml
-    sed -i "s#DOCKER_PENTAHO_AUTH_SECURITY_PROVIDER#saml#" ../pentaho-server/pentaho-solutions/system/security.properties
-    if  [[ ! -z "$DOCKER_PENTAHO_IDP_CERT" && \
-           ! -z "$DOCKER_PENTAHO_IDP_URL" && \
-           ! -z "$DOCKER_PENTAHO_LDAP_ROLE_ATTRIBUTE" && \
-           ! -z "$DOCKER_PENTAHO_KESTORE_PASSWORD" && \
-           ! -z "$DOCKER_PENTAHO_KEYSTORE_USERNAME_PASSWORDS" && \
-           ! -z "$DOCKER_PENTAHO_KEYSTORE_USERNAME_PASSWORD_DELIMITER" && \
-           ! -z "$DOCKER_PENTAHO_KEYSTORE_DEFAULT_KEY" ]]
+    if  [[ -z "$DOCKER_PENTAHO_IDP_CERT" || \
+           -z "$DOCKER_PENTAHO_IDP_URL" || \
+           -z "$DOCKER_PENTAHO_SP_CERT" || \
+           -z "$DOCKER_PENTAHO_SP_KEY" || \
+           -z "$DOCKER_PENTAHO_LDAP_ROLE_ATTRIBUTE" ]]
     then
-	sed -i "s#DOCKER_PENTAHO_IDP_URL#$DOCKER_PENTAHO_IDP_URL#" ../pentaho-server/pentaho-solutions/system/karaf/etc/pentaho.saml.cfg
-	sed -i "s#DOCKER_PENTAHO_LDAP_ROLE_ATTRIBUTE#$DOCKER_PENTAHO_LDAP_ROLE_ATTRIBUTE#" ../pentaho-server/pentaho-solutions/system/karaf/etc/pentaho.saml.cfg
-	sed -i "s#DOCKER_PENTAHO_KESTORE_PASSWORD#$DOCKER_PENTAHO_KESTORE_PASSWORD#" ../pentaho-server/pentaho-solutions/system/karaf/etc/pentaho.saml.cfg
-	sed -i "s#DOCKER_PENTAHO_KEYSTORE_USERNAME_PASSWORDS#$DOCKER_PENTAHO_KEYSTORE_USERNAME_PASSWORDS#" ../pentaho-server/pentaho-solutions/system/karaf/etc/pentaho.saml.cfg
-	sed -i "s#DOCKER_PENTAHO_KEYSTORE_USERNAME_PASSWORD_DELIMITER#$DOCKER_PENTAHO_KEYSTORE_USERNAME_PASSWORD_DELIMITER#" ../pentaho-server/pentaho-solutions/system/karaf/etc/pentaho.saml.cfg
-	sed -i "s#DOCKER_PENTAHO_KEYSTORE_DEFAULT_KEY#$DOCKER_PENTAHO_KEYSTORE_DEFAULT_KEY#" ../pentaho-server/pentaho-solutions/system/karaf/etc/pentaho.saml.cfg
-        echo "$DOCKER_PENTAHO_IDP_CERT" | tee /tmp/idp_cert.crt
-        set +e
-        /home/pentaho/pentaho-server/jre/bin/keytool -importcert -alias idpca -file /tmp/idp_cert.crt -trustcacerts -keystore /home/pentaho/pentaho-server/jre/lib/security/cacerts -storepass changeit -noprompt
-    else
-        echo "some SAML  mandatory environnement variables is missing"
+        echo "some SAML mandatory environnement variables is missing"
         exit 1
     fi
+
+    cp templates/saml/applicationContext-spring-security-saml.xml ../pentaho-server/pentaho-solutions/system/applicationContext-spring-security-saml.xml
+    cp templates/saml/logout.jsp ../pentaho-server/tomcat/webapps/pentaho/logout.jsp
+    
+    sed -i "s#DOCKER_PENTAHO_IDP_URL#$DOCKER_PENTAHO_IDP_URL#" templates/saml/pentaho.saml.cfg
+    sed -i "s#DOCKER_PENTAHO_LDAP_ROLE_ATTRIBUTE#$DOCKER_PENTAHO_LDAP_ROLE_ATTRIBUTE#" templates/saml/pentaho.saml.cfg
+
+    cp templates/saml/pentaho.saml.cfg ../pentaho-server/pentaho-solutions/system/karaf/etc/pentaho.saml.cfg
+    cp templates/saml/pentaho-saml-sample-9.0.0.0-423.kar ../pentaho-server/pentaho-solutions/system/karaf/deploy/
+
+    sed -i "s#DOCKER_PENTAHO_APPLICATION_CONTEXT_SAML_IMPORT#applicationContext-spring-security-saml.xml#" ../pentaho-server/pentaho-solutions/system/pentaho-spring-beans.xml
+    sed -i "s#DOCKER_PENTAHO_AUTH_SECURITY_PROVIDER#saml#" ../pentaho-server/pentaho-solutions/system/security.properties
+    
+    echo -e "-----BEGIN CERTIFICATE-----\n$DOCKER_PENTAHO_IDP_CERT\n-----END CERTIFICATE-----" > /tmp/idp_cert.crt
+    set +e
+    /home/pentaho/pentaho-server/jre/bin/keytool -importcert -alias idpca -file /tmp/idp_cert.crt -trustcacerts -keystore /home/pentaho/pentaho-server/jre/lib/security/cacerts -storepass changeit -noprompt
+
+    sed -i "s#DOCKER_PENTAHO_IDP_CERT#$DOCKER_PENTAHO_IDP_CERT#" ../entrypoint/templates/saml/metadata/idp-metadata.xml
+    sed -i "s#DOCKER_PENTAHO_IDP_ENTITYID#$DOCKER_PENTAHO_IDP_ENTITYID#" ../entrypoint/templates/saml/metadata/idp-metadata.xml
+    sed -i "s#DOCKER_PENTAHO_IDP_LOGOUTURL#$DOCKER_PENTAHO_IDP_LOGOUTURL#" ../entrypoint/templates/saml/metadata/idp-metadata.xml
+    sed -i "s#DOCKER_PENTAHO_IDP_SSOURL#$DOCKER_PENTAHO_IDP_SSOURL#" ../entrypoint/templates/saml/metadata/idp-metadata.xml
+
+    sed -i "s#DOCKER_PENTAHO_SP_CERT#$DOCKER_PENTAHO_SP_CERT#" ../entrypoint/templates/saml/metadata/sp-metadata.xml
+    sed -i "s#DOCKER_PENTAHO_SP_HOSTNAME#$DOCKER_PENTAHO_SP_HOSTNAME#" ../entrypoint/templates/saml/metadata/sp-metadata.xml
+
+    echo -e "-----BEGIN CERTIFICATE-----\n$DOCKER_PENTAHO_SP_CERT\n-----END CERTIFICATE-----" > /tmp/sp_cert.crt
+    echo -e "-----BEGIN PRIVATE KEY-----\n$DOCKER_PENTAHO_SP_KEY\n-----END PRIVATE KEY-----" > /tmp/sp_key.pem
+    openssl pkcs12 -export -in /tmp/sp_cert.crt -inkey /tmp/sp_key.pem -name pentaho -out /tmp/sp.p12 -password pass:changeit
+    /home/pentaho/pentaho-server/jre/bin/keytool -importkeystore -deststorepass changeit -destkeystore ../entrypoint/templates/saml/metadata/keystore.jks -srckeystore /tmp/sp.p12 -srcstorepass changeit -srcstoretype PKCS12 -noprompt
+    /home/pentaho/pentaho-server/jre/bin/keytool -importcert -alias idpca -file /tmp/idp_cert.crt -trustcacerts -keystore ../entrypoint/templates/saml/metadata/keystore.jks -storepass changeit -noprompt
+
+    cp -r templates/saml/metadata ../pentaho-server/pentaho-solutions/
 else
     sed -i '/DOCKER_PENTAHO_APPLICATION_CONTEXT_SAML_IMPORT/d' ../pentaho-server/pentaho-solutions/system/pentaho-spring-beans.xml
     sed -i "s#DOCKER_PENTAHO_AUTH_SECURITY_PROVIDER#jackrabbit#" ../pentaho-server/pentaho-solutions/system/security.properties
-
 fi
+
 cd ../pentaho-server
 
 exec "$@"

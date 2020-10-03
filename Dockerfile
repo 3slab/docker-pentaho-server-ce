@@ -2,7 +2,7 @@
 FROM ubuntu:19.10
 
 RUN apt-get update && \
-  apt-get install -y xvfb
+  apt-get install -y xvfb openssl zip
 
 RUN groupadd -r pentaho && \
   useradd --no-log-init -s /bin/bash --home-dir /home/pentaho -m -g pentaho -G root pentaho && \

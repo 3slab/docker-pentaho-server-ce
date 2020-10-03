@@ -26,16 +26,22 @@ Variable | Description | Example
 `DOCKER_PENTAHO_TOMCAT_PROXY_NAME` | Set tomcat proxyName settings in Connection | ``
 `DOCKER_PENTAHO_TOMCAT_PROXY_SCHEME` | Set tomcat scheme settings in Connection (if https adds secure settings) | ``
 `DOCKER_PENTAHO_CORS_ALLOWED_DOMAINS` | Enable CORS and setup allowed domains | ``
+
+* **SAML AUTH Mode activation :**
+
+Variable | Description | Example
 `DOCKER_PENTAHO_AUTH_MODE` | Set the authentification method ex: SAML (if not set it will use the Jackrabbit authentification method) | ``
 `DOCKER_PENTAHO_LDAP_ROLE_ATTRIBUTE` | the LDAP arttibute used to correlate the Pentaho Roles | ``
 `DOCKER_PENTAHO_IDP_URL` | The url of the service we will be using as a identification provider | ``
-`DOCKER_PENTAHO_KESTORE_PASSWORD` | password to access the keystore, or empty for no password | ``
-`DOCKER_PENTAHO_KEYSTORE_USERNAME_PASSWORDS` | comma-separated list of 'username<saml.username.password.delimiter.char>password' used to access private keys | ``
-`DOCKER_PENTAHO_KEYSTORE_USERNAME_PASSWORD_DELIMITER` | delimiter char to be used in the comma-separated list | ``
-`DOCKER_PENTAHO_KEYSTORE_DEFAULT_KEY` | keystore default key | ``
-`DOCKER_PENTAHO_IDP_CERT` | this variable s mandortory when the auth mode is SAML and his value is the IDP certificat | ``
+`DOCKER_PENTAHO_IDP_CERT` | this variable s mandatory when the auth mode is SAML and his value is the IDP certificat | ``
+`DOCKER_PENTAHO_IDP_ENTITYID` | this variable s mandatory when the auth mode is SAML and his value is the IDP entity id in idp-metadata.xml file | ``
+`DOCKER_PENTAHO_IDP_LOGOUTURL` | this variable s mandatory when the auth mode is SAML and his value is the IDP logout url in idp-metadata.xml file | ``
+`DOCKER_PENTAHO_IDP_SSOURL` | this variable s mandatory when the auth mode is SAML and his value is the IDP sso url in idp-metadata.xml file | ``
+`DOCKER_PENTAHO_SP_CERT` | this variable s mandatory when the auth mode is SAML and his value is the SP certificat | 
+`DOCKER_PENTAHO_SP_KEY` | this variable s mandatory when the auth mode is SAML and his value is the SP private key | ``
+`DOCKER_PENTAHO_SP_HOSTNAME` | this variable s mandatory when the auth mode is SAML and his value is the SP (pentaho) hostname in sp-metadata.xml file | ``
 
-Look at the [docker-compose file](./docker-compse.yaml) for example.
+Look at the [docker-compose file](./docker-compose.yaml) for example.
 
 ## Developpement environnement setup
 
@@ -48,42 +54,44 @@ Look at the [docker-compose file](./docker-compse.yaml) for example.
 Clone the code source and run this commands
 
 ```bash
-    $ git lfs install
-    $ git lfs pull
+git lfs install
+git lfs pull
 ```
+
 add this line to your hosts file (/etc/hosts)
+
 ```
-    127.0.0.1 dev-pentaho.com
+127.0.0.1 dev-pentaho.com
 ```
 
-you can change your idp and sp metadata by updating the files in:
-* pentaho-server/templates/saml/metadata/idp-metadata.xml
-* pentaho-server/templates/saml/metadata/sp-metadata.xml
-> :warning: make sure that you update also the IDP certificat in `docker-compose.yaml`
+For the mandatory environment variables you can configure them in the `docker-compose.yaml`
 
-you  can also change the `pentaho-server/templates/saml/metadata/keystore.jks` but make make sure you update also the related params in the `docker-compose.yaml`
-
-for  the mandatory environment variables you can configure them in the `docker-compose.yaml`
-
-if you want to use SAML authentification method make sure that all the SAML environment variables are well configured.
-
-if you want to use only the standard authentification method remove all SAML environment variables
+if you want to use SAML authentification method make sure that all the SAML environment variables are well configured and if you want to use only the standard authentification method remove all SAML environment variables
 
 run this command to start
+
 ```bash
-    $ docker-compose build
-    $ docker-compose up
+docker-compose build
+docker-compose up
 ```
 
-Run postgress database script (script are in pentaho-server/data/postgresql), to connect to database run this commands:
+Run postgress database script (scripts are in [pentaho-server/data/postgresql](./pentaho-server/data/postgresql/)), to connect to database run this commands:
+
 ```bash
-    $ docker-compose exec db bash
-    $ psql -h pentaho-postgre -U postgres # password => example
+docker-compose exec db bash
+psql -h pentaho-postgre -U postgres # password => example
 ```
-Open `dev-pentaho.com:8081` to access to your dash board (test@pentaho.com/test)
+
+Open `dev-pentaho.com:8081` to access to your dashboard (test@pentaho.com/test)
 
 You can also add users in your ldap admin (`dev-pentaho.com:8080`) and assign a Pentaho Role in the LDAP arttibute used to correlate the Pentaho Roles
 
+## Image release commands
+
+```
+docker build -t 3slab/pentaho-server-ce:<version> .
+docker push 3slab/pentaho-server-ce:<version>
+```
 
 ## Image build guide
 
@@ -225,5 +233,7 @@ By
     </layout>
 </appender>
 ```
+
+* change `docbase` to `docBase` in `pentaho-server/tomcat/webapps/pentaho/META-INF/context.xml`
 
 * Fix bug of env variable undefined in child script. In file `pentaho-server/start-pentaho.sh`, add `export` keyword before the JAVA_HOME env variable.
