@@ -236,4 +236,12 @@ By
 
 * change `docbase` to `docBase` in `pentaho-server/tomcat/webapps/pentaho/META-INF/context.xml`
 
+* Remove `pentaho-marketplace` in `pentaho-server/pentaho-solutions/system/karaf/etc/org.apache.karaf.features.cfg` because link in main menu is not working in this CE version
+
+```
+   pdi-engine-configuration,\
+-  pentaho-marketplace,\
+   get-fields-plugin,\
+```
+
 * Fix bug of env variable undefined in child script. In file `pentaho-server/start-pentaho.sh`, add `export` keyword before the JAVA_HOME env variable.
