@@ -167,6 +167,12 @@ else
     sed -i "s#DOCKER_PENTAHO_AUTH_SECURITY_PROVIDER#jackrabbit#" ../pentaho-server/pentaho-solutions/system/security.properties
 fi
 
+if [[ ! -z "$DOCKER_PENTAHO_LOGGING_VERBOSE" && \
+      "$DOCKER_PENTAHO_LOGGING_VERBOSE" == "true" ]]
+then
+    sed -i "s/#org.apache.catalina.level=FINE/org.apache.catalina.level=FINE/" ../pentaho-server/tomcat/conf/logging.properties
+fi
+
 cd ../pentaho-server
 
 exec "$@"

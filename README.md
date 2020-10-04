@@ -26,6 +26,7 @@ Variable | Description | Example
 `DOCKER_PENTAHO_TOMCAT_PROXY_NAME` | Set tomcat proxyName settings in Connection | ``
 `DOCKER_PENTAHO_TOMCAT_PROXY_SCHEME` | Set tomcat scheme settings in Connection (if https adds secure settings) | ``
 `DOCKER_PENTAHO_CORS_ALLOWED_DOMAINS` | Enable CORS and setup allowed domains | ``
+`DOCKER_PENTAHO_LOGGING_VERBOSE` | Make pentaho really verbose in stdout (put `true` to activate) | ``
 
 * **SAML AUTH Mode activation :**
 
