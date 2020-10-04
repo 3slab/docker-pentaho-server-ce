@@ -128,6 +128,9 @@ then
         exit 1
     fi
 
+    sed -i "s#PENTAHO_DOCKER_SSO_ENABLED#<init-param><param-name>ssoEnabled</param-name><param-value>true</param-value></init-param>#" templates/saml/web.xml
+    cp templates/saml/web.xml ../pentaho-server/tomcat/webapps/pentaho/WEB-INF/web.xml
+
     cp templates/saml/applicationContext-spring-security-saml.xml ../pentaho-server/pentaho-solutions/system/applicationContext-spring-security-saml.xml
     cp templates/saml/logout.jsp ../pentaho-server/tomcat/webapps/pentaho/logout.jsp
     

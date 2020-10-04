@@ -277,7 +277,7 @@ explicitly covering such access.
     -->
   <bean id="httpSessionPentahoSessionContextIntegrationFilter"
         class="org.pentaho.platform.web.http.filters.HttpSessionPentahoSessionIntegrationFilter" >
-      <property name="ssoEnabled" value="true" />
+      <property name="ssoEnabled" value="false" />
   </bean>
 
   <bean id="httpRequestAccessDecisionManager" class="org.springframework.security.access.vote.AffirmativeBased">
